@@ -14,7 +14,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        //
+        $expense = expense::get();
+        return view('bendaharabiro.lihatpengeluaran', compact('expense'));
     }
 
     /**
