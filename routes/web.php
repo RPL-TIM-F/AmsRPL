@@ -33,3 +33,26 @@ Route::get('/profilinti', function () {
 Route::get('/uangkasinti', function () {
     return view('bendaharainti.profil');
 });
+
+
+
+Route::get('/loginbiro', function () {
+    return view('Bendaharabiro.login');
+});
+
+Route::get('/uangkasbiro', function () {
+    return view('Bendaharabiro.Uangkas');
+});
+
+Route::get('/logininti', function () {
+    return view('Bendaharainti.login');
+});
+
+Route::get('/uangkasinti', function () {
+    return view('Bendaharainti.Uangkas');
+});
+
+Route::get('/approvedinti', function () {
+    return view('Bendaharainti.approved');
+});
+
