@@ -14,7 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $anggota = member::get();
+        return view('Bendaharabiro.anggota', compact('anggota'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,17 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'nim' => 'required',
+            'divisi' => 'required',
+        ]);
+
+        member::create($request);
+        
+        session()->flash('success', 'Anggota was created');
+
+        return redirect('anggota');
     }
 
     /**
@@ -46,7 +57,7 @@ class MemberController extends Controller
      */
     public function show(member $member)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +68,7 @@ class MemberController extends Controller
      */
     public function edit(member $member)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +80,21 @@ class MemberController extends Controller
      */
     public function update(Request $request, member $member)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'nim' => 'required',
+            'divisi' => 'required',
+        ]);
+
+        member::where('id', $member->id)
+            ->update([
+                'fullname' => $request->fullname,
+                'nim' => $request->nim,
+                'divisi' => $request->divisi,
+            ]);
+
+        session()->flash('success', 'Anggota berhasil diupdate');
+        return redirect('/anggota');
     }
 
     /**
@@ -80,6 +105,8 @@ class MemberController extends Controller
      */
     public function destroy(member $member)
     {
-        //
+        member::destroy($member->id);
+        session()->flash('success', 'Anggota berhasil dihapus');
+        return redirect('/anggota');
     }
 }
