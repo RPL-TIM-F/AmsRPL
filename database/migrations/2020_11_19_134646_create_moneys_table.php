@@ -21,6 +21,7 @@ class CreateMoneysTable extends Migration
             $table->string('fullname');
             $table->integer('nim');
             $table->string('divisi');
+            $table->integer('angkatan');
             $table->integer('jumlah');
             $table->string('status_dept');
             $table->string('status_inti');

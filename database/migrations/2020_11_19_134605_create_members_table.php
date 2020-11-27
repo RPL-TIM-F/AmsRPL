@@ -19,6 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('fullname');
             $table->string('nim');
             $table->string('divisi');
+            $table->integer('angkatan');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
