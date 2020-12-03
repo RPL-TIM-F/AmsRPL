@@ -54,7 +54,7 @@ Anggota
    <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="search" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -138,25 +138,25 @@ Anggota
               <form role="form">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:black">Nama Anggota</label>
+                    <label for="Nama" style="color:black">Nama Anggota</label>
                     <input type="Nama" class="form-control" id="exampleInputNama" placeholder="Nama Anggota">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1"style="color:black">Nim</label>
+                    <label for="Nim"style="color:black">Nim</label>
                     <input type="Nim" class="form-control" id="exampleInputNim" placeholder="Nim">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:black">Angkatan</label>
+                    <label for="Angkatan" style="color:black">Angkatan</label>
                     <p> </p>
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2016 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2017 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2018 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2019 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2020 &nbsp;
+   <input type="radio" id="radio" name="nama_radio"/>&nbsp; 2016 &nbsp;
+   <input type="radio" id="radio" name="nama_radio"/>&nbsp; 2017 &nbsp;
+   <input type="radio" id="radio" name="nama_radio"/>&nbsp; 2018 &nbsp;
+   <input type="radio" id="radio" name="nama_radio"/>&nbsp; 2019 &nbsp;
+   <input type="radio" id="radio" name="nama_radio"/>&nbsp; 2020 &nbsp;
                   </div>
                   <div class="form-group">
-                  <label for="exampleInputPassword1">Departemen</label>
-                    <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <label for="Departemen">Departemen</label>
+                    <select class="custom-select" id="departemen" aria-label="Example select with button addon">
     <option selected="">Choose...</option>
     <option value="1">Entrepreuner</option>
     <option value="2">Manajemen</option>
@@ -190,25 +190,25 @@ Anggota
               <form role="form">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:black">Nama Anggota</label>
-                    <input type="Nama" class="form-control" id="exampleInputNama" placeholder="Nama Anggota">
+                    <label for="Nama" style="color:black">Nama Anggota</label>
+                    <input type="Nama" class="form-control" id="nama" placeholder="Nama Anggota">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1"style="color:black">Nim</label>
-                    <input type="Nim" class="form-control" id="exampleInputNim" placeholder="Nim">
+                    <label for="Nim"style="color:black">Nim</label>
+                    <input type="Nim" class="form-control" id="nim" placeholder="Nim">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:black">Angkatan</label>
+                    <label for="Angkatan" style="color:black">Angkatan</label>
                     <p> </p>
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2016 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2017 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2018 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2019 &nbsp;
-   <input type="radio" id="qq[]" name="nama_radio"/>&nbsp; 2020 &nbsp;
+   <input type="radio" id="radio2" name="nama_radio"/>&nbsp; 2016 &nbsp;
+   <input type="radio" id="radio2" name="nama_radio"/>&nbsp; 2017 &nbsp;
+   <input type="radio" id="radio2" name="nama_radio"/>&nbsp; 2018 &nbsp;
+   <input type="radio" id="radio2" name="nama_radio"/>&nbsp; 2019 &nbsp;
+   <input type="radio" id="radio2" name="nama_radio"/>&nbsp; 2020 &nbsp;
                   </div>
                   <div class="form-group">
-                  <label for="exampleInputPassword1">Departemen</label>
-                    <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <label for="Departemen">Departemen</label>
+                    <select class="custom-select" id="departemen" aria-label="Example select with button addon">
     <option selected="">Choose...</option>
     <option value="1">Entrepreuner</option>
     <option value="2">HRD</option>
