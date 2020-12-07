@@ -125,6 +125,7 @@ class MemberController extends Controller
      */
     public function destroy(member $member)
     {
+        money::where('member_id', '=', $member->id)->delete();
         member::destroy($member->id);
        
         // session()->flash('success', 'Anggota berhasil dihapus');
