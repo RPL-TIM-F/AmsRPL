@@ -52,7 +52,17 @@ Route::get('/uangkasinti', function () {
     return view('Bendaharainti.Uangkas');
 });
 
+
 Route::get('/approvedinti', function () {
     return view('Bendaharainti.approved');
 });
 
+// Routing fitur CRUD Anggota
+
+Route::get('/anggota', 'MemberController@index');
+Route::post('/anggota', 'MemberController@store');
+Route::get('/anggota/{member:id}', 'MemberController@show');
+Route::patch('/anggota', 'MemberController@update');
+Route::delete('/member/{member:id}', 'MemberController@destroy');
+
+Route::get('/lihatpengeluaran', 'ExpenseController@index');
