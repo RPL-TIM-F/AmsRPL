@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\member;
 use Illuminate\Http\Request;
+use App\money;
 
 class MemberController extends Controller
 {
@@ -14,8 +15,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $anggota = member::get();
-        return view('Bendaharabiro.anggota', compact('anggota'));
+        $members = member::get();
+        return view('Bendaharabiro.anggota', compact('members'));
     }
 
     /**
@@ -39,12 +40,31 @@ class MemberController extends Controller
         $request->validate([
             'fullname' => 'required',
             'nim' => 'required',
+            'angkatan' => 'required',
             'divisi' => 'required',
         ]);
+        // dd($request);
+        $insert = member::create($request->all());
+        // $member = member::insertgetid($last);
+        // dd($insert->id);
+        sleep(2);
+        for ($i=1; $i <13 ; $i++) { 
+            money::create([
+                'member_id' => $insert->id,
+               'month_id' => $i,
+               'fullname' => $request->fullname, 
+               'nim' => $request->nim, 
+               'angkatan' => $request->angkatan, 
+               'divisi' => $request->divisi, 
+               'jumlah' => 0, 
+               'status_dept' => "not approved", 
+               'status_inti' => "not approved", 
+            ]);
+        }
 
-        member::create($request);
         
-        session()->flash('success', 'Anggota was created');
+        
+        // session()->flash('success', 'Anggota was created');
 
         return redirect('anggota');
     }
@@ -106,7 +126,7 @@ class MemberController extends Controller
     public function destroy(member $member)
     {
         member::destroy($member->id);
-        session()->flash('success', 'Anggota berhasil dihapus');
+        // session()->flash('success', 'Anggota berhasil dihapus');
         return redirect('/anggota');
     }
 }
