@@ -126,6 +126,7 @@ class MemberController extends Controller
     public function destroy(member $member)
     {
         member::destroy($member->id);
+       
         // session()->flash('success', 'Anggota berhasil dihapus');
         return redirect('/anggota');
     }
