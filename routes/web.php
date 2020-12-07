@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('login');
+    return view('/Bendaharainti/homepage');
 });
 
 //biro
@@ -55,4 +55,3 @@ Route::get('/uangkasinti', function () {
 Route::get('/approvedinti', function () {
     return view('Bendaharainti.approved');
 });
-
