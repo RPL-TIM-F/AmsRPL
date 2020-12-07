@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'v8.4.0',
-    'version' => '8.4.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '2cb05e327a708915ce314c826d9c4cf366ccfc8d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -90,12 +90,12 @@
     ),
     'egulias/email-validator' => 
     array (
-      'pretty_version' => '2.1.23',
-      'version' => '2.1.23.0',
+      'pretty_version' => '2.1.24',
+      'version' => '2.1.24.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df',
+      'reference' => 'ca90a3291eee1538cd48ff25163240695bd95448',
     ),
     'facade/flare-client-php' => 
     array (
@@ -108,12 +108,12 @@
     ),
     'facade/ignition' => 
     array (
-      'pretty_version' => '2.5.0',
-      'version' => '2.5.0.0',
+      'pretty_version' => '2.5.2',
+      'version' => '2.5.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '81698c5e32837c74abf9bb764ff0c1b3e001afb3',
+      'reference' => '08668034beb185fa2ac6f09b1034eaa440952ace',
     ),
     'facade/ignition-contracts' => 
     array (
@@ -126,12 +126,12 @@
     ),
     'fakerphp/faker' => 
     array (
-      'pretty_version' => 'v1.10.1',
-      'version' => '1.10.1.0',
+      'pretty_version' => 'v1.12.0',
+      'version' => '1.12.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f2713a5016faaf6ffc60e9d456dedb5ebf0efcae',
+      'reference' => '9aa6c9e289860951e6b4d010c7a841802d015cd8',
     ),
     'fideloper/proxy' => 
     array (
@@ -440,12 +440,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v8.4.0',
-      'version' => '8.4.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '2cb05e327a708915ce314c826d9c4cf366ccfc8d',
     ),
     'laravel/tinker' => 
     array (
@@ -510,15 +510,15 @@
     ),
     'myclabs/deep-copy' => 
     array (
-      'pretty_version' => '1.10.1',
-      'version' => '1.10.1.0',
+      'pretty_version' => '1.10.2',
+      'version' => '1.10.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '969b211f9a51aa1f6c01d1d2aef56d3bd91598e5',
+      'reference' => '776f831124e9c62e1a2c601ecc52e776d8bb7220',
       'replaced' => 
       array (
-        0 => '1.10.1',
+        0 => '1.10.2',
       ),
     ),
     'nesbot/carbon' => 
@@ -751,8 +751,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -1246,12 +1246,12 @@
     ),
     'voku/portable-ascii' => 
     array (
-      'pretty_version' => '1.5.4',
-      'version' => '1.5.4.0',
+      'pretty_version' => '1.5.6',
+      'version' => '1.5.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '87dc337d4200b32717dd3849fea846319e897658',
+      'reference' => '80953678b19901e5165c56752d087fc11526017c',
     ),
     'webmozart/assert' => 
     array (
