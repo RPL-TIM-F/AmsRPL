@@ -538,3 +538,7 @@ Did you mean one of these?
 [stacktrace]
 #0 {main}
 "} 
+[2020-12-07 13:56:14] local.ERROR: syntax error, unexpected '$table' (T_VARIABLE), expecting function (T_FUNCTION) or const (T_CONST) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected '$table' (T_VARIABLE), expecting function (T_FUNCTION) or const (T_CONST) at C:\\xampp\\htdocs\\WAD2020\\SIMKO\\app\\income.php:14)
+[stacktrace]
+#0 {main}
+"} 

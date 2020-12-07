@@ -10,5 +10,10 @@ class income extends Model
     //
     Use HasFactory;
 
-    protected $table = 'incomes';
+   
+    protected $fillable = [
+        'deskripsi', 'jumlah_penjualan', 'pendapatan_bersih'
+
+    ];
+
 }
