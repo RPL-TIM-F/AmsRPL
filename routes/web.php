@@ -45,7 +45,7 @@ Route::get('/', function () {
 //     return view('Bendaharabiro.Uangkas');
 // });
 
-    return view('/Bendaharainti/homepage');
+
 
 //biro
 Route::get('/homepagebiro', function () {
