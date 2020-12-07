@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('bendaharabiro.login');
 });
 
+//biro bagian
 //biro
 // Route::get('/homepagebiro', function () {
 //     return view('bendaharabiro.homepage');
@@ -46,6 +47,7 @@ Route::get('/', function () {
 // });
 
 
+   
 
 //biro
 Route::get('/homepagebiro', function () {
@@ -57,9 +59,8 @@ Route::get('/anggotabiro', function () {
 Route::get('/profilbiro', function () {
     return view('bendaharabiro.profil');
 });
-Route::get('/kasbiro', function () {
-    return view('bendaharabiro.uangkas');
-});
+
+Route::get('/kasbiro', 'MoneyController@index');
 
 Route::get('/pendapatanbiro', function () {
     return view('Bendaharabiro.PendapatanLain');
@@ -69,15 +70,14 @@ Route::get('/loginbiro', function () {
     return view('Bendaharabiro.login');
 });
 
-Route::get('/uangkasbiro', function () {
-    return view('Bendaharabiro.Uangkas');
-});
 
 Route::get('/pengeluaranbiro', function () {
     return view('Bendaharabiro.LihatPengeluaran');
 });
 
-//inti
+
+
+//inti bagian
 Route::get('/homepageinti', function () {
     return view('bendaharainti.homepage');
 });
