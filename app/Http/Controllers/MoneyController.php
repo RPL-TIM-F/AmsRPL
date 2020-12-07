@@ -15,6 +15,10 @@ class MoneyController extends Controller
     public function index()
     {
         //
+        $moneys = Money::all();
+
+        return view('bendaharabiro.uangkas', compact('moneys'));
+
     }
 
     /**
