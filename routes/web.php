@@ -53,9 +53,9 @@ Route::get('/', function () {
 Route::get('/homepagebiro', function () {
     return view('bendaharabiro.homepage');
 });
-Route::get('/anggotabiro', function () {
-    return view('bendaharabiro.anggota');
-});
+// Route::get('/anggotabiro', function () {
+//     return view('bendaharabiro.anggota');
+// });
 Route::get('/profilbiro', function () {
     return view('bendaharabiro.profil');
 });
@@ -117,13 +117,19 @@ Route::get('/editapprovedinti', function () {
 
 // Routing fitur CRUD Anggota bendahara biro
 
-Route::get('/anggota', 'MemberController@index');
+Route::get('/anggotabiro', 'MemberController@index');
 Route::post('/anggota/store', 'MemberController@store');
 Route::get('/anggota/{member:id}', 'MemberController@show');
 Route::patch('/anggota', 'MemberController@update');
 Route::delete('/member/{member:id}', 'MemberController@destroy');
 
-Route::get('/lihatpengeluaran', 'ExpenseController@index');
+// Routing fitur CRUD Anggota bendahara biro
+
+Route::get('/pendapatanbiro', 'IncomeController@index');
+Route::post('/pendapatanlain/store', 'IncomeController@store');
+// Route::patch('/anggota', 'MemberController@update');
+Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
+
 
 Route::get('/pendapataninti', function () {
     return view('Bendaharainti.PendapatanLainI');

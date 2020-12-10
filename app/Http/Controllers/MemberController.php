@@ -47,7 +47,7 @@ class MemberController extends Controller
         $insert = member::create($request->all());
         // $member = member::insertgetid($last);
         // dd($insert->id);
-        sleep(2);
+        sleep(1);
         for ($i=1; $i <13 ; $i++) { 
             money::create([
                 'member_id' => $insert->id,
@@ -66,7 +66,7 @@ class MemberController extends Controller
         
         // session()->flash('success', 'Anggota was created');
 
-        return redirect('anggota');
+        return redirect('anggotabiro');
     }
 
     /**
@@ -129,6 +129,6 @@ class MemberController extends Controller
         member::destroy($member->id);
        
         // session()->flash('success', 'Anggota berhasil dihapus');
-        return redirect('/anggota');
+        return redirect('/anggotabiro');
     }
 }
