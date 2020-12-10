@@ -77,7 +77,9 @@ Route::get('/pengeluaranbiro', function () {
 Route::get('/edituangkasbiro', function () {
     return view('Bendaharabiro.edituangkas');
 });
-
+Route::get('/bulanuangkasbiro', function () {
+    return view('Bendaharabiro.bulanangkas');
+});
 
 
 //inti bagian
