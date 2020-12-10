@@ -74,6 +74,9 @@ Route::get('/loginbiro', function () {
 Route::get('/pengeluaranbiro', function () {
     return view('Bendaharabiro.LihatPengeluaran');
 });
+Route::get('/edituangkasbiro', function () {
+    return view('Bendaharabiro.edituangkas');
+});
 
 
 
@@ -89,6 +92,12 @@ Route::get('/profilinti', function () {
 });
 Route::get('/kasinti', function () {
     return view('bendaharainti.uangkas');
+});
+Route::get('/edituangkasinti', function () {
+    return view('Bendaharainti.edituangkas');
+});
+Route::get('/editapprovedinti', function () {
+    return view('Bendaharainti.approved');
 });
 
 
