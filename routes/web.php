@@ -1,15 +1,14 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('/Bendaharainti/homepage');
-});
+// Route::get('/', function () {
+//     return view('/Bendaharainti/homepage');
+// });
 
 //biro
-Route::get('/homepagebiro', function () {
-    return view('bendaharabiro.homepage');
-});
+
 Route::get('/anggotabiro', function () {
     return view('bendaharabiro.anggota');
 });
@@ -55,3 +54,12 @@ Route::get('/uangkasinti', function () {
 Route::get('/approvedinti', function () {
     return view('Bendaharainti.approved');
 });
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/homepagebiro', function () {
+//     return view('bendaharabiro.homepage');
+// });

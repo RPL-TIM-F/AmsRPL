@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '2cb05e327a708915ce314c826d9c4cf366ccfc8d',
+    'reference' => 'dde70031788c9938e83d1129bdd33aa4a55b9f19',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -458,7 +458,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2cb05e327a708915ce314c826d9c4cf366ccfc8d',
+      'reference' => 'dde70031788c9938e83d1129bdd33aa4a55b9f19',
     ),
     'laravel/tinker' => 
     array (
@@ -468,6 +468,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '45884b526e10a88a1b179fa1a1a24d5468c668c2',
+    ),
+    'laravel/ui' => 
+    array (
+      'pretty_version' => 'v3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '444072cb2f8baaa15172c5cde2bd30d188c3b7e7',
     ),
     'league/commonmark' => 
     array (
