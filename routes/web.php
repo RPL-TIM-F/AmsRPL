@@ -77,6 +77,9 @@ Route::get('/pengeluaranbiro', function () {
 Route::get('/edituangkasbiro', function () {
     return view('Bendaharabiro.edituangkas');
 });
+Route::get('/editanggotabiro', function () {
+    return view('Bendaharainti.editanggotabiro');
+});
 
 
 
@@ -98,6 +101,9 @@ Route::get('/edituangkasinti', function () {
 });
 Route::get('/editapprovedinti', function () {
     return view('Bendaharainti.approved');
+});
+Route::get('/editanggotainti', function () {
+    return view('Bendaharainti.editanggotainti');
 });
 
 
