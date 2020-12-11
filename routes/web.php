@@ -60,7 +60,7 @@ Route::get('/profilbiro', function () {
     return view('bendaharabiro.profil');
 });
 
-Route::get('/kasbiro', 'MoneyController@index');
+Route::get('/kasbiro/{month:id}', 'MoneyController@index');
 
 
 Route::get('/pendapatanbiro', function () {
@@ -75,6 +75,11 @@ Route::get('/loginbiro', function () {
 Route::get('/pengeluaranbiro', function () {
     return view('Bendaharabiro.LihatPengeluaran');
 });
+
+
+Route::get('/kasbiro', 'MonthController@index');
+
+
 
 
 
@@ -130,8 +135,8 @@ Route::post('/pendapatanlain/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
 
 //Routing fitur update Uang kas 
-Route::get('/edituangkas/{m:id}', 'MoneyController@updateindex');
-Route::patch('/edituangkas/{m:id}', 'MoneyController@update');
+Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
+Route::patch('/edituangkas/{money:id}', 'MoneyController@update');
 
 
 

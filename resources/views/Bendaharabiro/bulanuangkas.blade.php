@@ -1,49 +1,42 @@
 @extends('layout.main')
 @section('title')
-bulanuangkas
+    bulanuangkas
 @endsection()
 @section('container')
 
-<style>
-    #box {
-        position: absolute;
-        width: 266px;
-        height: 216px;
-        background:#1DB5AC;
-      
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-    
-</style>
-<br><br><br><br><br>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div id="box">
-                <br> <br> <br> 
-               <h3 style="text-align: center;color:white;">JANUARI</h3>
-            </div>
-        </div>
-        
+    <style>
+        #box {
+
+            width: 250px;
+            height: 200px;
+            background: #1DB5AC;
+
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+            border-radius: 15px;
+        }
+
+    </style>
+
+    <div class="container mt-5 ">
+
+        <div class="row">
+            @foreach ($months as $month)
+
+
+                <a href="/kasbiro/{{ $month->id }}" class="btn mx-auto ">
+                    <div id="box">
+                        <br> <br> <br>
+                        <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                            {{ $month->month_name }}
+                        </h3>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </div>
-</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 
 

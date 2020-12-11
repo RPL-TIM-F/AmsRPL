@@ -15,6 +15,8 @@ class MonthController extends Controller
     public function index()
     {
         //
+        $months = Month::all();
+        return view('Bendaharabiro.bulanuangkas', compact('months'));
     }
 
     /**

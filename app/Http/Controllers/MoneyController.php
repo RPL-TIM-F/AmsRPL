@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\money;
+use App\month;
 use Illuminate\Http\Request;
 
 class MoneyController extends Controller
@@ -12,11 +13,11 @@ class MoneyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
-     
-        $moneys = Money::all();
+        $moneys = Money::where('month_id', '=', $id)->get();
+
 
         return view('bendaharabiro.uangkas', compact('moneys'));
     }
@@ -73,21 +74,29 @@ class MoneyController extends Controller
      */
     public function update(Request $request, money $money)
     {
-        
-        $money = Money::find($money);
+        // dd($request);
+        $request->validate([
+            'jumlah' => 'required',
+            'status_dept' => 'required'
+        ]);
 
-        $money->jumlah = $request->jumlah;
+        Money::where('id', $money->id)
+            ->update([
+                'jumlah' => $request->jumlah,
+                'status_dept' => $request->status_dept,
 
-        $money->save();
 
-        return redirect('/kasbiro');
+            ]);
+
+        return redirect('kasbiro/{{$money->month_id}}');
     }
 
 
-    public function updateIndex($id)
+    public function updateIndex(Money $money)
     {
-        $money = Money::find($id);
-   
+        //     $money = Money::find($i);
+
+        
         return view('/Bendaharabiro/edituangkas', compact('money'));
     }
 
