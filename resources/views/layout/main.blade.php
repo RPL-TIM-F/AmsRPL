@@ -13,6 +13,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
+
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
@@ -33,19 +35,19 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="homepagebiro" class="nav-link">Home</a>
+            <a href="/homepagebiro" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="kasbiro" class="nav-link">Uang Kas Anggota</a>
+            <a href="/kasbiro" class="nav-link">Uang Kas Anggota</a>
           </li>
           <li class="nav-item">
-            <a href="anggotabiro" class="nav-link">Anggota</a>
+            <a href="/anggotabiro" class="nav-link">Anggota</a>
           </li>
           <li class="nav-item">
-            <a href="pendapatanbiro" class="nav-link">Pendapatan Lain</a>
+            <a href="/pendapatanbiro" class="nav-link">Pendapatan Lain</a>
           </li>
           <li class="nav-item">
-            <a href="pengeluaranbiro" class="nav-link">Pengeluaran</a>
+            <a href="/pengeluaranbiro" class="nav-link">Pengeluaran</a>
           </li>
         </ul>
       </div>

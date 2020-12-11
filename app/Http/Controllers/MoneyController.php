@@ -15,10 +15,10 @@ class MoneyController extends Controller
     public function index()
     {
         //
+     
         $moneys = Money::all();
 
         return view('bendaharabiro.uangkas', compact('moneys'));
-
     }
 
     /**
@@ -73,7 +73,22 @@ class MoneyController extends Controller
      */
     public function update(Request $request, money $money)
     {
-        //
+        
+        $money = Money::find($money);
+
+        $money->jumlah = $request->jumlah;
+
+        $money->save();
+
+        return redirect('/kasbiro');
+    }
+
+
+    public function updateIndex($id)
+    {
+        $money = Money::find($id);
+   
+        return view('/Bendaharabiro/edituangkas', compact('money'));
     }
 
     /**

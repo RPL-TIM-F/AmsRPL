@@ -1,3 +1,8 @@
+@extends('layout.main')
+@section('title')
+    Lihat Pengeluaran
+@endsection()
+@section('container')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -171,3 +176,4 @@ body {
 
 </body>
 </html>
+@endsection

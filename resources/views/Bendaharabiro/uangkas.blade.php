@@ -38,9 +38,7 @@
                             <td style="color:green;">{{ $m->status_dept }}</td>
                             <td>{{ $m->created_at }}</td>
                             <td style="color:green;">{{ $m->status_inti }}</td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-                                    Edit
-                                </button></td>
+                            <td><a href="/edituangkas/{{$m->id}}" class="btn btn-info">Edit</a>
                         </tr>
 
 
