@@ -28,7 +28,6 @@
                     @foreach ($moneys as $m)
 
 
-
                         <tr>
 
                             <td>{{ $m->fullname }}</td>
@@ -45,7 +44,7 @@
                         </tr>
 
 
-                    @endforeach
+                     @endforeach
 
                 </tbody>
             </table>

@@ -53,9 +53,9 @@ Route::get('/', function () {
 Route::get('/homepagebiro', function () {
     return view('bendaharabiro.homepage');
 });
-Route::get('/anggotabiro', function () {
-    return view('bendaharabiro.anggota');
-});
+// Route::get('/anggotabiro', function () {
+//     return view('bendaharabiro.anggota');
+// });
 Route::get('/profilbiro', function () {
     return view('bendaharabiro.profil');
 });
@@ -77,9 +77,16 @@ Route::get('/pengeluaranbiro', function () {
 Route::get('/edituangkasbiro', function () {
     return view('Bendaharabiro.edituangkas');
 });
+<<<<<<< HEAD
 Route::get('/bulanuangkasbiro', function () {
     return view('Bendaharabiro.bulanangkas');
 });
+=======
+Route::get('/editanggotabiro', function () {
+    return view('Bendaharainti.editanggotabiro');
+});
+
+>>>>>>> 831b403f893fb946c8bbf8f3d4a7ba3191cb9022
 
 
 //inti bagian
@@ -101,6 +108,9 @@ Route::get('/edituangkasinti', function () {
 Route::get('/editapprovedinti', function () {
     return view('Bendaharainti.approved');
 });
+Route::get('/editanggotainti', function () {
+    return view('Bendaharainti.editanggotainti');
+});
 
 
 // Route::get('/logininti', function () {
@@ -119,13 +129,19 @@ Route::get('/editapprovedinti', function () {
 
 // Routing fitur CRUD Anggota bendahara biro
 
-Route::get('/anggota', 'MemberController@index');
+Route::get('/anggotabiro', 'MemberController@index');
 Route::post('/anggota/store', 'MemberController@store');
 Route::get('/anggota/{member:id}', 'MemberController@show');
 Route::patch('/anggota', 'MemberController@update');
 Route::delete('/member/{member:id}', 'MemberController@destroy');
 
-Route::get('/lihatpengeluaran', 'ExpenseController@index');
+// Routing fitur CRUD Anggota bendahara biro
+
+Route::get('/pendapatanbiro', 'IncomeController@index');
+Route::post('/pendapatanlain/store', 'IncomeController@store');
+// Route::patch('/anggota', 'MemberController@update');
+Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
+
 
 Route::get('/pendapataninti', function () {
     return view('Bendaharainti.PendapatanLainI');
