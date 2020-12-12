@@ -20,6 +20,7 @@ class MemberController extends Controller
     public function index()
     {
         $members = member::get();
+        
         return view('Bendaharabiro.anggota', compact('members'));
     }
 

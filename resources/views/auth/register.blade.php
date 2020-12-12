@@ -12,12 +12,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="fullname" type="text" class="form-control @error('fullname') is-invalid @enderror" name="fullname" value="{{ old('fullname') }}" required autocomplete="fullname" autofocus>
 
-                                @error('name')
+                                @error('fullname')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -38,21 +38,46 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="nim" class="col-md-4 col-form-label text-md-right">{{ __('Nim') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nim" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autocomplete="nim" autofocus>
+
+                                @error('nim')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="divisi" class="col-md-4 col-form-label text-md-right">{{ __('Divisi') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="divisi" type="text" class="form-control @error('divisi') is-invalid @enderror" name="divisi" value="{{ old('divisi') }}" required autocomplete="divisi" autofocus>
+
+                                @error('divisi')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
 
 
                         <div class="form-group row">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-right">{{ __('Divisi') }}</label>
+                            <label for="kategori_id" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
                                 <!-- selection disini -->
                                 <div class="form-group">
-                                    <select class="custom-select" id="category_id" aria-label="Example select with button addon" name="category_id">
-                                        <option selected="">Choose...</option>
+                                    <select class="custom-select" id="kategori_id" aria-label="Example select with button addon" name="kategori_id">
                                         <option value="1">Inti</option>
                                         <option value="2">Biro</option>
                                     </select>
                                 </div>
-                                @error('category_id')
+                                @error('kategori_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
