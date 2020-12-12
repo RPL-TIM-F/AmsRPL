@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->id==1){
-            $home = 'Bendaharabiro';
+        if(auth()->user()->category_id==1){
+            $home = 'Bendaharainti';
         }
         else{
-            $home = 'Bendaharainti';
+            $home = 'Bendaharabiro';
         }
         return view($home.'.homepage');
     }
