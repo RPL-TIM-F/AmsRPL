@@ -95,9 +95,3 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepageinti', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//BIRO
-// Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/homepagebiro', function () {
-//     return view('bendaharabiro.homepage');
-// });

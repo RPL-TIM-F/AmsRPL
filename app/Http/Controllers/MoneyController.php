@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\money;
 use App\month;
 use Illuminate\Http\Request;
