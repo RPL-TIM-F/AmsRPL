@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->category_id==1){
+        if(auth()->user()->kategori_id==1){
             $home = 'Bendaharainti';
         }
         else{
