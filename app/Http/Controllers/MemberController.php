@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\member;
 use Illuminate\Http\Request;
+use App\money;
 
 class MemberController extends Controller
 {
@@ -14,7 +15,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $members = member::get();
+        return view('Bendaharabiro.anggota', compact('members'));
     }
 
     /**
@@ -24,7 +26,6 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +36,36 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'nim' => 'required',
+            'angkatan' => 'required',
+            'divisi' => 'required',
+        ]);
+        // dd($request);
+        $insert = member::create($request->all());
+        // $member = member::insertgetid($last);
+        // dd($insert->id);
+        // sleep(1);
+        for ($i = 1; $i < 13; $i++) {
+            money::create([
+                'member_id' => $insert->id,
+                'month_id' => $i,
+                'fullname' => $request->fullname,
+                'nim' => $request->nim,
+                'angkatan' => $request->angkatan,
+                'divisi' => $request->divisi,
+                'jumlah' => 0,
+                'status_dept' => "not approved",
+                'status_inti' => "not approved",
+            ]);
+        }
+
+
+
+        // session()->flash('success', 'Anggota was created');
+
+        return redirect('anggotabiro');
     }
 
     /**
@@ -46,7 +76,6 @@ class MemberController extends Controller
      */
     public function show(member $member)
     {
-        //
     }
 
     /**
@@ -57,7 +86,7 @@ class MemberController extends Controller
      */
     public function edit(member $member)
     {
-        //
+        return view('bendaharabiro/editanggotabiro', compact('member'));
     }
 
     /**
@@ -69,7 +98,30 @@ class MemberController extends Controller
      */
     public function update(Request $request, member $member)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'nim' => 'required',
+            'angkatan' => 'required',
+            'divisi' => 'required',
+        ]);
+
+        member::where('id', $member->id)
+            ->update([
+                'fullname' => $request->fullname,
+                'nim' => $request->nim,
+                'angkatan' => $request->angkatan,
+                'divisi' => $request->divisi,
+            ]);
+        money::where('member_id', $member->id)
+            ->update([
+            'fullname' => $request->fullname,
+            'nim' => $request->nim,
+            'angkatan' => $request->angkatan,
+            'divisi' => $request->divisi,
+        ]);
+
+        // session()->flash('success', 'Anggota berhasil diupdate');
+        return redirect('/anggotabiro');
     }
 
     /**
@@ -80,6 +132,10 @@ class MemberController extends Controller
      */
     public function destroy(member $member)
     {
-        //
+        money::where('member_id', '=', $member->id)->delete();
+        member::destroy($member->id);
+
+        // session()->flash('success', 'Anggota berhasil dihapus');
+        return redirect('/anggotabiro');
     }
 }

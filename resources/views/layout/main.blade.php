@@ -82,6 +82,10 @@
                 @csrf
               </form>
             </div>
+            <a href="/pendapatanbiro" class="nav-link">Pendapatan Lain</a>
+          </li>
+          <li class="nav-item">
+            <a href="/pengeluaranbiro" class="nav-link">Pengeluaran</a>
           </li>
           @endguest
         </ul>

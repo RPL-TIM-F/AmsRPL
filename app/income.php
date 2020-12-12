@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class income extends Model
 {
     //
-    Use HasFactory;
+    use HasFactory;
 
+
+    protected $fillable = [
+        'deskripsi', 'jumlah_penjualan', 'pendapatan_bersih'
+
+    ];
     protected $table = 'incomes';
 }
