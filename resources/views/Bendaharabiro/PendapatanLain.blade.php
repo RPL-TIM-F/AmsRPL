@@ -110,17 +110,10 @@
         <!-- Search bar -->
         <div class="container">
             <nav class=" navbar navbar-expand navbar-white navbar-light">
-                <div class="input-group input-group-sm" style="margin-right: 50px;">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit" style="width:50px;">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
+
                 <!-- Tombol Add Pendapatan -->
                 <div>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">Add
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
                         Pendapatan</button>
                 </div>
             </nav>
@@ -131,34 +124,37 @@
         <div class="container-fluid">
             <!-- tabel pendapatan -->
             <div class="container">
-                <form>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
 
-                                <th scope="col">Produk</th>
-                                <th scope="col">Jumlah Penjualan</th>
-                                <th scope="col">Pendapatan Bersih</th>
-                                <th scope="colspan=2">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <table class="table table-striped">
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col">Produk</th>
+                            <th scope="col">Jumlah Penjualan</th>
+                            <th scope="col">Pendapatan Bersih</th>
+                            <th scope="colspan=2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($incomes as $income)
                             <tr>
-                                <td>Risol</td>
-                                <td>100</td>
-                                <td>Rp 200.000</td>
-                                <td><button type="button" class="btn btn-info" data-toggle="modal"
-                                        data-target="#modal-Edit">
-                                        Edit
-                                    </button>
-                                    <button type="button" class="btn btn-danger" name="delete" id="delete"
-                                        href="#">Delete</button>
+                                <td>{{ $income->deskripsi }}</td>
+                                <td>{{ $income->jumlah_penjualan }}</td>
+                                <td>{{ $income->pendapatan_bersih }}</td>
+                                <td><a href="" class="btn btn-primary">Edit</a>
+                                    <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">delete</button>
+                                    </form>
                                 </td>
 
                             </tr>
-                        </tbody>
-                    </table>
-                </form>
+                        @endforeach
+                    </tbody>
+                </table>
+
             </div>
         </div>
 
@@ -176,28 +172,34 @@
                     <div class="modal-body">
                         <div class=" card-light">
                             <!-- form -->
-                            <form role="form">
+                            <form action="/pendapatanlain/store" method="post">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="deskripsi">Nama Produk</label>
-                                        <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk">
+                                        <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk"
+                                            name="deskripsi">
                                     </div>
                                     <div class="form-group">
                                         <label for="jumlah_penjualan">Jumlah Produk</label>
-                                        <input type="text" class="form-control" id="jumlah_penjualan"
-                                            placeholder="Jumlah Produk">
+                                        <input type="number" class="form-control" id="jumlah_penjualan"
+                                            placeholder="Jumlah Produk" name="jumlah_penjualan">
                                     </div>
                                     <div class="form-group">
                                         <label for="pendapatan_bersih">Pendapatan Bersih</label>
-                                        <input type="text" class="form-control" id="pendapatan_bersih"
-                                            placeholder="Pendapatan Bersih">
+                                        <input type="number" class="form-control" id="pendapatan_bersih"
+                                            placeholder="Pendapatan Bersih" name="pendapatan_bersih">
                                     </div>
                                 </div>
+
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-outline-info" data-dismiss="modal"
+                                        style="color:black">Close</button>
+                                    <button type="submit" class="btn btn-outline-info" style="color:black"
+                                        name="submit">Save changes</button>
+                                </div>
                             </form>
-                            <div class="form-group" style="justify-content: center;">
-                                <!-- Tombol Submit -->
-                                <button type="submit" value="Selesai" id="submit">Submit</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,9 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        //
+        $incomes = income::all();
+
+        return view('bendaharabiro.PendapatanLain', compact('incomes'));
     }
 
     /**
@@ -35,9 +37,17 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'deskripsi' => 'required',
+            'jumlah_penjualan' => 'required',
+            'pendapatan_bersih' => 'required',
 
+        ]);
+        // dd($request);
+        $insert = income::create($request->all());
+
+        return redirect('/pendapatanbiro');
+    }
     /**
      * Display the specified resource.
      *
@@ -80,6 +90,10 @@ class IncomeController extends Controller
      */
     public function destroy(income $income)
     {
-        //
+    
+        income::destroy($income->id);
+
+        // session()->flash('success', 'Anggota berhasil dihapus');
+        return redirect('/pendapatanbiro');
     }
 }

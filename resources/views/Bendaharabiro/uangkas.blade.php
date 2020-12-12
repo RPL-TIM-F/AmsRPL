@@ -25,27 +25,24 @@
                 <tbody>
 
 
-                    @foreach ($moneys as $m)
-
+                    @foreach ($moneys as $money)
 
 
                         <tr>
 
-                            <td>{{ $m->fullname }}</td>
-                            <td>{{ $m->nim }}</td>
-                            <td>{{ $m->divisi }}</td>
-                            <td>{{ $m->angkatan }}</td>
-                            <td>{{ $m->jumlah }}</td>
-                            <td style="color:green;">{{ $m->status_dept }}</td>
-                            <td>{{ $m->created_at }}</td>
-                            <td style="color:green;">{{ $m->status_inti }}</td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-                                    Edit
-                                </button></td>
+                            <td>{{ $money->fullname }}</td>
+                            <td>{{ $money->nim }}</td>
+                            <td>{{ $money->divisi }}</td>
+                            <td>{{ $money->angkatan }}</td>
+                            <td>{{ $money->jumlah }}</td>
+                            <td style="color:green;">{{ $money->status_dept }}</td>
+                            <td>{{ $money->updated_at }}</td>
+                            <td style="color:green;">{{ $money->status_inti }}</td>
+                            <td><a href="/edituangkas/{{$money->id}}" class="btn btn-info">Edit</a>
                         </tr>
 
 
-                    @endforeach
+                     @endforeach
 
                 </tbody>
             </table>
