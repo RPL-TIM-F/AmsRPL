@@ -83,7 +83,7 @@
                                         <td>{{ $member->nim }}</td>
                                         <td>{{ $member->angkatan }}</td>
                                         <td>{{ $member->divisi }}</td>
-                                        <td><a href="" class="btn btn-primary">edit</a>
+                                        <td><a href="anggotabiro/{{$member->id}}" class="btn btn-primary">edit</a>
                                             <form action="/member/{{ $member->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
@@ -103,62 +103,6 @@
                 <!-- /.card EDIT-->
             </div>
         </div>
-        <div class="modal fade" id="modal-primary">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="card-primary">
-                            <form action="" method="post">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="Nama" style="color:black">Nama Anggota</label>
-                                        <input type="text" class="form-control" id="nama" placeholder="Nama Anggota"
-                                            name="fullname">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nim" style="color:black">Nim</label>
-                                        <input type="text" class="form-control" id="nim" placeholder="Nim" name="nim">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Angkatan" style="color:black">Angkatan</label>
-                                        <p> </p>
-                                        <input type="radio" id="radio" name="angkatan" />&nbsp; 2016 &nbsp;
-                                        <input type="radio" id="radio" name="angkatan" />&nbsp; 2017 &nbsp;
-                                        <input type="radio" id="radio" name="angkatan" />&nbsp; 2018 &nbsp;
-                                        <input type="radio" id="radio" name="angkatan" />&nbsp; 2019 &nbsp;
-                                        <input type="radio" id="radio" name="angkatan" />&nbsp; 2020 &nbsp;
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Departemen">Departemen</label>
-                                        <select class="custom-select" id="departemen"
-                                            aria-label="Example select with button addon" name="divisi">
-                                            <option selected="">Choose...</option>
-                                            <option value="Entrepreneur">Entrepreuner</option>
-                                            <option value="Manajemen">Manajemen</option>
-                                            <option value="Pemrograman">Pemrograman</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-outline-info" data-dismiss="modal"
-                                        style="color:black">Close</button>
-                                    <button type="button" class="btn btn-outline-info" style="color:black">Save
-                                        changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
         <!-- MODAL INPUT -->
         <div class="modal fade" id="modal-primary2">
             <div class="modal-dialog">
@@ -170,7 +114,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="card-primary">
-                            <form action="/anggota/store" method="post">
+                            <form action="/anggotabiro/store" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
