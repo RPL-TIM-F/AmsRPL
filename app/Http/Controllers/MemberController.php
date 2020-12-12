@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth;
 use App\member;
 use Illuminate\Http\Request;
@@ -19,9 +20,19 @@ class MemberController extends Controller
     }
     public function index()
     {
-        $members = member::get();
-        
-        return view('Bendaharabiro.anggota', compact('members'));
+        $kategori_id = auth()->user()->kategori_id;
+
+        if ($kategori_id == 1) {
+            $user_inti = auth()->user()->id;
+            $members = member::where('user_id', '=',$user_inti )->get();
+
+            return view('Bendaharabiro.anggota', compact('members'));
+        } elseif ($kategori_id == 2) {
+            $user_biro = auth()->user()->id;
+            $members = member::where('user_id', '=',$user_biro )->get();
+
+            return view('Bendaharabiro.anggota', compact('members'));
+        }
     }
 
     /**
@@ -47,13 +58,22 @@ class MemberController extends Controller
             'angkatan' => 'required',
             'divisi' => 'required',
         ]);
+        $user_id = auth()->user()->id;
         // dd($request);
-        $insert = member::create($request->all());
+        // $insert = member::create($request->all());
+        $insert = member::create([
+            'user_id' => $user_id,
+            'fullname' => $request->fullname,
+            'nim' => $request->nim,
+            'divisi' => $request->divisi,
+            'angkatan' => $request->angkatan,
+        ]);
         // $member = member::insertgetid($last);
         // dd($insert->id);
         // sleep(1);
         for ($i = 1; $i < 13; $i++) {
             money::create([
+                'user_id' => $user_id,
                 'member_id' => $insert->id,
                 'month_id' => $i,
                 'fullname' => $request->fullname,
@@ -119,11 +139,11 @@ class MemberController extends Controller
             ]);
         money::where('member_id', $member->id)
             ->update([
-            'fullname' => $request->fullname,
-            'nim' => $request->nim,
-            'angkatan' => $request->angkatan,
-            'divisi' => $request->divisi,
-        ]);
+                'fullname' => $request->fullname,
+                'nim' => $request->nim,
+                'angkatan' => $request->angkatan,
+                'divisi' => $request->divisi,
+            ]);
 
         // session()->flash('success', 'Anggota berhasil diupdate');
         return redirect('/anggotabiro');
