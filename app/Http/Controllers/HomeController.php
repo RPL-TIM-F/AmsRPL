@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Bendaharabiro.homepage');
+        if(auth()->user()->id==1){
+            $home = 'Bendaharabiro';
+        }
+        else{
+            $home = 'Bendaharainti';
+        }
+        return view($home.'.homepage');
     }
+    
 }

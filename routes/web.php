@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Route;
 
 //biro
 
-Route::get('/anggotabiro', function () {
-    return view('bendaharabiro.anggota');
-});
-Route::get('/profilbiro', function () {
-    return view('bendaharabiro.profil');
-});
-Route::get('/uangkasbiro', function () {
-    return view('bendaharabiro.profil');
-});
+// Route::get('/anggotabiro', function () {
+//     return view('bendaharabiro.anggota');
+// });
+// Route::get('/profilbiro', function () {
+//     return view('bendaharabiro.profil');
+// });
+// Route::get('/uangkasbiro', function () {
+//     return view('bendaharabiro.uangkas');
+// });
 
 //inti
 Route::get('/homepageinti', function () {
@@ -58,7 +58,8 @@ Route::get('/approvedinti', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//BIRO
+// Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::get('/homepagebiro', function () {
 //     return view('bendaharabiro.homepage');
