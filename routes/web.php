@@ -34,7 +34,7 @@ Route::get('/homepageinti', function () {
 Route::get('/anggotainti', function () {
     return view('bendaharainti.anggota');
 });
-Route::get('/profilinti', function () {
+Route::get('/profileinti', function () {
     return view('bendaharainti.profil');
 });
 Route::get('/kasinti', function () {
