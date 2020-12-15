@@ -20,7 +20,7 @@ class CreateExpensesTable extends Migration
             $table->string('proker');
             $table->string('divisi');
             $table->integer('jumlah_pengeluaran');
-            $table->date('tanggal_bayar');
+            $table->date('tanggal_pengeluaran');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

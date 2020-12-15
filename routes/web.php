@@ -28,24 +28,24 @@ Route::get('/kasbiro/{month:id}', 'MoneyController@index');
 
 Route::get('/kasbiro', 'MonthController@index');
 //inti bagian
-Route::get('/homepageinti', function () {
-    return view('bendaharainti.homepage');
-});
-Route::get('/anggotainti', function () {
-    return view('bendaharainti.anggota');
-});
-Route::get('/profileinti', function () {
-    return view('bendaharainti.profil');
-});
-Route::get('/kasinti', function () {
-    return view('bendaharainti.uangkas');
-});
-Route::get('/edituangkasinti', function () {
-    return view('Bendaharainti.edituangkas');
-});
-Route::get('/editapprovedinti', function () {
-    return view('Bendaharainti.approved');
-});
+// Route::get('/homepageinti', function () {
+//     return view('bendaharainti.homepage');
+// });
+// Route::get('/anggotainti', function () {
+//     return view('bendaharainti.anggota');
+// });
+// Route::get('/profileinti', function () {
+//     return view('bendaharainti.profil');
+// });
+// Route::get('/kasinti', function () {
+//     return view('bendaharainti.uangkas');
+// });
+// Route::get('/edituangkasinti', function () {
+//     return view('Bendaharainti.edituangkas');
+// });
+// Route::get('/editapprovedinti', function () {
+//     return view('Bendaharainti.approved');
+// });
 
 
 // Route::get('/logininti', function () {
@@ -61,7 +61,7 @@ Route::get('/editapprovedinti', function () {
 // Route::get('/approvedinti', function () {
 //     return view('Bendaharainti.approved');
 // });
-
+Auth::routes();
 // Routing fitur CRUD Anggota bendahara biro (FARHAN)
 
 Route::get('/anggotabiro', 'MemberController@index');
@@ -98,7 +98,7 @@ Route::get('/approvedinti', function () {
     return view('Bendaharainti.approved');
 });
 
-Auth::routes();
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
