@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\expense;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,20 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $expense = expense::get();
-        return view('bendaharabiro.lihatpengeluaran', compact('expense'));
+        $expenses = expense::get();
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('bendaharainti.lihatpengeluaran', compact('expenses'));
+        }elseif ($kategori_id == 2) {
+            return view('bendaharabiro.lihatpengeluaran', compact('expenses'));
+        }
     }
 
     /**

@@ -24,6 +24,7 @@ class CreateMoneysTable extends Migration
             $table->integer('angkatan');
             $table->integer('jumlah');
             $table->string('status_dept');
+            $table->date('tanggal_bayar');
             $table->string('status_inti');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('member_id')->references('id')->on('members');

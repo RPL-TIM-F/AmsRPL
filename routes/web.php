@@ -75,6 +75,14 @@ Route::get('/anggotabiro/{member:id}', 'MemberController@edit');
 Route::patch('/anggotabiro/{member:id}/update', 'MemberController@update');
 Route::delete('/member/{member:id}', 'MemberController@destroy');
 
+Route::get('/anggotainti', 'MemberController@index');
+Route::post('/anggotainti/store', 'MemberController@store');
+Route::get('/anggotainti/{member:id}', 'MemberController@edit');
+Route::patch('/anggotainti/{member:id}/update', 'MemberController@update');
+Route::delete('/member/{member:id}', 'MemberController@destroy');
+
+Route::get('/pengeluaranbiro', 'ExpenseController@index');
+
 Route::view('/profilebiro','bendaharabiro.profil');
 
 // Routing fitur CRUD pendapatan lain bendahara biro
