@@ -78,7 +78,8 @@ Route::delete('/member/{member:id}', 'MemberController@destroy');
 
 Route::get('/pengeluaranbiro', 'ExpenseController@index');
 
-Route::view('/profilebiro','bendaharabiro.profil');
+Route::get('/profilebiro', 'UserController@index');
+Route::get('/profileinti', 'UserController@index');
 
 // Routing fitur CRUD pendapatan lain bendahara biro
 
