@@ -46,7 +46,12 @@ Route::get('/edituangkasinti', function () {
 Route::get('/editapprovedinti', function () {
     return view('Bendaharainti.approved');
 });
-
+Route::get('/pendapataninti', function () {
+    return view('Bendaharainti.PendapatanLainI');
+});
+Route::get('/pengeluaraninti', function () {
+    return view('Bendaharainti.PengeluaranI');
+});
 
 // Route::get('/logininti', function () {
 //     return view('Bendaharainti.login');
