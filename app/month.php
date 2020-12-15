@@ -9,6 +9,6 @@ class month extends Model
 {
     //
     use HasFactory;
-
+    protected $fillable = ["id", "month_name"];
     protected $table = 'months';
 }

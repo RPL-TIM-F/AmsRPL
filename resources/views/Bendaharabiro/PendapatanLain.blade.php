@@ -1,252 +1,226 @@
 @extends('layout.main')
 @section('title')
-    Homepage
+Homepage
 @endsection()
 @section('container')
-    <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-        </script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        </script>
-        <title>Pendapatan Lain</title>
-        <style>
-            * {
-                box-sizing: border-box;
-            }
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-            }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            /* Float four columns side by side */
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
             .column {
-                float: left;
-                width: 25%;
-                padding: 0 10px;
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
             }
+        }
 
-            /* Remove extra left and right margins, due to padding */
-            .row {
-                margin: 0 -5px;
-            }
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
 
-            /* Clear floats after the columns */
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
 
-            /* Responsive columns */
-            @media screen and (max-width: 600px) {
-                .column {
-                    width: 100%;
-                    display: block;
-                    margin-bottom: 20px;
-                }
-            }
+<br> <br><br>
 
-            /* Style the counter cards */
-            .card {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                padding: 16px;
-                text-align: center;
-                background-color: #f1f1f1;
-            }
-
-        </style>
-    </head>
-
-    <body>
-        <br> <br><br>
-
-        <!-- Dashboard card -->
-        <div class="row" style="margin-left: 200px;margin-right:200px;">
-            <div class="column">
-                <div class="card">
-                    <h3>Pendapatan 1</h3>
-                    <p>informasi</p>
-                    <p>informasi</p>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="card">
-                    <h3>Pendapatan 2</h3>
-                    <p>informasi</p>
-                    <p>informasi</p>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="card">
-                    <h3>Pendadpatan 3</h3>
-                    <p>informasi</p>
-                    <p>informasi</p>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="card">
-                    <h3>Pendapatan 4</h3>
-                    <p>informasi</p>
-                    <p>informasi</p>
-                </div>
-            </div>
-
+<!-- Dashboard card -->
+<div class="row" style="margin-left: 200px;margin-right:200px;">
+    <div class="column">
+        <div class="card">
+            <h3>Pendapatan 1</h3>
+            <p>informasi</p>
+            <p>informasi</p>
         </div>
-        <br> <br>
-        <!-- Search bar -->
-        <div class="container">
-            <nav class=" navbar navbar-expand navbar-white navbar-light">
+    </div>
 
-                <!-- Tombol Add Pendapatan -->
-                <div>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
-                        Pendapatan</button>
-                </div>
-            </nav>
+    <div class="column">
+        <div class="card">
+            <h3>Pendapatan 2</h3>
+            <p>informasi</p>
+            <p>informasi</p>
         </div>
+    </div>
 
-        <br>
+    <div class="column">
+        <div class="card">
+            <h3>Pendadpatan 3</h3>
+            <p>informasi</p>
+            <p>informasi</p>
+        </div>
+    </div>
 
-        <div class="container-fluid">
-            <!-- tabel pendapatan -->
-            <div class="container">
+    <div class="column">
+        <div class="card">
+            <h3>Pendapatan 4</h3>
+            <p>informasi</p>
+            <p>informasi</p>
+        </div>
+    </div>
 
-                <table class="table table-striped">
-                    <thead>
+</div>
+<br> <br>
+<!-- Search bar -->
+<div class="container">
+    <nav class=" navbar navbar-expand navbar-white navbar-light">
 
-                        <tr>
+        <!-- Tombol Add Pendapatan -->
+        <div>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
+                Pendapatan</button>
+        </div>
+    </nav>
+</div>
 
-                            <th scope="col">Produk</th>
-                            <th scope="col">Jumlah Penjualan</th>
-                            <th scope="col">Pendapatan Bersih</th>
-                            <th scope="colspan=2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($incomes as $income)
-                            <tr>
-                                <td>{{ $income->deskripsi }}</td>
-                                <td>{{ $income->jumlah_penjualan }}</td>
-                                <td>{{ $income->pendapatan_bersih }}</td>
-                                <td><a href="" class="btn btn-primary">Edit</a>
-                                    <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">delete</button>
-                                    </form>
-                                </td>
+<br>
 
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+<div class="container-fluid">
+    <!-- tabel pendapatan -->
+    <div class="container">
 
+        <table class="table table-striped">
+            <thead>
+
+                <tr>
+
+                    <th scope="col">Produk</th>
+                    <th scope="col">Jumlah Penjualan</th>
+                    <th scope="col">Pendapatan Bersih</th>
+                    <th scope="colspan=2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($incomes as $income)
+                <tr>
+                    <td>{{ $income->deskripsi }}</td>
+                    <td>{{ $income->jumlah_penjualan }}</td>
+                    <td>{{ $income->pendapatan_bersih }}</td>
+                    <td><a href="" class="btn btn-primary">Edit</a>
+                        <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">delete</button>
+                        </form>
+                    </td>
+
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+<!-- Modal Add Pendapatan -->
+<div class="modal fade" id="modal-Tambah">
+    <div class="modal-dialog">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center;"><b>Tambah Pendapatan</b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
             </div>
-        </div>
-
-
-
-        <!-- Modal Add Pendapatan -->
-        <div class="modal fade" id="modal-Tambah">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="text-align: center;"><b>Tambah Pendapatan</b></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class=" card-light">
-                            <!-- form -->
-                            <form action="/pendapatanlain/store" method="post">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="deskripsi">Nama Produk</label>
-                                        <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk"
-                                            name="deskripsi">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="jumlah_penjualan">Jumlah Produk</label>
-                                        <input type="number" class="form-control" id="jumlah_penjualan"
-                                            placeholder="Jumlah Produk" name="jumlah_penjualan">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pendapatan_bersih">Pendapatan Bersih</label>
-                                        <input type="number" class="form-control" id="pendapatan_bersih"
-                                            placeholder="Pendapatan Bersih" name="pendapatan_bersih">
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-outline-info" data-dismiss="modal"
-                                        style="color:black">Close</button>
-                                    <button type="submit" class="btn btn-outline-info" style="color:black"
-                                        name="submit">Save changes</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Edit Pendapatan -->
-        <div class="modal fade" id="modal-Edit">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="text-align: center;"><b>Edit Pendapatan</b></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class=" card-light">
-                            <!-- form -->
-                            <form role="form">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="deskripsi">Nama Produk</label>
-                                        <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="jumlah_penjualan">Jumlah Produk</label>
-                                        <input type="text" class="form-control" id="jumlah_penjualan"
-                                            placeholder="Jumlah Produk">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pendapatan_bersih">Pendapatan Bersih</label>
-                                        <input type="text" class="form-control" id="pendapatan_bersih"
-                                            placeholder="Pendapatan Bersih">
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="form-group" style="justify-content: center;">
-                                <!-- Tombol Submit -->
-                                <button type="submit" value="Selesai" id="submit">Submit</button>
+            <div class="modal-body">
+                <div class=" card-light">
+                    <!-- form -->
+                    <form action="/pendapatanlain/store" method="post">
+                        @csrf
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="deskripsi">Nama Produk</label>
+                                <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk" name="deskripsi">
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah_penjualan">Jumlah Produk</label>
+                                <input type="number" class="form-control" id="jumlah_penjualan" placeholder="Jumlah Produk" name="jumlah_penjualan">
+                            </div>
+                            <div class="form-group">
+                                <label for="pendapatan_bersih">Pendapatan Bersih</label>
+                                <input type="number" class="form-control" id="pendapatan_bersih" placeholder="Pendapatan Bersih" name="pendapatan_bersih">
                             </div>
                         </div>
+
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-info" data-dismiss="modal" style="color:black">Close</button>
+                            <button type="submit" class="btn btn-outline-info" style="color:black" name="submit">Save changes</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit Pendapatan -->
+<div class="modal fade" id="modal-Edit">
+    <div class="modal-dialog">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center;"><b>Edit Pendapatan</b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class=" card-light">
+                    <!-- form -->
+                    <form role="form">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="deskripsi">Nama Produk</label>
+                                <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk">
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah_penjualan">Jumlah Produk</label>
+                                <input type="text" class="form-control" id="jumlah_penjualan" placeholder="Jumlah Produk">
+                            </div>
+                            <div class="form-group">
+                                <label for="pendapatan_bersih">Pendapatan Bersih</label>
+                                <input type="text" class="form-control" id="pendapatan_bersih" placeholder="Pendapatan Bersih">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group" style="justify-content: center;">
+                        <!-- Tombol Submit -->
+                        <button type="submit" value="Selesai" id="submit">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-
-    </html>
+    </div>
+</div>
 
 @endsection
