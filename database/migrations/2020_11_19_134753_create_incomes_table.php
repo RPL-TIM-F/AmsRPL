@@ -19,6 +19,7 @@ class CreateIncomesTable extends Migration
             $table->string('deskripsi');
             $table->integer('jumlah_penjualan');
             $table->integer('pendapatan_bersih');
+            $table->string('status');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

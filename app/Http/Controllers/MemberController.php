@@ -89,8 +89,13 @@ class MemberController extends Controller
 
 
         // session()->flash('success', 'Anggota was created');
-
-        return redirect('anggotabiro');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('anggotainti');
+        }elseif ($kategori_id == 2) {
+            return redirect('anggotabiro');
+        }
+        
     }
 
     /**
@@ -111,7 +116,13 @@ class MemberController extends Controller
      */
     public function edit(member $member)
     {
-        return view('bendaharabiro/editanggotabiro', compact('member'));
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('bendaharainti/editanggotainti', compact('member'));
+        }elseif ($kategori_id == 2) {
+            return view('bendaharabiro/editanggotabiro', compact('member'));
+        }
+        
     }
 
     /**
@@ -146,7 +157,12 @@ class MemberController extends Controller
             ]);
 
         // session()->flash('success', 'Anggota berhasil diupdate');
-        return redirect('/anggotabiro');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('anggotainti');
+        }elseif ($kategori_id == 2) {
+            return redirect('anggotabiro');
+        }
     }
 
     /**
@@ -161,6 +177,11 @@ class MemberController extends Controller
         member::destroy($member->id);
 
         // session()->flash('success', 'Anggota berhasil dihapus');
-        return redirect('/anggotabiro');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('anggotainti');
+        }elseif ($kategori_id == 2) {
+            return redirect('anggotabiro');
+        }
     }
 }
