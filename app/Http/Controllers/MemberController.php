@@ -26,7 +26,7 @@ class MemberController extends Controller
             $user_inti = auth()->user()->id;
             $members = member::where('user_id', '=',$user_inti )->get();
 
-            return view('Bendaharabiro.anggota', compact('members'));
+            return view('Bendaharainti.anggota', compact('members'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=',$user_biro )->get();
