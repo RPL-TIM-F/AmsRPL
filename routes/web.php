@@ -100,7 +100,11 @@ Route::get('/approvedinti', function () {
 });
 
 
-
+//Controller daris
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepageinti', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/tambahakun', function () {
+    return view('Bendaharainti.adduser');
+});
+Route::post('/tambahakun/submit', 'AdduserController@store');
