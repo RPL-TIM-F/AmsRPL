@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Money;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +32,7 @@ class AdduserController extends Controller
         ]);
         // dd($request);
         $insert = user::create([
-            // 'user_id' => $user_id,
+            // 'id' => $id,
             'fullname' => $request->fullname,
             'email' => $request->email,
             'kategori_id' => $request->kategori_id,
@@ -39,6 +40,65 @@ class AdduserController extends Controller
             'nim' => $request->nim,
             'divisi' => $request->divisi,
         ]);
-        return redirect('/');
+        return redirect('/listuser');
+    }
+
+    public function index()
+    {
+        $kategori_id = auth()->user()->kategori_id;
+
+        if ($kategori_id == 1) {
+            $user_inti = auth()->user()->id;
+            $users = user::get();
+
+            return view('Bendaharainti.listuser', compact('users'));
+        }
+    }
+
+    public function destroy(user $user)
+    {
+        money::where('user_id', '=', $user->id)->delete();
+        user::destroy($user->id);
+        // session()->flash('success', 'Anggota berhasil dihapus');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('/listuser');
+        }
+    }
+
+    public function edit(user $user)
+    {
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('bendaharainti/editanggotainti', compact('user'));
+        } elseif ($kategori_id == 2) {
+            return view('bendaharabiro/editanggotabiro', compact('user'));
+        }
+    }
+
+    public function update(Request $request, user $user)
+    {
+        $request->validate([
+            'fullname' => 'required',
+            'email' => 'required',
+            'kategori_id' => 'required',
+            'password' => 'required',
+            'nim' => 'required',
+            'divisi' => 'required'
+        ]);
+
+        user::where('id', $user->id)
+            ->update([
+                'fullname' => $request->fullname,
+                'email' => $request->email,
+                'kategori_id' => $request->kategori_id,
+                'password' => $request->password,
+                'nim' => $request->nim,
+                'divisi' => $request->divisi,
+            ]);
+
+        // session()->flash('success', 'Anggota berhasil diupdate');
+        $kategori_id = auth()->user()->kategori_id;
+        return redirect('/listuser');
     }
 }

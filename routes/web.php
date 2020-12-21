@@ -108,3 +108,8 @@ Route::get('/tambahakun', function () {
     return view('Bendaharainti.adduser');
 });
 Route::post('/tambahakun/submit', 'AdduserController@store');
+Route::get('/listuser', 'AdduserController@index');
+Route::post('/listuser/store', 'AdduserController@store');
+Route::get('/listuser/{user:id}', 'AdduserController@edit');
+Route::patch('/listuser/{user:id}/update', 'AdduserController@update');
+Route::delete('/user/{user:id}', 'AdduserController@destroy');
