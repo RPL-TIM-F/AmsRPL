@@ -3,69 +3,80 @@
 Homepage
 @endsection()
 @section('container')
- 
+<div class="container my-2">
   <!-- Content Wrapper. Contains page content -->
-    <div>
+  <div>
     <h2 style="text-align:center">Sistem Informasi Manajemen Keuangan Organisasi</h2>
     <h3 style="text-align:center">Bendahara Departemen</h3>
     <p> </p>
-    </div>
-    <!-- /.content-header -->
-
-  <div class="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card" style="background-color:#00AAAA; width: 25rem;">
-              <div class="card-body">
-                <h5 class="card-title"style="color:white">Total Uang Kas Anggota</h5>
-                <p class="card-text"style="color:white">
-                  Rp. 10.000
-                </p>
-              </div>
-            </div>
-
-            <div class="card" style="background-color:#00AAAA; width: 25rem;">
-              <div class="card-body">
-              <h5 class="card-title"style="color:white">Total Jumlah Anggota</h5>
-                <p class="card-text"style="color:white">
-                  5 Anggota
-                </p>
-              </div>
-            </div>
-
-            <div class="card" style="background-color:#00AAAA; width: 25rem;">
-              <div class="card-body">
-              <h5 class="card-title"style="color:white">Total Pendapatan Lain</h5>
-                <p class="card-text"style="color:white">
-                  Rp. 90.000
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-          <div class="card" style="background-color:#00AAAA; width: 25rem;">
-              <div class="card-body">
-              <h5 class="card-title"style="color:white">Anggota Belum Bayar</h5>
-                <p class="card-text"style="color:white">
-                  2 Anggota
-                </p>
-              </div>
-            </div>
-
-            <div class="card" style="background-color:#00AAAA; width: 25rem;">
-              <div class="card-body">
-              <h5 class="card-title"style="color:white">Anggota Sudah Bayar</h5>
-                <p class="card-text"style="color:white">
-                  3 Anggota
-                </p>
-              </div>
-            </div>
-          </div>
+  </div>
+  <!-- /.content-header -->
+  <div class="row">
+    <div class="col">
+      <div class="card mx-auto" style="width: 500px;">
+        <div class="card-body">
+          <h3>Pemasukan</h3>
+          
         </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Jenis</th>
+                <th scope="col">Jumlah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uang Kas</td>
+                <td>Rp. {{$money}} </td>
+              </tr>
+              <tr>
+                <td>Pendapatan Lain</td>
+                <td>Rp. </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr class="table-info">
+                <th scope="col">Total</th>
+                <th scope="col">Rp. </th>
+              </tr>
+            </thead>
+          </table>
+        <!-- <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Cras justo odio</li>
+        </ul> -->
       </div>
     </div>
-</div>
+    <div class="col">
+      <div class="card mx-auto" style="width: 500px;">
+        <div class="card-body">
+          <h3>Pengeluaran</h3>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Jenis</th>
+                <th scope="col">Jumlah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pengeluaran</td>
+                <td>Rp. </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr class="table-info">
+                <th scope="col">Total</th>
+                <th scope="col">Rp. </th>
+              </tr>
+            </thead>
+          </table>
+      </div>
+    </div>
+  </div>
 
+
+</div>
 @endsection()
