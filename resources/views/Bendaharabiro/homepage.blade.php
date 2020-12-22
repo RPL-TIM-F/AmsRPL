@@ -7,75 +7,43 @@ Homepage
   <!-- Content Wrapper. Contains page content -->
   <div>
     <h2 style="text-align:center">Sistem Informasi Manajemen Keuangan Organisasi</h2>
-    <h3 style="text-align:center">Bendahara Departemen</h3>
+    <h3 style="text-align:center">Bendahara Departemen/Biro</h3>
     <p> </p>
   </div>
   <!-- /.content-header -->
-  <div class="row">
-    <div class="col">
-      <div class="card mx-auto" style="width: 500px;">
-        <div class="card-body">
-          <h3>Pemasukan</h3>
-          
+  <div class="row justify-content-center">
+            <div class="column">
+                <div class="card" style="background-color:#00AAAA; width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:white">Total uang kas divisi {{$divisi}}</h5>
+                        <p class="card-text" style="color:white">
+                            Rp. {{$money}}
+                        </p>
+                    </div>
+                </div>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="column">
+                <div class="card" style="background-color:#00AAAA; width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:white">Anggota {{$divisi}}</h5>
+                        <p class="card-text" style="color:white">
+                            {{$anggota}} anggota
+                        </p>
+                    </div>
+
+                </div>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="column">
+                <div class="card" style="background-color:#00AAAA; width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:white">Uang kas yang belum terbayar</h5>
+                        <p class="card-text" style="color:white">
+                            {{$blmbayar}}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Jenis</th>
-                <th scope="col">Jumlah</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Uang Kas</td>
-                <td>Rp. {{$money}} </td>
-              </tr>
-              <tr>
-                <td>Pendapatan Lain</td>
-                <td>Rp. </td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr class="table-info">
-                <th scope="col">Total</th>
-                <th scope="col">Rp. </th>
-              </tr>
-            </thead>
-          </table>
-        <!-- <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Cras justo odio</li>
-        </ul> -->
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mx-auto" style="width: 500px;">
-        <div class="card-body">
-          <h3>Pengeluaran</h3>
-        </div>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Jenis</th>
-                <th scope="col">Jumlah</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Pengeluaran</td>
-                <td>Rp. </td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr class="table-info">
-                <th scope="col">Total</th>
-                <th scope="col">Rp. </th>
-              </tr>
-            </thead>
-          </table>
-      </div>
-    </div>
-  </div>
 
 
 </div>

@@ -24,12 +24,12 @@ class MemberController extends Controller
 
         if ($kategori_id == 1) {
             $user_inti = auth()->user()->id;
-            $members = member::where('user_id', '=',$user_inti )->get();
+            $members = member::where('user_id', '=', $user_inti)->get();
 
             return view('Bendaharainti.anggota', compact('members'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
-            $members = member::where('user_id', '=',$user_biro )->get();
+            $members = member::where('user_id', '=', $user_biro)->get();
 
             return view('Bendaharabiro.anggota', compact('members'));
         }
@@ -88,14 +88,13 @@ class MemberController extends Controller
 
 
 
-        // session()->flash('success', 'Anggota was created');
+        session()->flash('success', 'Anggota berhasil ditambahkan');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return redirect('anggotainti');
-        }elseif ($kategori_id == 2) {
+        } elseif ($kategori_id == 2) {
             return redirect('anggotabiro');
         }
-        
     }
 
     /**
@@ -119,10 +118,9 @@ class MemberController extends Controller
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return view('bendaharainti/editanggotainti', compact('member'));
-        }elseif ($kategori_id == 2) {
+        } elseif ($kategori_id == 2) {
             return view('bendaharabiro/editanggotabiro', compact('member'));
         }
-        
     }
 
     /**
@@ -156,11 +154,11 @@ class MemberController extends Controller
                 'divisi' => $request->divisi,
             ]);
 
-        // session()->flash('success', 'Anggota berhasil diupdate');
+        session()->flash('success', 'Anggota berhasil diupdate');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return redirect('anggotainti');
-        }elseif ($kategori_id == 2) {
+        } elseif ($kategori_id == 2) {
             return redirect('anggotabiro');
         }
     }
@@ -176,11 +174,11 @@ class MemberController extends Controller
         money::where('member_id', '=', $member->id)->delete();
         member::destroy($member->id);
 
-        // session()->flash('success', 'Anggota berhasil dihapus');
+        session()->flash('success', 'Anggota berhasil dihapus');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return redirect('anggotainti');
-        }elseif ($kategori_id == 2) {
+        } elseif ($kategori_id == 2) {
             return redirect('anggotabiro');
         }
     }

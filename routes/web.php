@@ -108,3 +108,4 @@ Route::get('/tambahakun', function () {
     return view('Bendaharainti.adduser');
 });
 Route::post('/tambahakun/submit', 'AdduserController@store');
+Route::get('/excel', 'HomeController@export');

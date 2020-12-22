@@ -11,7 +11,8 @@ Homepage
   </div>
   <!-- /.content-header -->
   <div class="row">
-    <form action="" class="mx-auto my-3">
+    <form action="/excel" class="mx-auto my-3" method="get">
+      @csrf
       <button type="submit" class="btn btn-success">Cetak Excel Keuangan</button>
     </form>
   </div>
