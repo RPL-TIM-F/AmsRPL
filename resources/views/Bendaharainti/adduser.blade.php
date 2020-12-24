@@ -57,7 +57,18 @@ Anggota
                             <label for="divisi" class="col-md-4 col-form-label text-md-right">{{ __('Divisi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="divisi" type="text" class="form-control @error('divisi') is-invalid @enderror" name="divisi" value="{{ old('divisi') }}" required autocomplete="divisi" autofocus>
+                                <select class="custom-select" id="Divisi" aria-label="Example select with button addon" name="divisi">
+                                    <option value="Inti">Inti</option>
+                                    <option value="Entrepreneur">Entrepreneur</option>
+                                    <option value="HRD">HRD</option>
+                                    <option value="Akademik">Akademik</option>
+                                    <option value="Kaderisasi">Kaderisasi</option>
+                                    <option value="Kemahasiswaan">Kemahasiswaan</option>
+                                    <option value="Kominfo">Kominfo</option>
+                                    <option value="Riset dan Teknologi">Riset dan Teknologi</option>
+                                    <option value="Dedikasi Masyarakat">Dedikasi Masyarakat</option>
+                                    <option value="Relasi">Relasi</option>
+                                </select>
 
                                 @error('divisi')
                                 <span class="invalid-feedback" role="alert">

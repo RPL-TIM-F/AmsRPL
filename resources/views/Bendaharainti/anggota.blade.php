@@ -4,70 +4,42 @@ Anggota
 @endsection()
 @section('container')
 <div class="container">
-  <p> </p>
-  <br> <br>
+  <div class="row">
+    <h2 class="mx-auto my-4">Anggota {{$divisi}}</h2>
+  </div>
   <div class="row justify-content-center">
     <div class="column">
       <div class="card" style="background-color:#00AAAA; width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title" style="color:white">Anggota Entrepreuner</h5>
+          <h5 class="card-title" style="color:white">Anggota {{$divisi}}</h5>
           <p class="card-text" style="color:white">
-            50 Anggota
-          </p>
-        </div>
-      </div>
-    </div>&nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="column">
-      <div class="card" style="background-color:#00AAAA; width: 20rem;">
-        <div class="card-body">
-          <h5 class="card-title" style="color:white">Anggota HRD</h5>
-          <p class="card-text" style="color:white">
-            50 Anggota
-          </p>
-        </div>
-
-      </div>
-    </div>&nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="column">
-      <div class="card" style="background-color:#00AAAA; width: 20rem;">
-        <div class="card-body">
-          <h5 class="card-title" style="color:white">Total Jumlah Anggota</h5>
-          <p class="card-text" style="color:white">
-            100 Anggota
+            {{$jumlah}} Anggota
           </p>
         </div>
       </div>
     </div>
-  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="card">
 
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-          <!-- SEARCH FORM -->
-          <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-              <input class="Search" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
           <!-- Right navbar links -->
           <ul class="navbar-nav ml-auto">
             <button type="button" class="btn btn-primary " style="float: right;" data-toggle="modal" data-target="#modal-primary2">+Add Anggota Baru</button>
           </ul>
         </nav>
-
+        @php
+        $i = 1
+        @endphp
 
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0">
           <table class="table table-hover text-nowrap">
             <thead>
               <tr>
+                <th>No</th>
                 <th>Nama Anggota</th>
                 <th>Nim</th>
                 <th>Angkatan</th>
@@ -78,6 +50,7 @@ Anggota
             <tbody>
               @foreach ($members as $member)
               <tr>
+                <td>{{$i}}</td>
                 <td>{{ $member->fullname }}</td>
                 <td>{{ $member->nim }}</td>
                 <td>{{ $member->angkatan }}</td>
@@ -90,6 +63,9 @@ Anggota
                   </form>
                 </td>
               </tr>
+              @php
+              $i++
+              @endphp
               @endforeach
             </tbody>
           </table>
@@ -135,11 +111,8 @@ Anggota
                 </div>
                 <div class="form-group">
                   <label for="Departemen">Departemen</label>
-                  <select class="custom-select" id="departemen2" aria-label="Example select with button addon" name="divisi">
-                    <option selected="">Choose...</option>
-                    <option value="entrepreneur">Entrepreuner</option>
-                    <option value="hrd">HRD</option>
-                    <option value="pemrograman">Pemrograman</option>
+                  <select class="custom-select" id="departemen" aria-label="Example select with button addon" name="divisi">
+                    <option value="{{$divisi}}">{{$divisi}}</option>
                   </select>
                 </div>
               </div>

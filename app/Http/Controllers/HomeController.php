@@ -45,7 +45,8 @@ class HomeController extends Controller
             $income = income::sum('incomes.pendapatan_bersih');
             $expense = expense::sum('expenses.jumlah_pengeluaran');
             $totalpendapatan = $money+$income;
-            return view('bendaharainti/homepage', compact('money', 'income', 'expense', 'totalpendapatan'));
+            $totaluang = $totalpendapatan - $expense;
+            return view('bendaharainti/homepage', compact('money', 'income', 'expense', 'totalpendapatan', 'totaluang'));
         } elseif ($kategori_id == 2) {
             
             $money = money::sum('moneys.jumlah');

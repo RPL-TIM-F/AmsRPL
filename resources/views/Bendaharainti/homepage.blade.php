@@ -17,6 +17,13 @@ Homepage
     </form>
   </div>
   <div class="row">
+    <div class="card text-white bg-info mb-3 mx-auto">
+      <div class="card-body">
+        <h3>Total Uang : Rp.{{$totaluang}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
       <div class="card mx-auto" style="width: 500px;">
         <div class="card-body">
@@ -41,7 +48,7 @@ Homepage
             </tr>
           </tbody>
           <thead>
-            <tr class="table-info">
+            <tr class="table-success">
               <th scope="col">Total</th>
               <th scope="col">Rp. {{$totalpendapatan}}</th>
             </tr>
@@ -72,7 +79,7 @@ Homepage
             </tr>
           </tbody>
           <thead>
-            <tr class="table-info">
+            <tr class="table-success">
               <th scope="col">Total</th>
               <th scope="col">Rp. {{$expense}}</th>
             </tr>
