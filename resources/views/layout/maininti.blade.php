@@ -37,16 +37,19 @@
               <a href="/homepageinti" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="kasinti" class="nav-link">Uang Kas Anggota</a>
+              <a href="/kasinti" class="nav-link">Uang Kas Anggota</a>
             </li>
             <li class="nav-item">
-              <a href="anggotainti" class="nav-link">Anggota</a>
+              <a href="/anggotainti" class="nav-link">Anggota</a>
             </li>
             <li class="nav-item">
-              <a href="pendapataninti" class="nav-link">Pendapatan Lain</a>
+              <a href="/pendapataninti" class="nav-link">Pendapatan Lain</a>
             </li>
             <li class="nav-item">
-              <a href="pengeluaraninti" class="nav-link">Pengeluaran</a>
+              <a href="/pengeluaraninti" class="nav-link">Pengeluaran</a>
+            </li>
+            <li class="nav-item">
+              <a href="/approvekas" class="nav-link">Approve Uangkas</a>
             </li>
           </ul>
         </div>

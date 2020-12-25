@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth;
 use App\money;
 use App\month;
@@ -15,11 +16,29 @@ class MoneyController extends Controller
      */
     public function index($id)
     {
-        //
+        $user_id = auth()->user()->id;
+        $moneys = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->get();
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('bendaharainti.uangkas', compact('moneys'));
+        } elseif ($kategori_id == 2) {
+            return view('bendaharabiro.uangkas', compact('moneys'));
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function approve($id)
+    {
+        $user_id = auth()->user()->id;
         $moneys = Money::where('month_id', '=', $id)->get();
-
-
-        return view('bendaharabiro.uangkas', compact('moneys'));
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('bendaharainti.approved', compact('moneys'));
+        } 
     }
 
     /**
@@ -74,30 +93,40 @@ class MoneyController extends Controller
      */
     public function update(Request $request, money $money)
     {
-        // dd($request);
         $request->validate([
             'jumlah' => 'required',
-            'status_dept' => 'required'
+            'status_dept' => 'required',
+            'tanggal_bayar' => 'required'
         ]);
 
         Money::where('id', $money->id)
             ->update([
                 'jumlah' => $request->jumlah,
                 'status_dept' => $request->status_dept,
-
-
+                'tanggal_bayar' => $request->tanggal_bayar,
             ]);
 
-        return redirect('kasbiro/{{$money->month_id}}');
+
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('/kasinti/'.$money->month_id);
+        } elseif ($kategori_id == 2) {
+            return redirect('/kasbiro/'.$money->month_id);
+        }
     }
 
 
     public function updateIndex(Money $money)
     {
         //     $money = Money::find($i);
+        // return view('/Bendaharabiro/edituangkas', compact('money'));
 
-        
-        return view('/Bendaharabiro/edituangkas', compact('money'));
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('/Bendaharainti/edituangkas', compact('money'));
+        } elseif ($kategori_id == 2) {
+            return view('/Bendaharabiro/edituangkas', compact('money'));
+        }
     }
 
     /**

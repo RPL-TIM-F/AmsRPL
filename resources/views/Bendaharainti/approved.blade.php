@@ -1,25 +1,10 @@
-@extends('layout.main')
+@extends('layout.maininti')
 @section('title')
-approved
+Approve Uangkas
 @endsection()
 @section('container')
 
 <div class="container">
-<form class="form-inline ml-3">
-  <nav class=" navbar navbar-expand navbar-white navbar-light">
-    <!-- SEARCH FORM -->
-
-    <div class="input-group input-group-sm">
-      <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-      <div class="input-group-append">
-        <button class="btn btn-navbar" type="submit">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </div>
-
-
-  </nav>
   <form>
     <br><br> <br>
     <table class="table table-striped">
@@ -29,6 +14,7 @@ approved
           <th scope="col">Nama Anggota</th>
           <th scope="col">Nim</th>
           <th scope="col">Departemen</th>
+          <th scope="col">Angkatan</th>
           <th scope="col">Jumlah Kas</th>
           <th scope="col">Status Departemen</th>
           <th scope="col">Tanggal Bayar </th>
@@ -37,109 +23,27 @@ approved
         </tr>
       </thead>
       <tbody>
+
+
+        @foreach ($moneys as $money)
+
+
         <tr>
 
-          <td>Ahmad purnawan</td>
-          <td>120216789</td>
-          <td>Enterpreneur</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
+          <td>{{ $money->fullname }}</td>
+          <td>{{ $money->nim }}</td>
+          <td>{{ $money->divisi }}</td>
+          <td>{{ $money->angkatan }}</td>
+          <td>{{ $money->jumlah }}</td>
+          <td style="color:green;">{{ $money->status_dept }}</td>
+          <td>{{ $money->tanggal_bayar }}</td>
+          <td style="color:green;">{{ $money->status_inti }}</td>
+          <td><a href="/edituangkas/{{$money->id}}" class="btn btn-info">Edit</a>
         </tr>
-        <tr>
 
-          <td>jokowi dodo</td>
-          <td>120216789</td>
-          <td>HRD</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
-        <tr>
 
-          <td>Luhut Panjaitan</td>
-          <td>120216789</td>
-          <td>Kamsis</td>
-          <td>Rp 15.000</td>
-          <td style="color:red;">Belum Bayar</td>
-          <td>-</td>
-          <td style="color:green;">-</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
-        <tr>
+        @endforeach
 
-          <td>wulun wahyu </td>
-          <td>120216789</td>
-          <td>Kominfo</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
-        <tr>
-
-          <td>Raihan Januar</td>
-          <td>120216789</td>
-          <td>Kominfo</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
-        <tr>
-
-          <td>Rizky</td>
-          <td>120216789</td>
-          <td>Dedikasi Masyarakat</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
-        <tr>
-
-          <td>Budi</td>
-          <td>120216789</td>
-          <td>Kominfo</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        <tr>
-
-          <td>Bujang</td>
-          <td>120216789</td>
-          <td>Kamsis</td>
-          <td>Rp 15.000</td>
-          <td style="color:green;">dibayar</td>
-          <td>02/07/2020</td>
-          <td style="color:green;">aprovved</td>
-          <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">
-              Edit
-            </button></td>
-        </tr>
       </tbody>
     </table>
   </form>
@@ -147,7 +51,9 @@ approved
     <div class="modal-dialog">
       <div class="modal-content bg-light">
         <div class="modal-header">
-          <h4 class="modal-title" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Edit</b></h4>
+          <h4 class="modal-title" style="text-align: center;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Edit</b>
+          </h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
         </div>
@@ -168,8 +74,8 @@ approved
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Departemen</label>
-                  <select class="custom-select" id="departemen" name="divisi" aria-label="Example select with button addon">
-                  <option selected="">Departemen</option>
+                  <select class="custom-select" id="inputGroupSelect03" name="divisi" aria-label="Example select with button addon">
+                    <option selected="">Departemen</option>
                     <option value="1">Inti</option>
                     <option value="2">Enterpreneur</option>
                     <option value="3">Akademik</option>
@@ -189,10 +95,10 @@ approved
                 <div class="form-group">
                   <label for="JumlahKas">Jumlah Kas</label>
                   <select class="custom-select" id="JumlahKas" name="jumlah" aria-label="Example select with button addon">
-                    <option selected="">Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected="">Jumlah Kas</option>
+                    <option value="1">Rp.15.000</option>
+                    <option value="2">Rp.20.000</option>
+                    <option value="3">Rp.30.000</option>
                   </select>
 
                 </div>
@@ -203,7 +109,7 @@ approved
                 <div class="form-group">
                   <label for="exampleInputPassword1">Status Departemen</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status_dept" id="statusdepartemen1"  value="option1" checked>
+                    <input class="form-check-input" type="radio" name="status_dept" id="statusdepartemen1" value="option1" checked>
                     <label class="form-check-label" for="exampleRadios1">
                       Dibayar
                     </label>
@@ -216,24 +122,6 @@ approved
                   </div>
 
                 </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword2">Status </label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status_inti" id="Radios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Approved
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status_inti" id="Radios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      Not Approved
-                    </label>
-                  </div>
-
-                </div>
-
 
 
 
@@ -249,5 +137,5 @@ approved
         </div>
 
       </div>
-      </div>
-      @endsection()
+    </div>
+    @endsection()

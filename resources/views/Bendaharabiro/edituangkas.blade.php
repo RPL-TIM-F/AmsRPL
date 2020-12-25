@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group col-8" style="left: 200px;">
                     <label for="exampleInputPassword1 col-8">Tanggal Bayar</label>
-                    <input value="{{ $money->updated_at }}" type="date" class="form-control" id="" placeholder="">
+                    <input value="{{ $money->tanggal_bayar }}" name="tanggal_bayar" type="date" class="form-control" id="" placeholder="">
                 </div>
                 <br>
                 <div class="form-group col-8" style="left: 200px;">

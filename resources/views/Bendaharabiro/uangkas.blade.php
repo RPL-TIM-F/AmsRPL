@@ -36,7 +36,7 @@
                             <td>{{ $money->angkatan }}</td>
                             <td>{{ $money->jumlah }}</td>
                             <td style="color:green;">{{ $money->status_dept }}</td>
-                            <td>{{ $money->updated_at }}</td>
+                            <td>{{ $money->tanggal_bayar }}</td>
                             <td style="color:green;">{{ $money->status_inti }}</td>
                             <td><a href="/edituangkas/{{$money->id}}" class="btn btn-info">Edit</a>
                         </tr>
