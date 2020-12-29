@@ -6,7 +6,9 @@ Uangkas
 
 <div class="container">
   <form>
-    <br><br> <br>
+    <br><br>
+    <h2>Uang kas bulan {{$month->month_name}}</h2>
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>
