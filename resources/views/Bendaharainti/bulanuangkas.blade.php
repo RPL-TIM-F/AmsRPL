@@ -1,40 +1,42 @@
-@extends('layout.main')
+@extends('layout.maininti')
 @section('title')
-    Uang Kas
+bulanuangkas
 @endsection()
 @section('container')
 
-    <style>
-        #box {
+<style>
+    #box {
 
-            width: 250px;
-            height: 200px;
-            background: #1DB5AC;
+        width: 250px;
+        height: 200px;
+        background: #1DB5AC;
 
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-            border-radius: 15px;
-        }
+        border-radius: 15px;
+    }
+</style>
 
-    </style>
+<div class="container mt-5 ">
 
-    <div class="container mt-5 ">
-
-        <div class="row">
-            @foreach ($months as $month)
+    <div class="row">
+        @foreach ($months as $month)
 
 
-                <a href="/homepagebiro" class="btn mx-auto ">
-                    <div id="box">
-                        <br> <br> <br>
-                        <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Januari</h3>
-                    </div>
-                </a>
-            @endforeach
-        </div>
+        <a href="/kasinti/{{ $month->id }}" class="btn mx-auto ">
+            <div id="box">
+                <br> <br> <br>
+                <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    {{ $month->month_name }}
+                </h3>
+            </div>
+        </a>
+        @endforeach
     </div>
+</div>
 
-    </div>
+</div>
+
 
 
 @endsection()

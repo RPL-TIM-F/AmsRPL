@@ -3,66 +3,22 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('/Bendaharainti/homepage');
-// });
 
-//biro
-
-// Route::get('/anggotabiro', function () {
-//     return view('bendaharabiro.anggota');
-// });
-// Route::get('/profilbiro', function () {
-//     return view('bendaharabiro.profil');
-// });
-// Route::get('/uangkasbiro', function () {
-//     return view('bendaharabiro.uangkas');
-// });
-// Route::get('/', function () {
-
-//     return view('bendaharabiro.login');
-// });
-
-
+//Route kas anggota
 Route::get('/kasbiro/{month:id}', 'MoneyController@index');
 
 Route::get('/kasbiro', 'MonthController@index');
-//inti bagian
-// Route::get('/homepageinti', function () {
-//     return view('bendaharainti.homepage');
-// });
-// Route::get('/anggotainti', function () {
-//     return view('bendaharainti.anggota');
-// });
-Route::get('/profileinti', function () {
-    return view('bendaharainti.profil');
-});
-// Route::get('/kasinti', function () {
-//     return view('bendaharainti.uangkas');
-// });
-// Route::get('/edituangkasinti', function () {
-//     return view('Bendaharainti.edituangkas');
-// });
-// Route::get('/editapprovedinti', function () {
-//     return view('Bendaharainti.approved');
-// });
 
+Route::get('/kasinti/{month:id}', 'MoneyController@index');
 
-// Route::get('/logininti', function () {
-//     return view('Bendaharainti.login');
-// });
+Route::get('/kasinti', 'MonthController@index');
 
-// Route::get('/uangkasinti', function () {
-//     return view('Bendaharainti.Uangkas');
-// });
+Route::get('/approvekas', 'MonthController@indexapprove');
 
+Route::get('/approvekas/{month:id}', 'MoneyController@approve');
 
-
-// Route::get('/approvedinti', function () {
-//     return view('Bendaharainti.approved');
-// });
 Auth::routes();
-// Routing fitur CRUD Anggota bendahara biro (FARHAN)
+// Routing fitur CRUD Anggota bendahara (FARHAN)
 
 Route::get('/anggotabiro', 'MemberController@index');
 Route::post('/anggotabiro/store', 'MemberController@store');
@@ -81,12 +37,19 @@ Route::get('/pengeluaranbiro', 'ExpenseController@index');
 Route::get('/profilebiro', 'UserController@index');
 Route::get('/profileinti', 'UserController@index');
 
-// Routing fitur CRUD pendapatan lain bendahara biro
+// Routing fitur CRUD pendapatan lain bendahara 
+
+Route::get('/pendapataninti', 'IncomeController@index');
+Route::post('/pendapataninti/store', 'IncomeController@store');
+Route::delete('/pendapataninti/{income:id}', 'IncomeController@destroy');
+Route::get('/editpendapatan/{income:id}', 'IncomeController@updateIndex');
+Route::patch('/editpendapatan/{income:id}', 'IncomeController@update');
 
 Route::get('/pendapatanbiro', 'IncomeController@index');
-Route::post('/pendapatanlain/store', 'IncomeController@store');
-// Route::patch('/anggota', 'MemberController@update');
+Route::post('/pendapatanbiro/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
+
+
 
 //Routing fitur update Uang kas 
 Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');

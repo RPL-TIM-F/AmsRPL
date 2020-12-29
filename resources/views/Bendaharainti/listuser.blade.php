@@ -17,6 +17,7 @@ User
                 kategori_id
                 nim
                 divisi -->
+                    <th>No</th>
                     <th>Email</th>
                     <th>Full Name</th>
                     <th>Role</th>
@@ -26,16 +27,20 @@ User
                 </tr>
             </thead>
             <tbody>
+                @php
+                $i = 1
+                @endphp
                 @foreach ($users as $user)
                 <tr>
                     <?php
-                    $role = "titit";
+                    $role = "no role";
                     if ($user->kategori_id == 1) {
                         $role = "Inti";
                     } else {
                         $role = "Biro";
                     }
                     ?>
+                    <td>{{$i}}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->fullname }}</td>
                     <td>{{ $role }}</td>
@@ -49,6 +54,9 @@ User
                         </form>
                     </td>
                 </tr>
+                @php
+                $i++
+                @endphp
                 @endforeach
             </tbody>
         </table>

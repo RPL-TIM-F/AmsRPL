@@ -156,7 +156,7 @@ Homepage
             <div class="modal-body">
                 <div class=" card-light">
                     <!-- form -->
-                    <form action="/pendapatanlain/store" method="post">
+                    <form action="/pendapatanbiro/store" method="post">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -185,42 +185,6 @@ Homepage
     </div>
 </div>
 
-<!-- Modal Edit Pendapatan -->
-<div class="modal fade" id="modal-Edit">
-    <div class="modal-dialog">
-        <div class="modal-content bg-light">
-            <div class="modal-header">
-                <h4 class="modal-title" style="text-align: center;"><b>Edit Pendapatan</b></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class=" card-light">
-                    <!-- form -->
-                    <form role="form">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="deskripsi">Nama Produk</label>
-                                <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk">
-                            </div>
-                            <div class="form-group">
-                                <label for="jumlah_penjualan">Jumlah Produk</label>
-                                <input type="text" class="form-control" id="jumlah_penjualan" placeholder="Jumlah Produk">
-                            </div>
-                            <div class="form-group">
-                                <label for="pendapatan_bersih">Pendapatan Bersih</label>
-                                <input type="text" class="form-control" id="pendapatan_bersih" placeholder="Pendapatan Bersih">
-                            </div>
-                        </div>
-                    </form>
-                    <div class="form-group" style="justify-content: center;">
-                        <!-- Tombol Submit -->
-                        <button type="submit" value="Selesai" id="submit">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 @endsection

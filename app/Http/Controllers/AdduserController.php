@@ -40,7 +40,11 @@ class AdduserController extends Controller
             'nim' => $request->nim,
             'divisi' => $request->divisi,
         ]);
-        return redirect('/listuser');
+        session()->flash('success', 'User berhasil ditambah');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('/listuser');
+        }
     }
 
     public function index()
@@ -59,7 +63,7 @@ class AdduserController extends Controller
     {
         money::where('user_id', '=', $user->id)->delete();
         user::destroy($user->id);
-        // session()->flash('success', 'Anggota berhasil dihapus');
+        session()->flash('success', 'User berhasil dihapus');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return redirect('/listuser');
@@ -70,9 +74,10 @@ class AdduserController extends Controller
     {
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti/editanggotainti', compact('user'));
-        } elseif ($kategori_id == 2) {
-            return view('bendaharabiro/editanggotabiro', compact('user'));
+            return view('bendaharainti/edituser', compact('user'));
+        }
+        else{
+            return view('/');
         }
     }
 
@@ -92,13 +97,15 @@ class AdduserController extends Controller
                 'fullname' => $request->fullname,
                 'email' => $request->email,
                 'kategori_id' => $request->kategori_id,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'nim' => $request->nim,
                 'divisi' => $request->divisi,
             ]);
 
-        // session()->flash('success', 'Anggota berhasil diupdate');
+        session()->flash('success', 'User berhasil diupdate');
         $kategori_id = auth()->user()->kategori_id;
-        return redirect('/listuser');
+        if ($kategori_id == 1) {
+            return redirect('/listuser');
+        }
     }
 }

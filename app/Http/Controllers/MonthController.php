@@ -16,7 +16,28 @@ class MonthController extends Controller
     {
         //
         $months = Month::all();
-        return view('Bendaharabiro.bulanuangkas', compact('months'));
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('Bendaharainti.bulanuangkas', compact('months'));
+        } elseif ($kategori_id == 2) {
+            return view('Bendaharabiro.bulanuangkas', compact('months'));
+        }
+        
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexapprove()
+    {
+        //
+        $months = Month::all();
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('Bendaharainti.bulanapprove', compact('months'));
+        }        
     }
 
     /**
