@@ -3,11 +3,11 @@
 Anggota
 @endsection()
 @section('container')
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-4">
   <div class="col-sm-6">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Edit Anggota</h3>
+        <h3 class="box-title text-center">Edit Anggota</h3>
       </div>
       <form action="/anggotainti/{{$member->id}}/update" method="post">
         @method('patch')
