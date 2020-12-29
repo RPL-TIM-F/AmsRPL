@@ -12,7 +12,7 @@ class income extends Model
 
 
     protected $fillable = [
-        'deskripsi', 'jumlah_penjualan', 'pendapatan_bersih'
+        'deskripsi', 'jumlah_penjualan', 'pendapatan_bersih', 'user_id', 'status'
 
     ];
     protected $table = 'incomes';
