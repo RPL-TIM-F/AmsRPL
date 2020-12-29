@@ -4,7 +4,6 @@ Edit Uang Kas
 @endsection()
 @section('container')
 
-<br><br>
 <div class="container">
 
   <div class="card-header">
@@ -17,22 +16,25 @@ Edit Uang Kas
   <form action="/edituangkas/{{ $money->id }}" method="post" enctype="multipart/form-data">
     @method('patch')
     @csrf
-    <div class="card-header text-center">
-      <p>{{ $money->fullname }}</p>
-      <p>{{ $money->nim }}</p>
-      <p>Bulan ke:{{ $money->month_id }}</p>
-
-    </div>
     <div class="card-body">
-
-
+      <div class="form-group col-8" style="left: 200px;">
+        <label for="namalengkap">Nama Lengkap</label>
+        <p name='namalengkap'>{{ $money->fullname }}</p>
+      </div>
+      <div class="form-group col-8" style="left: 200px;">
+        <label for="nim">NIM</label>
+        <p name='nim'>{{ $money->nim }}</p>
+      </div>
+      <div class="form-group col-8" style="left: 200px;">
+        <label for="bulanke">Bulan ke</label>
+        <p name='bulanke'>{{ $money->month_id }}</p>
+      </div>
       <div class="form-group col-8" style="left: 200px;">
         <label for="JumlahKas">Jumlah Kas</label>
         <select class="custom-select" id="JumlahKas" name="jumlah" aria-label="Example select with button addon">
           <option selected="">Jumlah Kas</option>
           <option value="15000">Rp.15.000</option>
         </select>
-
       </div>
       <div class="form-group col-8" style="left: 200px;">
         <label for="exampleInputPassword1 col-8">Tanggal Bayar</label>
