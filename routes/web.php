@@ -17,6 +17,10 @@ Route::get('/approvekas', 'MonthController@indexapprove');
 
 Route::get('/approvekas/{month:id}', 'MoneyController@approve');
 
+//Routing fitur update Approve 
+Route::get('/editapproved/{money:id}', 'MoneyController@editapproved');
+Route::patch('/editapproved/{money:id}', 'MoneyController@updateapproved');
+
 Auth::routes();
 // Routing fitur CRUD Anggota bendahara biro (FARHAN)
 
@@ -49,11 +53,6 @@ Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
 Route::patch('/edituangkas/{money:id}', 'MoneyController@update');
 
 
-
-
-Route::get('/approvedinti', function () {
-    return view('Bendaharainti.approved');
-});
 
 
 //Controller daris

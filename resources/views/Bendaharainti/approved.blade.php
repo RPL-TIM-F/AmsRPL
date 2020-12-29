@@ -6,7 +6,9 @@ Approve Uangkas
 
 <div class="container">
   <form>
-    <br><br> <br>
+    <br><br>
+    <h2>Uang kas bulan {{$month->month_name}}</h2>
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -38,7 +40,7 @@ Approve Uangkas
           <td style="color:green;">{{ $money->status_dept }}</td>
           <td>{{ $money->tanggal_bayar }}</td>
           <td style="color:green;">{{ $money->status_inti }}</td>
-          <td><a href="/edituangkas/{{$money->id}}" class="btn btn-info">Edit</a>
+          <td><a href="/editapproved/{{$money->id}}" class="btn btn-info">Edit</a>
         </tr>
 
 
