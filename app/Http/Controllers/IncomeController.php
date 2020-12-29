@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\income;
+use App\member;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -12,11 +13,31 @@ class IncomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+        $kategori_id = auth()->user()->kategori_id;
+        $divisi = auth()->user()->divisi;
+
         $incomes = income::all();
 
-        return view('bendaharabiro.PendapatanLain', compact('incomes'));
+        if ($kategori_id == 1) {
+            $user_inti = auth()->user()->id;
+            $members = member::where('user_id', '=', $user_inti)->get();
+            $jumlah = member::where('user_id', '=', $user_inti)->count();
+            return view('bendaharainti.PendapatanLainI', compact('incomes', 'divisi'));
+        } elseif ($kategori_id == 2) {
+            $user_biro = auth()->user()->id;
+            $members = member::where('user_id', '=', $user_biro)->get();
+            $jumlah = member::where('user_id', '=', $user_biro)->count();
+            return view('bendaharabiro.PendapatanLain', compact('incomes', 'divisi'));
+        }
+
     }
 
     /**
@@ -43,10 +64,24 @@ class IncomeController extends Controller
             'pendapatan_bersih' => 'required',
 
         ]);
+        $user_id = auth()->user()->id;
         // dd($request);
-        $insert = income::create($request->all());
 
-        return redirect('/pendapatanbiro');
+        $insert = income::create([
+            'user_id' => $user_id,
+            'deskripsi' => $request->deskripsi,
+            'jumlah_penjualan' => $request->jumlah_penjualan,
+            'pendapatan_bersih' => $request->pendapatan_bersih,
+            'status' => 'Not Approved'
+        ]);
+
+        session()->flash('success', 'Pendapatan berhasil ditambahkan');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('/pendapataninti');
+        } elseif ($kategori_id == 2) {
+            return redirect('/pendapatanbiro');
+        }
     }
     /**
      * Display the specified resource.
@@ -77,9 +112,32 @@ class IncomeController extends Controller
      * @param  \App\income  $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, income $income)
+    public function update(Request $request, Income $income)
     {
-        //
+        $request->validate([
+            'status' => 'required'
+        ]);
+
+        Income::where('id', $income->id)
+            ->update([
+                'status' => $request->status,
+            ]);
+
+
+            $kategori_id = auth()->user()->kategori_id;
+            if ($kategori_id == 1) {
+                return redirect('/pendapataninti');
+            } 
+    }
+
+
+    public function updateIndex(Income $income)
+    {
+        
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('/Bendaharainti/editpendapatan', compact('income'));
+        } 
     }
 
     /**

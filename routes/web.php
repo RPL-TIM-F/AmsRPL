@@ -18,7 +18,7 @@ Route::get('/approvekas', 'MonthController@indexapprove');
 Route::get('/approvekas/{month:id}', 'MoneyController@approve');
 
 Auth::routes();
-// Routing fitur CRUD Anggota bendahara biro (FARHAN)
+// Routing fitur CRUD Anggota bendahara (FARHAN)
 
 Route::get('/anggotabiro', 'MemberController@index');
 Route::post('/anggotabiro/store', 'MemberController@store');
@@ -37,12 +37,19 @@ Route::get('/pengeluaranbiro', 'ExpenseController@index');
 Route::get('/profilebiro', 'UserController@index');
 Route::get('/profileinti', 'UserController@index');
 
-// Routing fitur CRUD pendapatan lain bendahara biro
+// Routing fitur CRUD pendapatan lain bendahara 
+
+Route::get('/pendapataninti', 'IncomeController@index');
+Route::post('/pendapataninti/store', 'IncomeController@store');
+Route::delete('/pendapataninti/{income:id}', 'IncomeController@destroy');
+Route::get('/editpendapatan/{income:id}', 'IncomeController@updateIndex');
+Route::patch('/editpendapatan/{income:id}', 'IncomeController@update');
 
 Route::get('/pendapatanbiro', 'IncomeController@index');
-Route::post('/pendapatanlain/store', 'IncomeController@store');
-// Route::patch('/anggota', 'MemberController@update');
+Route::post('/pendapatanbiro/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
+
+
 
 //Routing fitur update Uang kas 
 Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
