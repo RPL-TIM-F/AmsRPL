@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\expense;
+use App\member;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -20,12 +21,21 @@ class ExpenseController extends Controller
 
     public function index()
     {
-        $expenses = expense::get();
         $kategori_id = auth()->user()->kategori_id;
+        $divisi = auth()->user()->divisi;
+
+        $expenses = expense::all();
+
         if ($kategori_id == 1) {
-            return view('bendaharainti.lihatpengeluaran', compact('expenses'));
-        }elseif ($kategori_id == 2) {
-            return view('bendaharabiro.lihatpengeluaran', compact('expenses'));
+            $user_inti = auth()->user()->id;
+            $members = member::where('user_id', '=', $user_inti)->get();
+
+            return view('bendaharainti.pengeluaran', compact('expenses', 'divisi'));
+        } elseif ($kategori_id == 2) {
+            $user_biro = auth()->user()->id;
+            $members = member::where('user_id', '=', $user_biro)->get();
+
+            return view('bendaharabiro.pengeluaran.pengeluaran', compact('expenses', 'divisi'));
         }
     }
 
@@ -47,7 +57,33 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'deskripsi' => 'required',
+            'proker' => 'required',
+            'jumlah_pengeluaran' => 'required',
+            'tanggal_pengeluaran' => 'required'
+
+        ]);
+        $user_id = auth()->user()->id;
+      
+        // dd($request);
+
+        $insert = expense::create([
+            'user_id' => $user_id,
+            'deskripsi' => $request->deskripsi,
+            'proker' => $request->proker,
+            'divisi' => $request->divisi,
+            'jumlah_pengeluaran' => $request->jumlah_pengeluaran,
+            'tanggal_pengeluaran' => $request->tanggal_pengeluaran,
+        ]);
+
+        session()->flash('success', 'Pengeluaran berhasil ditambahkan');
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('/pengeluaraninti');
+        } elseif ($kategori_id == 2) {
+            return redirect('/pengeluaran biro');
+        }
     }
 
     /**
@@ -81,7 +117,44 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, expense $expense)
     {
-        //
+        $kategori_id = auth()->user()->kategori_id;
+      
+        if ($kategori_id == 1) {
+            $request->validate([
+                'deskripsi' => 'required',
+                'proker' => 'required',
+                'divisi' => 'required',
+                'jumlah_pengeluaran' => 'required',
+                'tanggal_pengeluaran' => 'required'
+            ]);
+            $user_id = auth()->user()->id;
+          
+            Expense::where('id', $expense->id)
+                ->update([
+                    'user_id' => $user_id,
+                    'deskripsi' => $request->deskripsi,
+                    'proker' => $request->proker,
+                    'divisi' => $request->divisi,
+                    'jumlah_pengeluaran' => $request->jumlah_pengeluaran,
+                    'tanggal_pengeluaran' => $request->tanggal_pengeluaran,
+                ]);
+            return redirect('/pengeluaraninti');
+        } elseif ($kategori_id == 2) {
+           
+            return redirect('/pengeluaranbiro');
+        }
+    }
+
+    public function updateIndex(Expense $expense)
+    {
+
+        $kategori_id = auth()->user()->kategori_id;
+        $divisi = auth()->user()->divisi;
+        if ($kategori_id == 1) {
+            return view('/Bendaharainti/editpengeluaran', compact('expense', 'divisi'));
+        } elseif ($kategori_id == 2) {
+            return view('/Bendaharabiro/editpengeluaran',  compact('expense', 'divisi'));
+        }
     }
 
     /**
@@ -92,6 +165,9 @@ class ExpenseController extends Controller
      */
     public function destroy(expense $expense)
     {
-        //
+        expense::destroy($expense->id);
+
+        // session()->flash('alert', 'Pengeluaran berhasil dihapus');
+        return redirect('/pengeluaraninti');
     }
 }

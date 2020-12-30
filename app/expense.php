@@ -14,7 +14,7 @@ class expense extends Model
     protected $table = 'expenses';
 
     protected $fillable = [
-        'deskripsi', 'jumlah_penjualan', 'pendapatan_bersih'
+        'deskripsi', 'proker', 'divisi', 'jumlah_pengeluaran', 'tanggal_pengeluaran', 'user_id' 
 
     ];
 }

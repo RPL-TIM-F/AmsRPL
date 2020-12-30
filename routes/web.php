@@ -36,7 +36,7 @@ Route::get('/anggotainti/{member:id}', 'MemberController@edit');
 Route::patch('/anggotainti/{member:id}/update', 'MemberController@update');
 Route::delete('/member/{member:id}', 'MemberController@destroy');
 
-Route::get('/pengeluaranbiro', 'ExpenseController@index');
+
 
 Route::get('/profilebiro', 'UserController@index');
 Route::get('/profileinti', 'UserController@index');
@@ -54,11 +54,12 @@ Route::post('/pendapatanbiro/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
 
 // Routing fitur CRUD pengeluaran bendahara 
-Route::get('/pengeluaran', 'ExpenseController@index');
-Route::post('/pengeluaran/store', 'ExpenseController@store');
-Route::delete('/pengeluaran/{income:id}', 'ExpenseController@destroy');
-Route::get('/editpendgeluaran/{expense:id}', 'ExpenseController@updateIndex');
-Route::patch('/editpendapatan/{expense:id}', 'ExpenseController@update');
+Route::get('/pengeluaraninti', 'ExpenseController@index');
+Route::post('/pengeluaraninti/store', 'ExpenseController@store');
+Route::delete('/pengeluaraninti/{expense:id}', 'ExpenseController@destroy');
+Route::get('/editpengeluaran/{expense:id}', 'ExpenseController@updateIndex');
+Route::patch('/editpengeluaran/{expense:id}', 'ExpenseController@update');
+Route::get('/pengeluaranbiro', 'ExpenseController@index');
 
 //Routing fitur update Uang kas 
 Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
