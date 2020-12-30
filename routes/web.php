@@ -49,7 +49,12 @@ Route::get('/pendapatanbiro', 'IncomeController@index');
 Route::post('/pendapatanbiro/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
 
-
+// Routing fitur CRUD pengeluaran bendahara 
+Route::get('/pengeluaran', 'ExpenseController@index');
+Route::post('/pengeluaran/store', 'ExpenseController@store');
+Route::delete('/pengeluaran/{income:id}', 'ExpenseController@destroy');
+Route::get('/editpendgeluaran/{expense:id}', 'ExpenseController@updateIndex');
+Route::patch('/editpendapatan/{expense:id}', 'ExpenseController@update');
 
 //Routing fitur update Uang kas 
 Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');

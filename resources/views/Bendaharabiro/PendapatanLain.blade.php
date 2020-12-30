@@ -117,6 +117,7 @@ Homepage
                     <th scope="col">Produk</th>
                     <th scope="col">Jumlah Penjualan</th>
                     <th scope="col">Pendapatan Bersih</th>
+                    <th scope="col">Status</th>
                     <th scope="colspan=2">Action</th>
                 </tr>
             </thead>
@@ -126,7 +127,8 @@ Homepage
                     <td>{{ $income->deskripsi }}</td>
                     <td>{{ $income->jumlah_penjualan }}</td>
                     <td>{{ $income->pendapatan_bersih }}</td>
-                    <td><a href="" class="btn btn-primary">Edit</a>
+                    <td>{{ $income->status }}</td>
+                    <td><a href="/editpendapatan/{{$income->id}}" class="btn btn-primary">Edit</a>
                         <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
@@ -171,6 +173,7 @@ Homepage
                                 <label for="pendapatan_bersih">Pendapatan Bersih</label>
                                 <input type="number" class="form-control" id="pendapatan_bersih" placeholder="Pendapatan Bersih" name="pendapatan_bersih">
                             </div>
+                            
                         </div>
 
                         <div class="modal-footer justify-content-between">
