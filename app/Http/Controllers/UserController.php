@@ -18,9 +18,9 @@ class UserController extends Controller
         $user = user::where('id', '=', $userid)->first();
 
         if ($kategori_id == 1) {
-            return view('bendaharainti/profil', compact('user'));
+            return view('bendaharainti/user/profil', compact('user'));
         } elseif ($kategori_id == 2) {
-            return view('bendaharabiro/profil', compact('user'));
+            return view('bendaharabiro/user/profil', compact('user'));
         }
         
     }

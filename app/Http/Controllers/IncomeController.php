@@ -30,12 +30,12 @@ class IncomeController extends Controller
             $user_inti = auth()->user()->id;
             $members = member::where('user_id', '=', $user_inti)->get();
             $jumlah = member::where('user_id', '=', $user_inti)->count();
-            return view('bendaharainti.PendapatanLainI', compact('incomes', 'divisi'));
+            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes', 'divisi'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=', $user_biro)->get();
             $jumlah = member::where('user_id', '=', $user_biro)->count();
-            return view('bendaharabiro.PendapatanLain', compact('incomes', 'divisi'));
+            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'divisi'));
         }
     }
 

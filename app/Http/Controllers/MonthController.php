@@ -18,9 +18,9 @@ class MonthController extends Controller
         $months = Month::all();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('Bendaharainti.bulanuangkas', compact('months'));
+            return view('Bendaharainti.kas.bulanuangkas', compact('months'));
         } elseif ($kategori_id == 2) {
-            return view('Bendaharabiro.bulanuangkas', compact('months'));
+            return view('Bendaharabiro.kas.bulanuangkas', compact('months'));
         }
         
     }
@@ -36,7 +36,7 @@ class MonthController extends Controller
         $months = Month::all();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('Bendaharainti.bulanapprove', compact('months'));
+            return view('Bendaharainti.kas.bulanapprove', compact('months'));
         }        
     }
 

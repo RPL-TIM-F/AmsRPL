@@ -30,7 +30,7 @@ class ExpenseController extends Controller
             $user_inti = auth()->user()->id;
             $members = member::where('user_id', '=', $user_inti)->get();
 
-            return view('bendaharainti.pengeluaran', compact('expenses', 'divisi'));
+            return view('bendaharainti.pengeluaran.pengeluaran', compact('expenses', 'divisi'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=', $user_biro)->get();
@@ -151,9 +151,9 @@ class ExpenseController extends Controller
         $kategori_id = auth()->user()->kategori_id;
         $divisi = auth()->user()->divisi;
         if ($kategori_id == 1) {
-            return view('/Bendaharainti/editpengeluaran', compact('expense', 'divisi'));
+            return view('/Bendaharainti/pengeluaran/editpengeluaran', compact('expense', 'divisi'));
         } elseif ($kategori_id == 2) {
-            return view('/Bendaharabiro/editpengeluaran',  compact('expense', 'divisi'));
+            return view('/Bendaharabiro/pengeluaran/editpengeluaran',  compact('expense', 'divisi'));
         }
     }
 
