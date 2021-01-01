@@ -114,10 +114,16 @@
                                         <label for="divisi">Divisi</label>
                                         <select class="custom-select" id="divisi"
                                             aria-label="Example select with button addon" name="divisi">
-                                            <option class="font-weight-bold" value="Inti">Inti</option>
-                                            <option class="font-weight-bold" value="Enterpreneur">Enterpreneur</option>
-                                            <option class="font-weight-bold" value="Akademik">Akademik</option>
-                                            <option class="font-weight-bold" value="Kaderisasi">Kaderisasi</option>
+                                            <option  value="Inti">Inti</option>
+                                            <option  value="Enterpreneur">Enterpreneur</option>
+                                            <option  value="Akademik">Akademik</option>
+                                            <option  value="Kaderisasi">Kaderisasi</option>
+                                            <option  value="Kemahasiswaan">Kemahasiswaan</option>
+                                            <option  value="Komunikasi dan Informasi">Komunikasi dan Informasi</option>
+                                            <option  value="Riset dan Teknologi">Riset dan Teknologi</option>
+                                            <option  value="Dedikasi Masyarakat">Dedikasi Masyarakat</option>
+                                            <option  value="Human Resource Development">Human Resource Development</option>
+                                            <option  value="Relasi">Relasi</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
