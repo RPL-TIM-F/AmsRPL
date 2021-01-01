@@ -3,6 +3,9 @@
     Pendapatan Lain
 @endsection()
 @section('container')
+@php
+$i = 1
+@endphp
     <div class="container">
         <!-- Dashboard card -->
         <div class="row">
@@ -32,7 +35,7 @@
                 <thead>
 
                     <tr>
-
+                        <th scope="col">No</th>
                         <th scope="col">Produk</th>
                         <th scope="col">Jumlah Penjualan</th>
                         <th scope="col">Pendapatan Bersih</th>
@@ -43,10 +46,15 @@
                 <tbody>
                     @foreach ($incomes as $income)
                         <tr>
+                            <td>{{ $i }}</td>
                             <td>{{ $income->deskripsi }}</td>
                             <td>{{ $income->jumlah_penjualan }}</td>
                             <td>{{ $income->pendapatan_bersih }}</td>
-                            <td>{{ $income->status }}</td>
+                            @if ($income->status == 'Not Approved')
+                                <td style="color:red;">{{ $income->status }}</td>
+                            @elseif($income->status == 'Approved')
+                                <td style="color:green;">{{ $income->status }}</td>
+                            @endif
                             <td><a href="/editpendapatan/{{ $income->id }}" class="btn btn-primary">Edit</a>
                                 <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
                                     @method('delete')
@@ -56,6 +64,9 @@
                             </td>
 
                         </tr>
+                        @php
+                        $i++
+                        @endphp
                     @endforeach
                 </tbody>
             </table>
