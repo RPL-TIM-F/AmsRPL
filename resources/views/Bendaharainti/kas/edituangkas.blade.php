@@ -51,7 +51,7 @@ Edit Uang Kas
             </div>
 
             <div class="col">
-              <input class="form-check-input" type="radio" name="status_dept" id="gridRadios2" value="Not Approved" action="" required>
+              <input class="form-check-input" type="radio" name="status_dept" id="gridRadios2" value="Not approved" action="" required>
               <label class="form-check-label" for="Not Approved">
                 Not Approved
               </label>
