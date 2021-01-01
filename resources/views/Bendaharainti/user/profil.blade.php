@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.maininti')
 @section('title')
 Profile
 @endsection()

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route kas anggota
+
 Route::get('/kasbiro/{month:id}', 'MoneyController@index');
 
 Route::get('/kasbiro', 'MonthController@index');
@@ -16,6 +17,13 @@ Route::get('/kasinti', 'MonthController@index');
 Route::get('/approvekas', 'MonthController@indexapprove');
 
 Route::get('/approvekas/{month:id}', 'MoneyController@approve');
+
+//Routing fitur update Uang kas 
+Route::get('/edituangkasbiro/{money:id}', 'MoneyController@updateIndex');
+Route::patch('/edituangkasbiro/{money:id}', 'MoneyController@update');
+
+Route::get('/edituangkasinti/{money:id}', 'MoneyController@updateIndex');
+Route::patch('/edituangkasinti/{money:id}', 'MoneyController@update');
 
 //Routing fitur update Approve 
 Route::get('/editapproved/{money:id}', 'MoneyController@editapproved');
@@ -61,9 +69,7 @@ Route::get('/editpengeluaran/{expense:id}', 'ExpenseController@updateIndex');
 Route::patch('/editpengeluaran/{expense:id}', 'ExpenseController@update');
 Route::get('/pengeluaranbiro', 'ExpenseController@index');
 
-//Routing fitur update Uang kas 
-Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
-Route::patch('/edituangkas/{money:id}', 'MoneyController@update');
+
 
 
 

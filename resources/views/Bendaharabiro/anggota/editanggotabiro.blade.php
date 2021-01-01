@@ -41,18 +41,9 @@ Anggota
             @endif />&nbsp; 2020 &nbsp;
           </div>
           <div class="form-group">
-            <label for="Departemen">Departemen</label>
-            <select class="custom-select" id="departemen2" aria-label="Example select with button addon" name="divisi">
-              <option selected="">Choose...</option>
-              <option value="entrepreneur" @if($member->divisi == "entrepreneur")
-                selected
-                @endif>Entrepreuner</option>
-              <option value="hrd" @if($member->divisi == "hrd")
-                selected
-                @endif>HRD</option>
-              <option value="pemrograman" @if($member->divisi == "pemrograman")
-                selected
-                @endif>Pemrograman</option>
+            <label for="departemen">Departemen</label>
+            <select class="custom-select" id="departemen" aria-label="Example select with button addon" name="divisi">
+              <option value="{{$member->divisi}}">{{$member->divisi}}</option>
             </select>
           </div>
         </div>
