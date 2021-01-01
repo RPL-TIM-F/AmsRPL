@@ -138,6 +138,7 @@ class ExpenseController extends Controller
                     'jumlah_pengeluaran' => $request->jumlah_pengeluaran,
                     'tanggal_pengeluaran' => $request->tanggal_pengeluaran,
                 ]);
+                session()->flash('success', 'Pengeluaran berhasil diperbarui');
             return redirect('/pengeluaraninti');
         } elseif ($kategori_id == 2) {
            
@@ -167,7 +168,7 @@ class ExpenseController extends Controller
     {
         expense::destroy($expense->id);
 
-        // session()->flash('alert', 'Pengeluaran berhasil dihapus');
+        session()->flash('success', 'Pengeluaran berhasil dihapus');
         return redirect('/pengeluaraninti');
     }
 }

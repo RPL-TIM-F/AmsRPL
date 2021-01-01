@@ -126,6 +126,7 @@ class IncomeController extends Controller
                 ->update([
                     'status' => $request->status,
                 ]);
+            session()->flash('success', 'Pendapatan berhasil diperbarui');   
             return redirect('/pendapataninti');
         } elseif ($kategori_id == 2) {
             $request->validate([
@@ -140,6 +141,7 @@ class IncomeController extends Controller
                     'jumlah_penjualan' => $request->jumlah_penjualan,
                     'pendapatan_bersih' => $request->pendapatan_bersih,
                 ]);
+            session()->flash('success', 'Pendapatan berhasil diperbarui');
             return redirect('/pendapatanbiro');
         }
     }
@@ -150,9 +152,9 @@ class IncomeController extends Controller
 
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('/Bendaharainti/editpendapatan', compact('income'));
+            return view('Bendaharainti/pendapatan/editpendapatan', compact('income'));
         } elseif ($kategori_id == 2) {
-            return view('/Bendaharabiro/editpendapatan', compact('income'));
+            return view('Bendaharabiro/pendapatan/editpendapatan', compact('income'));
         }
     }
 
