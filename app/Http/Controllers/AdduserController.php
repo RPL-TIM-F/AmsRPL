@@ -43,7 +43,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil ditambah');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/user/listuser');
+            return redirect('/listuser');
         }
     }
 
@@ -66,7 +66,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil dihapus');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/user/listuser');
+            return redirect('/listuser');
         }
     }
 
@@ -105,7 +105,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil diupdate');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/user/listuser');
+            return redirect('/listuser');
         }
     }
 }

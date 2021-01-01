@@ -73,7 +73,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/homepagebiro', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepageinti', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tambahakun', function () {
-    return view('Bendaharainti.adduser');
+    return view('Bendaharainti.user.adduser');
 });
 Route::post('/tambahakun/submit', 'AdduserController@store');
 Route::get('/excel', 'HomeController@export');

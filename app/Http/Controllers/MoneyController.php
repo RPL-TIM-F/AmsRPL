@@ -47,7 +47,7 @@ class MoneyController extends Controller
     {
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('/Bendaharainti/kas/editapproved', compact('money'));
+            return view('Bendaharainti/kas/editapproved', compact('money'));
         }
     }
 
@@ -65,7 +65,7 @@ class MoneyController extends Controller
 
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('kas//approvekas/'.$money->month_id);
+            return redirect('/approvekas/'.$money->month_id);
         }
     }
 
