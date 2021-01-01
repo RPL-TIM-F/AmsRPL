@@ -126,7 +126,8 @@ class MoneyController extends Controller
             'status_dept' => 'required',
             'tanggal_bayar' => 'required'
         ]);
-
+        
+        // dd($request);
         Money::where('id', $money->id)
             ->update([
                 'jumlah' => $request->jumlah,

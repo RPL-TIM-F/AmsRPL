@@ -82,8 +82,8 @@ class MemberController extends Controller
                 'angkatan' => $request->angkatan,
                 'divisi' => $request->divisi,
                 'jumlah' => 0,
-                'status_dept' => "not approved",
-                'status_inti' => "not approved",
+                'status_dept' => "Not approved",
+                'status_inti' => "Not approved",
             ]);
         }
 

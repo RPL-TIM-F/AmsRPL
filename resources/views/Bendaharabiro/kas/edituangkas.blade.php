@@ -13,7 +13,7 @@ Edit Uang Kas
     <!-- /.card-header -->
     <!-- form start -->
 
-    <form action="/edituangkas/{{ $money->id }}" method="post" enctype="multipart/form-data">
+    <form action="/edituangkasbiro/{{ $money->id }}" method="post" enctype="multipart/form-data">
         @method('patch')
         @csrf
         <div class="card-body">
@@ -32,7 +32,6 @@ Edit Uang Kas
             <div class="form-group col-8" style="left: 200px;">
                 <label for="JumlahKas">Jumlah Kas</label>
                 <select class="custom-select" id="JumlahKas" name="jumlah" aria-label="Example select with button addon">
-                    <option selected="">Jumlah Kas</option>
                     <option value="15000">Rp.15.000</option>
                 </select>
             </div>
@@ -64,8 +63,8 @@ Edit Uang Kas
             </div>
         </div>
 
-        <div class="modal-footer justify-content-center" style="width:700px;margin-left:300px;">
-            <a href="kasbiro" class="btn btn-danger">Close</a>
+        <div class="modal-footer justify-content-center mx-auto" style="width:700px;margin-left:300px;">
+            <a href="/kasbiro/{{$money->month_id}}" class="btn btn-danger">Close</a>
             <button type="submit" class="btn btn-info">Save changes</button>
         </div>
     </form>
