@@ -43,7 +43,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil ditambah');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/listuser');
+            return redirect('/user/listuser');
         }
     }
 
@@ -55,7 +55,7 @@ class AdduserController extends Controller
             $user_inti = auth()->user()->id;
             $users = user::get();
 
-            return view('Bendaharainti.listuser', compact('users'));
+            return view('Bendaharainti.user.listuser', compact('users'));
         }
     }
 
@@ -66,7 +66,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil dihapus');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/listuser');
+            return redirect('/user/listuser');
         }
     }
 
@@ -74,7 +74,7 @@ class AdduserController extends Controller
     {
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti/edituser', compact('user'));
+            return view('bendaharainti/user/edituser', compact('user'));
         }
         else{
             return view('/');
@@ -105,7 +105,7 @@ class AdduserController extends Controller
         session()->flash('success', 'User berhasil diupdate');
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/listuser');
+            return redirect('/user/listuser');
         }
     }
 }

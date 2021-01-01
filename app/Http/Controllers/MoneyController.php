@@ -21,9 +21,9 @@ class MoneyController extends Controller
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti.uangkas', compact('moneys','month'));
+            return view('bendaharainti.kas.uangkas', compact('moneys','month'));
         } elseif ($kategori_id == 2) {
-            return view('bendaharabiro.uangkas', compact('moneys','month'));
+            return view('bendaharabiro.kas.uangkas', compact('moneys','month'));
         }
     }
 
@@ -36,10 +36,37 @@ class MoneyController extends Controller
     {
         $user_id = auth()->user()->id;
         $moneys = Money::where('month_id', '=', $id)->get();
+        $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti.approved', compact('moneys'));
+            return view('bendaharainti.kas.approved', compact('moneys','month'));
         } 
+    }
+
+    public function editapproved(Money $money)
+    {
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return view('/Bendaharainti/kas/editapproved', compact('money'));
+        }
+    }
+
+    public function updateapproved(Request $request, money $money)
+    {
+        $request->validate([
+            'status_inti' => 'required',
+        ]);
+
+        Money::where('id', $money->id)
+            ->update([
+                'status_inti' => $request->status_inti,
+            ]);
+
+
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            return redirect('kas//approvekas/'.$money->month_id);
+        }
     }
 
     /**
@@ -124,9 +151,9 @@ class MoneyController extends Controller
 
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('/Bendaharainti/edituangkas', compact('money'));
+            return view('/Bendaharainti/kas/edituangkas', compact('money'));
         } elseif ($kategori_id == 2) {
-            return view('/Bendaharabiro/edituangkas', compact('money'));
+            return view('/Bendaharabiro/kas/edituangkas', compact('money'));
         }
     }
 

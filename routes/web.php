@@ -17,6 +17,10 @@ Route::get('/approvekas', 'MonthController@indexapprove');
 
 Route::get('/approvekas/{month:id}', 'MoneyController@approve');
 
+//Routing fitur update Approve 
+Route::get('/editapproved/{money:id}', 'MoneyController@editapproved');
+Route::patch('/editapproved/{money:id}', 'MoneyController@updateapproved');
+
 Auth::routes();
 // Routing fitur CRUD Anggota bendahara (FARHAN)
 
@@ -32,7 +36,7 @@ Route::get('/anggotainti/{member:id}', 'MemberController@edit');
 Route::patch('/anggotainti/{member:id}/update', 'MemberController@update');
 Route::delete('/member/{member:id}', 'MemberController@destroy');
 
-Route::get('/pengeluaranbiro', 'ExpenseController@index');
+
 
 Route::get('/profilebiro', 'UserController@index');
 Route::get('/profileinti', 'UserController@index');
@@ -49,18 +53,19 @@ Route::get('/pendapatanbiro', 'IncomeController@index');
 Route::post('/pendapatanbiro/store', 'IncomeController@store');
 Route::delete('/pendapatanbiro/{income:id}', 'IncomeController@destroy');
 
-
+// Routing fitur CRUD pengeluaran bendahara 
+Route::get('/pengeluaraninti', 'ExpenseController@index');
+Route::post('/pengeluaraninti/store', 'ExpenseController@store');
+Route::delete('/pengeluaraninti/{expense:id}', 'ExpenseController@destroy');
+Route::get('/editpengeluaran/{expense:id}', 'ExpenseController@updateIndex');
+Route::patch('/editpengeluaran/{expense:id}', 'ExpenseController@update');
+Route::get('/pengeluaranbiro', 'ExpenseController@index');
 
 //Routing fitur update Uang kas 
 Route::get('/edituangkas/{money:id}', 'MoneyController@updateIndex');
 Route::patch('/edituangkas/{money:id}', 'MoneyController@update');
 
 
-
-
-Route::get('/approvedinti', function () {
-    return view('Bendaharainti.approved');
-});
 
 
 //Controller daris

@@ -27,12 +27,12 @@ class MemberController extends Controller
             $user_inti = auth()->user()->id;
             $members = member::where('user_id', '=', $user_inti)->get();
             $jumlah = member::where('user_id', '=', $user_inti)->count();
-            return view('Bendaharainti.anggota', compact('members', 'divisi', 'jumlah'));
+            return view('Bendaharainti.anggota.anggota', compact('members', 'divisi', 'jumlah'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=', $user_biro)->get();
             $jumlah = member::where('user_id', '=', $user_biro)->count();
-            return view('Bendaharabiro.anggota', compact('members', 'divisi', 'jumlah'));
+            return view('Bendaharabiro.anggota.anggota', compact('members', 'divisi', 'jumlah'));
         }
     }
 
@@ -118,9 +118,9 @@ class MemberController extends Controller
     {
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti/editanggotainti', compact('member'));
+            return view('bendaharainti/anggota/editanggotainti', compact('member'));
         } elseif ($kategori_id == 2) {
-            return view('bendaharabiro/editanggotabiro', compact('member'));
+            return view('bendaharabiro/anggota/editanggotabiro', compact('member'));
         }
     }
 

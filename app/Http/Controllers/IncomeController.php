@@ -28,16 +28,15 @@ class IncomeController extends Controller
 
         if ($kategori_id == 1) {
             $user_inti = auth()->user()->id;
-            $members = member::where('user_id', '=', $user_inti)->get();
+       
             $jumlah = member::where('user_id', '=', $user_inti)->count();
-            return view('bendaharainti.PendapatanLainI', compact('incomes', 'divisi'));
+            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes', 'divisi', 'jumlah'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=', $user_biro)->get();
             $jumlah = member::where('user_id', '=', $user_biro)->count();
-            return view('bendaharabiro.PendapatanLain', compact('incomes', 'divisi'));
+            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'divisi'));
         }
-
     }
 
     /**
@@ -114,30 +113,47 @@ class IncomeController extends Controller
      */
     public function update(Request $request, Income $income)
     {
-        $request->validate([
-            'status' => 'required'
-        ]);
 
-        Income::where('id', $income->id)
-            ->update([
-                'status' => $request->status,
+
+
+        $kategori_id = auth()->user()->kategori_id;
+        if ($kategori_id == 1) {
+            $request->validate([
+                'status' => 'required'
             ]);
 
+            Income::where('id', $income->id)
+                ->update([
+                    'status' => $request->status,
+                ]);
+            return redirect('/pendapataninti');
+        } elseif ($kategori_id == 2) {
+            $request->validate([
+                'deskripsi' => 'required',
+                'jumlah_penjualan' => 'required',
+                'pendapatan_bersih' => 'required'
+            ]);
 
-            $kategori_id = auth()->user()->kategori_id;
-            if ($kategori_id == 1) {
-                return redirect('/pendapataninti');
-            } 
+            Income::where('id', $income->id)
+                ->update([
+                    'deskripsi' => $request->deskripsi,
+                    'jumlah_penjualan' => $request->jumlah_penjualan,
+                    'pendapatan_bersih' => $request->pendapatan_bersih,
+                ]);
+            return redirect('/pendapatanbiro');
+        }
     }
 
 
     public function updateIndex(Income $income)
     {
-        
+
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
             return view('/Bendaharainti/editpendapatan', compact('income'));
-        } 
+        } elseif ($kategori_id == 2) {
+            return view('/Bendaharabiro/editpendapatan', compact('income'));
+        }
     }
 
     /**
@@ -148,7 +164,7 @@ class IncomeController extends Controller
      */
     public function destroy(income $income)
     {
-    
+
         income::destroy($income->id);
 
         // session()->flash('success', 'Anggota berhasil dihapus');
