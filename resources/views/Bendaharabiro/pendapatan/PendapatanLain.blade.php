@@ -59,7 +59,11 @@
                                 <td>{{ $income->deskripsi }}</td>
                                 <td>{{ $income->jumlah_penjualan }}</td>
                                 <td>{{ $income->pendapatan_bersih }}</td>
-                                <td>{{ $income->status }}</td>
+                                @if ($income->status == 'Not Approved')
+                                <td style="color:red;">{{ $income->status }}</td>
+                            @elseif($income->status == 'Approved')
+                                <td style="color:green;">{{ $income->status }}</td>
+                            @endif
                                 <td><a href="/editpendapatan/{{ $income->id }}" class="btn btn-primary">Edit</a>
                                     <form action="/pendapatanbiro/{{ $income->id }}" method="post" class="d-inline">
                                         @method('delete')
