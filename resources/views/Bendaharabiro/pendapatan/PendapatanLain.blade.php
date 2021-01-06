@@ -63,10 +63,10 @@
                                 @elseif($income->status == 'Approved')
                                     <td style="color:green;">{{ $income->status }}</td>
                                 @endif
-                                <td><a href="/editpendapatan/{{ $income->id }}" class="btn btn-primary">Edit</a>
-                                    <button type="button" class="border-0 text-danger bg-transparent" data-toggle="modal"
+                                <td><a href="/editpendapatan/{{ $income->id }}" class="fa fa-edit"></a>
+                                    <button type="button " class="border-0 text-danger bg-transparent" data-toggle="modal"
                                         data-target="#deleteModal">
-                                        <i class="btn btn-danger"> Delete</i>
+                                        <i class=" fa fa-trash"> </i>
                                     </button>
                                 </td>
 
