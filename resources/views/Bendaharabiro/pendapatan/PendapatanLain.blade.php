@@ -1,159 +1,151 @@
 @extends('layout.main')
 @section('title')
-    Homepage
+Homepage
 @endsection()
 @section('container')
+<div class="container">
+    <!-- Dashboard card -->
+    <div class="row">
+        <h2 class="mx-auto my-4">Pendapatan Keseluruhan</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="column">
+            <div class="card " style="background-color:#00AAAA; width: 20rem;">
+                <div class="card-body ">
+                    <h5 class="card-title " style="color:white">Jumlah Pendapatan</h5>
+                    <p class="card-text " style="color:white">
+                        Rp. {{ $income }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br> <br>
+    <!-- Search bar -->
     <div class="container">
-        <!-- Dashboard card -->
-        <div class="row">
-            <h2 class="mx-auto my-4">Pendapatan Keseluruhan</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="column">
-                <div class="card " style="background-color:#00AAAA; width: 20rem;">
-                    <div class="card-body ">
-                        <h5 class="card-title " style="color:white">Jumlah Pendapatan</h5>
-                        <p class="card-text " style="color:white">
-                            Rp. {{ $income }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <nav class=" navbar navbar-expand navbar-white navbar-light">
 
-        <br> <br>
-        <!-- Search bar -->
+            <!-- Tombol Add Pendapatan -->
+            <div>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
+                    Pendapatan</button>
+            </div>
+        </nav>
+    </div>
+
+    <br>
+
+    <div class="container-fluid">
+        <!-- tabel pendapatan -->
         <div class="container">
-            <nav class=" navbar navbar-expand navbar-white navbar-light">
 
-                <!-- Tombol Add Pendapatan -->
-                <div>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
-                        Pendapatan</button>
-                </div>
-            </nav>
-        </div>
+            <table class="table table-striped">
+                <thead>
 
-        <br>
+                    <tr>
 
-        <div class="container-fluid">
-            <!-- tabel pendapatan -->
-            <div class="container">
+                        <th scope="col">Produk</th>
+                        <th scope="col">Jumlah Penjualan</th>
+                        <th scope="col">Pendapatan Bersih</th>
+                        <th scope="col">Status</th>
+                        <th scope="colspan=2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($incomes as $income)
+                    <tr>
+                        <td>{{ $income->deskripsi }}</td>
+                        <td>{{ $income->jumlah_penjualan }}</td>
+                        <td>{{ $income->pendapatan_bersih }}</td>
+                        @if ($income->status == 'Not Approved')
+                        <td style="color:red;">{{ $income->status }}</td>
+                        @elseif($income->status == 'Approved')
+                        <td style="color:green;">{{ $income->status }}</td>
+                        @endif
+                        <td><a href="/editpendapatan/{{ $income->id }}" class="fa fa-edit"></a>
+                            <button type="button " class="border-0 text-danger bg-transparent" data-toggle="modal" data-target="#deleteModal">
+                                <i class=" fa fa-trash"> </i>
+                            </button>
+                        </td>
 
-                <table class="table table-striped">
-                    <thead>
-
-                        <tr>
-
-                            <th scope="col">Produk</th>
-                            <th scope="col">Jumlah Penjualan</th>
-                            <th scope="col">Pendapatan Bersih</th>
-                            <th scope="col">Status</th>
-                            <th scope="colspan=2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($incomes as $income)
-                            <tr>
-                                <td>{{ $income->deskripsi }}</td>
-                                <td>{{ $income->jumlah_penjualan }}</td>
-                                <td>{{ $income->pendapatan_bersih }}</td>
-                                @if ($income->status == 'Not Approved')
-                                    <td style="color:red;">{{ $income->status }}</td>
-                                @elseif($income->status == 'Approved')
-                                    <td style="color:green;">{{ $income->status }}</td>
-                                @endif
-                                <td><a href="/editpendapatan/{{ $income->id }}" class="fa fa-edit"></a>
-                                    <button type="button " class="border-0 text-danger bg-transparent" data-toggle="modal"
-                                        data-target="#deleteModal">
-                                        <i class=" fa fa-trash"> </i>
+                    </tr>
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Delete Pendapatan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
                                     </button>
-                                </td>
-
-                            </tr>
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="deleteModalLabel">Delete Pendapatan</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Anda yakin ingin menghapus pendapatan?
-                                        </div>
-                                        <form action="/pendapatanbiro/{{ $income->id }}" method="POST">
-                                            @method('delete')
-                                            @csrf
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Yes</button>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
+                                <div class="modal-body">
+                                    Anda yakin ingin menghapus pendapatan?
+                                </div>
+                                <form action="/pendapatanbiro/{{ $income->id }}" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                </form>
                             </div>
-                        @endforeach
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-
-
-
-        <!-- Modal Delete -->
-
-        <!-- Modal Add Pendapatan -->
-        <div class="modal fade" id="modal-Tambah">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="text-align: center;"><b>Tambah Pendapatan</b></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class=" card-light">
-                            <!-- form -->
-                            <form action="/pendapatanbiro/store" method="post">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="deskripsi">Nama Produk</label>
-                                        <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk"
-                                            name="deskripsi">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="jumlah_penjualan">Jumlah Produk</label>
-                                        <input type="number" class="form-control" id="jumlah_penjualan"
-                                            placeholder="Jumlah Produk" name="jumlah_penjualan">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pendapatan_bersih">Pendapatan Bersih</label>
-                                        <input type="number" class="form-control" id="pendapatan_bersih"
-                                            placeholder="Pendapatan Bersih" name="pendapatan_bersih">
-                                    </div>
-
-                                </div>
-
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-outline-info" data-dismiss="modal"
-                                        style="color:black">Close</button>
-                                    <button type="submit" class="btn btn-outline-info" style="color:black"
-                                        name="submit">Save changes</button>
-                                </div>
-                            </form>
-
                         </div>
+                    </div>
+                    @endforeach
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+    <!-- Modal Delete -->
+
+    <!-- Modal Add Pendapatan -->
+    <div class="modal fade" id="modal-Tambah">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center;"><b>Tambah Pendapatan</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class=" card-light">
+                        <!-- form -->
+                        <form action="/pendapatanbiro/store" method="post">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="deskripsi">Nama Produk</label>
+                                    <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk" name="deskripsi">
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlah_penjualan">Jumlah Produk</label>
+                                    <input type="number" class="form-control" id="jumlah_penjualan" placeholder="Jumlah Produk" name="jumlah_penjualan">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pendapatan_bersih">Pendapatan Bersih</label>
+                                    <input type="number" class="form-control" id="pendapatan_bersih" placeholder="Pendapatan Bersih" name="pendapatan_bersih">
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-outline-info" data-dismiss="modal" style="color:black">Close</button>
+                                <button type="submit" class="btn btn-outline-info" style="color:black" name="submit">Save changes</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 @endsection

@@ -49,7 +49,7 @@ Uangkas
                     <td>{{ $money->tanggal_bayar }}</td>
                     @if($money->status_inti == 'Not approved')
                     <td style="color:red;">{{ $money->status_inti }}</td>
-                    @elseif($money->status_inti == 'approved')
+                    @elseif($money->status_inti == 'Approved')
                     <td style="color:green;">{{ $money->status_inti }}</td>
                     @endif
                     <td><a href="/edituangkasbiro/{{$money->id}}" class="btn btn-info">Edit</a>

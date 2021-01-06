@@ -48,11 +48,11 @@ Anggota
             <td>{{ $member->nim }}</td>
             <td>{{ $member->angkatan }}</td>
             <td>{{ $member->divisi }}</td>
-            <td><a href="anggotainti/{{$member->id}}" class="btn btn-primary">edit</a>
+            <td><a href="anggotainti/{{$member->id}}" class="fa fa-edit"></a>
               <form action="/member/{{ $member->id }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger">delete</button>
+                <button type="submit" class="border-0 text-danger bg-transparent"><i class=" fa fa-trash"> </i></button>
               </form>
             </td>
           </tr>

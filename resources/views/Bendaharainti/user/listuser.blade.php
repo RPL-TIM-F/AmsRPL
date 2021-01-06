@@ -46,11 +46,11 @@ User
                     <td>{{ $role }}</td>
                     <td>{{ $user->nim }}</td>
                     <td>{{ $user->divisi }}</td>
-                    <td><a href="listuser/{{$user->id}}" class="btn btn-primary">edit</a>
+                    <td><a href="listuser/{{$user->id}}" class="fa fa-edit"></a>
                         <form action="/user/{{ $user->id }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-danger">delete</button>
+                            <button type="submit" class="border-0 text-danger bg-transparent"><i class=" fa fa-trash"> </i></button>
                         </form>
                     </td>
                 </tr>
