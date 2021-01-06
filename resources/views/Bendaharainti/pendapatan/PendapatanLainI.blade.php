@@ -11,13 +11,13 @@ $i = 1
         <div class="row">
             <h2 class="mx-auto my-4">Pendapatan Keseluruhan</h2>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center ">
             <div class="column">
-                <div class="card" style="background-color:#00AAAA; width: 20rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:white">Anggota {{ $divisi }}</h5>
-                        <p class="card-text" style="color:white">
-                            {{ $jumlah }} Anggota
+                <div class="card " style="background-color:#00AAAA; width: 20rem;">
+                    <div class="card-body ">
+                        <h5 class="card-title " style="color:white">Jumlah Pendapatan</h5>
+                        <p class="card-text " style="color:white">
+                           Rp. {{ $income }} 
                         </p>
                     </div>
                 </div>
