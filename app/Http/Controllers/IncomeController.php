@@ -28,14 +28,15 @@ class IncomeController extends Controller
 
         if ($kategori_id == 1) {
             $user_inti = auth()->user()->id;
-       
+            $income = income::sum('incomes.pendapatan_bersih');
             $jumlah = member::where('user_id', '=', $user_inti)->count();
-            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes', 'divisi', 'jumlah'));
+            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes','income', 'divisi', 'jumlah'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
             $members = member::where('user_id', '=', $user_biro)->get();
+            $income = income::sum('incomes.pendapatan_bersih');
             $jumlah = member::where('user_id', '=', $user_biro)->count();
-            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'divisi'));
+            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'income','divisi'));
         }
     }
 

@@ -28,14 +28,16 @@ class ExpenseController extends Controller
 
         if ($kategori_id == 1) {
             $user_inti = auth()->user()->id;
+            $expense = expense::sum('expenses.jumlah_pengeluaran');
             $members = member::where('user_id', '=', $user_inti)->get();
 
-            return view('bendaharainti.pengeluaran.pengeluaran', compact('expenses', 'divisi'));
+            return view('bendaharainti.pengeluaran.pengeluaran', compact('expenses','expense', 'divisi'));
         } elseif ($kategori_id == 2) {
             $user_biro = auth()->user()->id;
+            $expense = expense::sum('expenses.jumlah_pengeluaran');
             $members = member::where('user_id', '=', $user_biro)->get();
 
-            return view('bendaharabiro.pengeluaran.pengeluaran', compact('expenses', 'divisi'));
+            return view('bendaharabiro.pengeluaran.pengeluaran', compact('expenses','expense', 'divisi'));
         }
     }
 

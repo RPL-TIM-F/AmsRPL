@@ -11,11 +11,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="column">
-                <div class="card" style="background-color:#00AAAA; width: 20rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:white">Anggota {{ $divisi }}</h5>
-                        <p class="card-text" style="color:white">
-                            Anggota
+                <div class="card " style="background-color:#00AAAA; width: 20rem;">
+                    <div class="card-body ">
+                        <h5 class="card-title " style="color:white">Jumlah Pendapatan</h5>
+                        <p class="card-text " style="color:white">
+                           Rp. {{ $income }} 
                         </p>
                     </div>
                 </div>
