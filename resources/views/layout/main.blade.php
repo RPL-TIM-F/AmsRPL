@@ -34,7 +34,7 @@
           <!-- Left navbar links -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="/homepagebiro" class="nav-link">Home</a>
+              <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
               <a href="/kasbiro" class="nav-link">Uang Kas Anggota</a>
