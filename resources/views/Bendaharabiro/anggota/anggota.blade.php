@@ -20,63 +20,47 @@ Anggota
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        <button type="button" class="btn btn-info my-1" data-toggle="modal" data-target="#modal-primary2">+Add Anggota Baru</button>
+    </div>
+    <div class="row">
 
+        @php
+        $i = 1
+        @endphp
 
-                <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-                    <!-- Right navbar links -->
-                    <ul class="navbar-nav ml-auto">
-                        <button type="button" class="btn btn-primary " style="float: right;" data-toggle="modal" data-target="#modal-primary2">+Add Anggota Baru</button>
-                    </ul>
-                </nav>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Anggota</th>
+                    <th>Nim</th>
+                    <th>Angkatan</th>
+                    <th>Departemen</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($members as $member)
+                <tr>
+                    <td>{{$i}}</td>
+                    <td>{{ $member->fullname }}</td>
+                    <td>{{ $member->nim }}</td>
+                    <td>{{ $member->angkatan }}</td>
+                    <td>{{ $member->divisi }}</td>
+                    <td><a href="anggotabiro/{{$member->id}}" class="btn btn-primary">edit</a>
+                        <form action="/member/{{ $member->id }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">delete</button>
+                        </form>
+                    </td>
+                </tr>
                 @php
-                $i = 1
+                $i++
                 @endphp
-
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Anggota</th>
-                                <th>Nim</th>
-                                <th>Angkatan</th>
-                                <th>Departemen</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($members as $member)
-                            <tr>
-                                <td>{{$i}}</td>
-                                <td>{{ $member->fullname }}</td>
-                                <td>{{ $member->nim }}</td>
-                                <td>{{ $member->angkatan }}</td>
-                                <td>{{ $member->divisi }}</td>
-                                <td><a href="anggotabiro/{{$member->id}}" class="btn btn-primary">edit</a>
-                                    <form action="/member/{{ $member->id }}" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @php
-                            $i++
-                            @endphp
-                            @endforeach
-                        </tbody>
-                    </table>
-
-                </div>
-
-                <!-- /.card-body -->
-            </div>
-
-            <!-- /.card EDIT-->
-        </div>
+                @endforeach
+            </tbody>
+        </table>
     </div>
     <!-- MODAL INPUT -->
     <div class="modal fade" id="modal-primary2">

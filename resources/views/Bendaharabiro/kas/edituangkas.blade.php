@@ -7,7 +7,7 @@ Edit Uang Kas
 <div class="container">
 
     <div class="card-header">
-        <h1 class=" text-center">Edit</h1>
+        <h1 class=" text-center">Verifikasi Status Uang Kas Anggota</h1>
     </div>
 
     <!-- /.card-header -->

@@ -3,11 +3,11 @@
 Anggota
 @endsection()
 @section('container')
-<div class="row justify-content-center mt-4">
+<div class="row justify-content-center">
   <div class="col-sm-6">
     <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title text-center">Edit Anggota</h3>
+      <div class="card-header">
+        <h1 class=" text-center">Edit Anggota</h1>
       </div>
       <form action="/anggotainti/{{$member->id}}/update" method="post">
         @method('patch')
@@ -57,7 +57,7 @@ Anggota
           </div>
         </div>
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-outline-info" data-dismiss="modal" style="color:black">Close</button>
+          <a href="/anggotainti" class="btn btn-outline-info" style="color:black;">Close</a>
           <button type="submit" class="btn btn-outline-info" style="color:black" name="submit">Save changes</button>
         </div>
       </form>
