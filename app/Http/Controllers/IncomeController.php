@@ -170,7 +170,7 @@ class IncomeController extends Controller
 
         income::destroy($income->id);
 
-        // session()->flash('success', 'Anggota berhasil dihapus');
+        session()->flash('success', 'Pendapatan berhasil dihapus');
         return redirect('/pendapatanbiro');
     }
 }
