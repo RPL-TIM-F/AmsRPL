@@ -50,7 +50,7 @@ Uangkas
           @elseif($money->status_inti == 'Approved')
           <td style="color:green;">{{ $money->status_inti }}</td>
           @endif
-          <td><a href="/edituangkasinti/{{$money->id}}" class="btn btn-info">Edit</a>
+          <td><a href="/edituangkasinti/{{$money->id}}" class="fa fa-edit"></a>
         </tr>
 
 

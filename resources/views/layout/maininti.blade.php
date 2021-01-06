@@ -33,22 +33,22 @@
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
           <!-- Left navbar links -->
           <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('/') ? ' active': ''}}">
               <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('kasinti') ? ' active': ''}}">
               <a href="/kasinti" class="nav-link">Uang Kas Anggota</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('anggotainti') ? ' active': ''}}">
               <a href="/anggotainti" class="nav-link">Anggota</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('pendapataninti') ? ' active': ''}}">
               <a href="/pendapataninti" class="nav-link">Pendapatan Lain</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('pengeluaraninti') ? ' active': ''}}">
               <a href="/pengeluaraninti" class="nav-link">Pengeluaran</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item{{ request()->is('approvekas') ? ' active': ''}}">
               <a href="/approvekas" class="nav-link">Approve Uangkas</a>
             </li>
           </ul>

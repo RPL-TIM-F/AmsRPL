@@ -47,13 +47,13 @@ Anggota
                     <td>{{ $member->nim }}</td>
                     <td>{{ $member->angkatan }}</td>
                     <td>{{ $member->divisi }}</td>
-                    <td><a href="anggotabiro/{{$member->id}}" class="btn btn-primary">edit</a>
-                        <button type="submit" class="border-0 text-danger bg-transparent" data-toggle="modal" data-target="#deleteModal">
-                            Delete
+                    <td><a href="anggotabiro/{{$member->id}}" class="fa fa-edit"></a>
+                        <button type="submit" class="border-0 text-danger bg-transparent" data-toggle="modal" data-target="#deleteModal{{$member->id}}">
+                        <i class="fa fa-trash"> </i>
                         </button>
                     </td>
                 </tr>
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteModal{{$member->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
