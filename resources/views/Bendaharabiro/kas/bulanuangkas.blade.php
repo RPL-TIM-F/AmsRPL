@@ -24,7 +24,7 @@
             @foreach ($months as $month)
 
 
-                <a href="/kasbiro/{{ $month->id }}" class="btn mx-auto ">
+                <a href="/kasbiro/{{ $month->id }}" class="btn mx-auto">
                     <div id="box">
                         <br> <br> <br>
                         <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
