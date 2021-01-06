@@ -7,6 +7,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>@yield('title')</title>
+
+  <style>
+    body {
+      background-color: #222831 !important;
+      font-family: "roboto" !important;
+      src: url('/dist/font/Roboto-Black.ttf') format(truetype);
+      color: white !important;
+    }
+
+    nav {
+      background-color: #393e46 !important;
+    }
+    a{
+      color: white !important;
+    }
+  </style>
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
