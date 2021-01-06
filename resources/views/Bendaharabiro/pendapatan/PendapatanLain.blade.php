@@ -33,7 +33,9 @@
                 </div>
             </nav>
         </div>
-
+        @php
+        $i = 1
+        @endphp
         <br>
 
         <div class="container-fluid">
@@ -44,7 +46,7 @@
                     <thead>
 
                         <tr>
-
+                            <th scope="col">No</th>
                             <th scope="col">Produk</th>
                             <th scope="col">Jumlah Penjualan</th>
                             <th scope="col">Pendapatan Bersih</th>
@@ -55,6 +57,7 @@
                     <tbody>
                         @foreach ($incomes as $income)
                             <tr>
+                                <td>{{ $i }}</td>
                                 <td>{{ $income->deskripsi }}</td>
                                 <td>{{ $income->jumlah_penjualan }}</td>
                                 <td>{{ $income->pendapatan_bersih }}</td>
@@ -65,13 +68,13 @@
                                 @endif
                                 <td><a href="/editpendapatan/{{ $income->id }}" class="fa fa-edit"></a>
                                     <button type="button " class="border-0 text-danger bg-transparent" data-toggle="modal"
-                                        data-target="#deleteModal">
+                                        data-target="#deleteModal{{ $income->id }}">
                                         <i class=" fa fa-trash"> </i>
                                     </button>
                                 </td>
 
                             </tr>
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                            <div class="modal fade" id="deleteModal{{ $income->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -96,6 +99,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                            $i++
+                            @endphp
                         @endforeach
                     </tbody>
                 </table>
