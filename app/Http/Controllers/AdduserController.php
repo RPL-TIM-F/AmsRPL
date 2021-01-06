@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Money;
+use App\Income;
+use App\Expense;
 use App\Member;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -62,8 +64,10 @@ class AdduserController extends Controller
 
     public function destroy(user $user)
     {
-        member::where('user_id', '=', $user->id)->delete();
+        expense::where('user_id', '=', $user->id)->delete();
+        income::where('user_id', '=', $user->id)->delete();
         money::where('user_id', '=', $user->id)->delete();
+        member::where('user_id', '=', $user->id)->delete();
         user::destroy($user->id);
         session()->flash('success', 'User berhasil dihapus');
         $kategori_id = auth()->user()->kategori_id;
