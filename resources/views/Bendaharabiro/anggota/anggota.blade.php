@@ -57,12 +57,12 @@ Anggota
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete Pendapatan</h5>
+                                <h5 class="modal-title bgwhite" id="deleteModalLabel">Delete Pendapatan</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body bgwhite">
                                 Anda yakin ingin menghapus anggota?
                             </div>
                             <form action="/member/{{ $member->id }}" method="post" class="d-inline">

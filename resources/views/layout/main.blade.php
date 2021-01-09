@@ -16,10 +16,19 @@
       color: white !important;
     }
 
+    .navbar {
+      border: none !important;
+    }
+
+    .bgwhite {
+      color: black !important;
+    }
+
     nav {
       background-color: #393e46 !important;
     }
-    a{
+
+    a {
       color: white !important;
     }
   </style>
@@ -36,7 +45,7 @@
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <nav class="main-header navbar navbar-expand-md">
       <div class="container">
         <a href="/" class="navbar-brand">
           <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -90,11 +99,11 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/profilebiro">
+              <a class="dropdown-item" href="/profilebiro" style="color: black !important;">
                 Profile
               </a>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();" style="color: black !important;">
                 {{ __('Logout') }}
               </a>
 
