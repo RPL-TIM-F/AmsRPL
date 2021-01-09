@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\money;
+use App\month;
 use App\income;
 use App\expense;
 use App\member;
@@ -38,26 +39,48 @@ class HomeController extends Controller
         // }
 
         $kategori_id = auth()->user()->kategori_id;
+        $nama = auth()->user()->fullname;
         $userid = auth()->user()->id;
         $divisi = auth()->user()->divisi;
+        date_default_timezone_set('asia/jakarta');
+        $date = date('l, d/m/Y', time());
+        $date2 = date('h:i A', time());
+        $user_id = auth()->user()->id;
+
+        $bb = time();
+        $hour = date("G", $bb);
+        if ($hour > 3 && $hour < 10) {
+            $sapa =  "Selamat pagi";
+        } elseif ($hour > 10 && $hour < 15) {
+            $sapa =  "Selamat siang";
+        } elseif ($hour > 15 && $hour < 18) {
+            $sapa =  "Selamat sore";
+        } else {
+            $sapa =  "Selamat malam";
+        }
+
         if ($kategori_id == 1) {
             $money = money::sum('moneys.jumlah');
             $income = income::sum('incomes.pendapatan_bersih');
             $expense = expense::sum('expenses.jumlah_pengeluaran');
-            $totalpendapatan = $money+$income;
+            $totalpendapatan = $money + $income;
             $totaluang = $totalpendapatan - $expense;
             return view('bendaharainti/homepage', compact('money', 'income', 'expense', 'totalpendapatan', 'totaluang'));
         } elseif ($kategori_id == 2) {
-            
+
             $money = money::sum('moneys.jumlah');
-            $blmbayar = money::where([['user_id', '=', $userid],['status_dept', '=', 'not approved']])->count();
+            $blmbayar = money::where([['user_id', '=', $userid], ['status_dept', '=', 'not approved']])->count();
             $anggota = member::where('user_id', '=', $userid)->count();
-            return view('bendaharabiro/homepage', compact('money', 'divisi', 'anggota', 'blmbayar'));
+            $random = rand(1,12);
+            $notapproved = Money::where([['month_id', '=', $random], ['user_id', '=', $user_id], ['status_dept', '=', 'Not approved']])->count();
+            $month = Month::where('id', '=', $random)->first();
+            return view('bendaharabiro/homepage', compact('money', 'divisi', 'anggota', 'blmbayar', 'date', 'date2', 'sapa', 'nama', 'month', 'notapproved'));
         }
 
         // return view($home.'.homepage');
     }
-    public function export(){
+    public function export()
+    {
         // Excel::create('Laporan Keuangan')->download('xls');
         return Excel::download(new DashboardExport, 'LaporanKeuangan.xlsx');
     }
