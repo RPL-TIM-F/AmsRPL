@@ -1,6 +1,40 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<style>
+        body {
+            background-color: #222831 !important;
+            font-family: "roboto" !important;
 
+            src: url('/dist/font/Roboto-Black.ttf') format(truetype);
+            color: white !important;
+        }
+
+        .navbar {
+            border: none !important;
+        }
+
+        .bgwhite {
+            color: black !important;
+        }
+
+        nav {
+            background-color: #393e46 !important;
+        }
+
+        a {
+            color: white !important;
+        }
+
+        body {
+            background-image: url('/dist/img/hmsibg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+            background-attachment: fixed;
+
+        }
+
+    </style>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +57,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a href="/" class="navbar-brand">
                     <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8;height:40px;width:40px">

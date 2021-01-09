@@ -24,14 +24,14 @@ Homepage
     <br> <br>
     <!-- Search bar -->
     <div class="container">
-        <nav class=" navbar navbar-expand navbar-white navbar-light">
+       
 
                 <!-- Tombol Add Pendapatan -->
                 <div>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
                         Pendapatan</button>
                 </div>
-            </nav>
+          
         </div>
         @php
         $i = 1
@@ -74,7 +74,7 @@ Homepage
                                 </td>
 
                             </tr>
-                            <div class="modal fade" id="deleteModal{{ $income->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
+                            <div class="modal fade bgwhite" id="deleteModal{{ $income->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -141,8 +141,15 @@ Homepage
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="deskripsi">Nama Produk</label>
-                                    <input type="text" class="form-control" id="deskripsi" placeholder="Nama Produk" name="deskripsi">
+                                    <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Nama Produk" name="deskripsi">
+
+                                    @error('deskripsi')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
+                             
                                 <div class="form-group">
                                     <label for="jumlah_penjualan">Jumlah Produk</label>
                                     <input type="number" class="form-control" id="jumlah_penjualan" placeholder="Jumlah Produk" name="jumlah_penjualan">
