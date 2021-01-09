@@ -1,7 +1,9 @@
-<html><head>
+<html>
+
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Login | SIMKO</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,50 +18,65 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="login-page" style="min-height: 512.396px;">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg"><b>Bendahara Inti</b></p>
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg"><b>Login</b></p>
 
-      <form action="../../index3.html" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Ids">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+        <form action="{{ route('login') }}" method="POST">
+          @csrf
+          <div class="input-group mb-3">
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
             </div>
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+          <div class="input-group mb-3">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
             </div>
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
-        </div>
-        <div class="row-15">
-         
-         <!-- /.col -->
-         <div class="col-15">
-           <button type="submit" class="btn btn-info btn-block " >Sign In</button>
-         </div>
-         <!-- /.col -->
-       
-<!-- /.login-box -->
+          <div class="row-15">
 
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+            <!-- /.col -->
+            <div class="col-15">
+              <button type="submit" class="btn btn-info btn-block ">Sign In</button>
+            </div>
+            <!-- /.col -->
 
+            <!-- /.login-box -->
+
+            <!-- jQuery -->
+            <script src="../../plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../../dist/js/adminlte.min.js"></script>
 
 
-</body></html>
+
+</body>
+
+</html>
