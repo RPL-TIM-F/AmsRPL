@@ -23,14 +23,13 @@
         <br> <br>
         <!-- Search bar -->
         <div class="container">
-            <nav class=" navbar navbar-expand navbar-white navbar-light">
-
+          
                 <!-- Tombol Add Pendapatan -->
                 <div>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
                         Pengeluaran</button>
                 </div>
-            </nav>
+          
             @php
             $i = 1
             @endphp

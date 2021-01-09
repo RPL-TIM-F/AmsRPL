@@ -31,8 +31,18 @@
     a {
       color: white !important;
     }
-    .crd{
-      background-color:#00AAAA !important;
+
+    .crd {
+      background-color: #00AAAA !important;
+    }
+
+    body {
+      background-image: url('/dist/img/hmsibg.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      background-attachment: fixed;
+
     }
   </style>
 
@@ -63,19 +73,19 @@
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
           <!-- Left navbar links -->
           <ul class="navbar-nav">
-            <li class="nav-item{{ request()->is('/') ? ' active': ''}}">
+            <li class="nav-item{{ request()->is('/') ? ' active' : '' }}">
               <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item{{ request()->is('kasbiro') ? ' active': ''}}">
+            <li class="nav-item{{ request()->is('kasbiro') ? ' active' : '' }}">
               <a href="/kasbiro" class="nav-link">Uang Kas Anggota</a>
             </li>
-            <li class="nav-item{{ request()->is('anggotabiro') ? ' active': ''}}">
+            <li class="nav-item{{ request()->is('anggotabiro') ? ' active' : '' }}">
               <a href="/anggotabiro" class="nav-link">Anggota</a>
             </li>
-            <li class="nav-item{{ request()->is('pendapatanbiro') ? ' active': ''}}">
+            <li class="nav-item{{ request()->is('pendapatanbiro') ? ' active' : '' }}">
               <a href="/pendapatanbiro" class="nav-link">Pendapatan Lain</a>
             </li>
-            <li class="nav-item{{ request()->is('pengeluaranbiro') ? ' active': ''}}">
+            <li class="nav-item{{ request()->is('pengeluaranbiro') ? ' active' : '' }}">
               <a href="/pengeluaranbiro" class="nav-link">Pengeluaran</a>
             </li>
           </ul>
@@ -97,17 +107,17 @@
           </li>
           @endif
           @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <li class="nav-item dropdown ">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->fullname }}
             </a>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/profilebiro" style="color: black !important;">
+            <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item bg-dark" href="/profilebiro">
                 Profile
               </a>
-              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" style="color: black !important;">
+              <a class="dropdown-item bg-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
               </a>
 
@@ -121,29 +131,49 @@
         </ul>
       </div>
     </nav>
-    @if(session()->has('success'))
+
+    @if (session()->has('success'))
     <div class="alert alert-success">
-      {{session()->get('success')}}
+      {{ session()->get('success') }}
     </div>
     @endif
 
-    @if(session()->has('error'))
+    @if (session()->has('error'))
     <div class="alert alert-danger">
-      {{session()->get('error')}}
+      {{ session()->get('error') }}
     </div>
-    @endif
+    @endguest
+    </li>
+    </ul>
+  </div>
+  </nav>
+  @if(session()->has('success'))
+  <div class="alert alert-success">
+    {{session()->get('success')}}
+  </div>
+  @endif
 
+  @if(session()->has('error'))
+  <div class="alert alert-danger">
+    {{session()->get('error')}}
+  </div>
+  @endif
+
+  <div class="bg">
     @yield('container')
 
+  </div>
 
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

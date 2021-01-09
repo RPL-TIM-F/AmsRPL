@@ -3,7 +3,7 @@
 Homepage
 @endsection()
 @section('container')
-<div class="container my-2">
+<div class="container my-2 ">
   <!-- Content Wrapper. Contains page content -->
   <div>
     <h2 style="text-align:center">Sistem Informasi Manajemen Keuangan Organisasi</h2>
@@ -23,9 +23,9 @@ Homepage
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row ">
     <div class="col">
-      <div class="card mx-auto" style="width: 500px;">
+      <div class="card mx-auto bg-dark" style="width: 500px;">
         <div class="card-body">
           <h3>Pemasukan</h3>
 
@@ -48,7 +48,7 @@ Homepage
             </tr>
           </tbody>
           <thead>
-            <tr class="table-success">
+            <tr class="bg-success">
               <th scope="col">Total</th>
               <th scope="col">Rp. {{$totalpendapatan}}</th>
             </tr>
@@ -61,7 +61,7 @@ Homepage
       </div>
     </div>
     <div class="col">
-      <div class="card mx-auto" style="width: 500px;">
+      <div class="card mx-auto bg-dark" style="width: 500px;">
         <div class="card-body">
           <h3>Pengeluaran</h3>
         </div>
@@ -79,7 +79,7 @@ Homepage
             </tr>
           </tbody>
           <thead>
-            <tr class="table-success">
+            <tr class=" bg-success">
               <th scope="col">Total</th>
               <th scope="col">Rp. {{$expense}}</th>
             </tr>
