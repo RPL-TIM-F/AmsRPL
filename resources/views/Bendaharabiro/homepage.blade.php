@@ -34,9 +34,9 @@ Homepage
                     <div class="carousel-item">
                         <div class="card mx-auto my-auto crd" style="width: 18rem; height: 200px;">
                             <div class="card-body">
-                                <h3>Card title</h3>
+                                <h3>Uang kas</h3>
                                 <p class="card-text">Total uang kas divisi {{$divisi}} sebesar Rp. {{$money}}</p>
-                                <a href="#" class="card-link btn btn-success">Card link</a>
+                                <a href="/kasbiro" class="card-link btn btn-success">Lihat uang kas</a>
                             </div>
                         </div>
                     </div>
