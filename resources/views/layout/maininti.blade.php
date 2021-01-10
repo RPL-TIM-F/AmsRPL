@@ -57,7 +57,7 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+        <nav class="main-header navbar navbar-expand-md navbar-fixed-top">
             <div class="container">
                 <a href="/" class="navbar-brand">
                     <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -78,7 +78,7 @@
                             <a href="/" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item{{ request()->is('kasinti') ? ' active' : '' }}">
-                            <a href="/kasinti" class="nav-link">Uang Kas Anggota</a>
+                            <a href="/kasinti" class="nav-link ">Kas Anggota</a>
                         </li>
                         <li class="nav-item{{ request()->is('anggotainti') ? ' active' : '' }}">
                             <a href="/anggotainti" class="nav-link">Anggota</a>

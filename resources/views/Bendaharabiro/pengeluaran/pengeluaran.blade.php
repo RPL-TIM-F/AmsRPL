@@ -4,7 +4,7 @@
 @endsection()
 @section('container')
 
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <h2 class="mx-auto my-4">Pengeluaran Keseluruhan</h2>
         </div>
@@ -12,7 +12,7 @@
             <div class="column">
                 <div class="card" style="background-color:#00AAAA; width: 20rem;">
                     <div class="card-body">
-                        <h5 class="card-title" style="color:white">Anggota {{ $divisi }}</h5>
+                        <h5 class="card-title" style="color:white">Jumlah Pengeluaran </h5>
                         <p class="card-text" style="color:white">
                             Rp. {{$expense}}
                         </p>
