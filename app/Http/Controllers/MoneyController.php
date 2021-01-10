@@ -21,7 +21,7 @@ class MoneyController extends Controller
     {
         $user_id = auth()->user()->id;
         $divisi = auth()->user()->divisi;
-        $moneys = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->get();
+        $moneys = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->orderBy('status_dept', 'desc')->get();
         $approved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id], ['status_dept', '=', 'Approved']])->count();
         $notapproved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->count();
         $members = member::where('user_id', '=', $user_id)->get();
@@ -52,9 +52,14 @@ class MoneyController extends Controller
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
 
+        $members = member::where('user_id', '=', $user_id)->get();
         $approved = Money::where([['month_id', '=', $id], ['status_inti', '=', 'Approved']])->count();
         $notapproved = Money::where('month_id', '=', $id)->count();
-        $progress = ($approved / $notapproved) * 100;
+        if (isEmpty($members)) {
+            $progress = 0;
+        } elseif (!isEmpty($members)) {
+            $progress = ($approved / $notapproved) * 100;
+        }
 
         if ($kategori_id == 1) {
             return view('bendaharainti.kas.approved', compact('moneys', 'month', 'progress'));
