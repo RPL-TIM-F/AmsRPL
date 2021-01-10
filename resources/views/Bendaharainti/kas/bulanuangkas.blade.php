@@ -17,8 +17,10 @@ bulanuangkas
     }
 </style>
 
-<div class="container mt-5 ">
-
+<div class="container mt-3 ">
+    <div class="row">
+        <h2 class="mx-auto">Uang kas anggota</h2>
+    </div>
     <div class="row">
         @foreach ($months as $month)
 

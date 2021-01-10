@@ -4,10 +4,10 @@ Approve Uangkas
 @endsection()
 @section('container')
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="row">
     <div class="col">
-      <h2>Uang kas bulan {{$month->month_name}}</h2>
+      <h2>Approve uang kas bulan {{$month->month_name}} seluruh anggota</h2>
     </div>
     <div class="col my-auto">
       <div class="progress">

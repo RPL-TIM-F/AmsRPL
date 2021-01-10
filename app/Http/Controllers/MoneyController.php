@@ -17,6 +17,7 @@ class MoneyController extends Controller
     public function index($id)
     {
         $user_id = auth()->user()->id;
+        $divisi = auth()->user()->divisi;
         $moneys = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->get();
         $approved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id], ['status_dept', '=', 'Approved']])->count();
         $notapproved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->count();
@@ -24,9 +25,9 @@ class MoneyController extends Controller
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti.kas.uangkas', compact('moneys','month', 'progress'));
+            return view('bendaharainti.kas.uangkas', compact('moneys','month', 'progress', 'divisi'));
         } elseif ($kategori_id == 2) {
-            return view('bendaharabiro.kas.uangkas', compact('moneys','month', 'progress'));
+            return view('bendaharabiro.kas.uangkas', compact('moneys','month', 'progress', 'divisi'));
         }
     }
 

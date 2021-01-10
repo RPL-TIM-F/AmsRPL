@@ -21,12 +21,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
         @php
         $i = 1
         @endphp
@@ -38,7 +32,7 @@
                     <button type="button" class="btn btn-info  mb-2" data-toggle="modal" data-target="#modal-Tambah">+ Add
                         Pendapatan</button>
                 </div>
-                <div class="row  w-100">
+                <div class="row w-100">
                     <table class="table table-striped">
                         <thead>
 
@@ -63,12 +57,18 @@
                                     @elseif($income->status == 'Approved')
                                         <td style="color:green;">{{ $income->status }}</td>
                                     @endif
+
+                                    @if ($income->status == 'Not Approved')
                                     <td><a href="/editpendapatan/{{ $income->id }}" class="fa fa-edit"></a>
                                         <button type="button " class="border-0 text-danger bg-transparent"
                                             data-toggle="modal" data-target="#deleteModal{{ $income->id }}">
                                             <i class=" fa fa-trash"> </i>
                                         </button>
                                     </td>
+                                    @elseif($income->status == 'Approved')
+                                        <td style="color:green;">{{ $income->status }}</td>
+                                    @endif
+                                    
 
                                 </tr>
                                 <div class="modal fade bgwhite" id="deleteModal{{ $income->id }}" tabindex="-1"

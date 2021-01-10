@@ -6,8 +6,8 @@ edituangkas
 
 <div class="container">
 
-    <div class="card-header col-8 " style="left: 210px;">
-        <h3 class="card-title" style="font-size:30px;text-align:center;">Edit</h3>
+    <div class="row">
+        <h1 class="mx-auto">Verifikasi Status Uang Kas Seluruh Anggota</h1>
     </div>
 
     <!-- /.card-header -->
@@ -56,9 +56,12 @@ edituangkas
                         Not Approved
                     </label>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-outline-info">Save changes</button>
+
             </div>
+        </div>
+        <div class="modal-footer justify-content-center mx-auto" style="width:700px;margin-left:300px;">
+            <a href="/approvekas/{{$money->month_id}}" class="btn btn-danger">Close</a>
+            <button type="submit" class="btn btn-info">Save changes</button>
         </div>
     </form>
 </div>
