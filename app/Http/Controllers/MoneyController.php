@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\money;
+use App\member;
 use App\month;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\isEmpty;
 
 class MoneyController extends Controller
 {
@@ -21,13 +24,19 @@ class MoneyController extends Controller
         $moneys = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->get();
         $approved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id], ['status_dept', '=', 'Approved']])->count();
         $notapproved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->count();
-        $progress = ($approved/$notapproved) *100;
+        $members = member::where('user_id', '=', $user_id)->get();
+        if (isEmpty($members)) {
+            $progress = 0;
+        } elseif (!isEmpty($members)) {
+            $progress = ($approved / $notapproved) * 100;
+        }
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
+
         if ($kategori_id == 1) {
-            return view('bendaharainti.kas.uangkas', compact('moneys','month', 'progress', 'divisi'));
+            return view('bendaharainti.kas.uangkas', compact('moneys', 'month', 'progress', 'divisi', 'members'));
         } elseif ($kategori_id == 2) {
-            return view('bendaharabiro.kas.uangkas', compact('moneys','month', 'progress', 'divisi'));
+            return view('bendaharabiro.kas.uangkas', compact('moneys', 'month', 'progress', 'divisi', 'members'));
         }
     }
 
@@ -45,11 +54,11 @@ class MoneyController extends Controller
 
         $approved = Money::where([['month_id', '=', $id], ['status_inti', '=', 'Approved']])->count();
         $notapproved = Money::where('month_id', '=', $id)->count();
-        $progress = ($approved/$notapproved) *100;
+        $progress = ($approved / $notapproved) * 100;
 
         if ($kategori_id == 1) {
-            return view('bendaharainti.kas.approved', compact('moneys','month', 'progress'));
-        } 
+            return view('bendaharainti.kas.approved', compact('moneys', 'month', 'progress'));
+        }
     }
 
     public function editapproved(Money $money)
@@ -74,7 +83,7 @@ class MoneyController extends Controller
 
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/approvekas/'.$money->month_id);
+            return redirect('/approvekas/' . $money->month_id);
         }
     }
 
@@ -135,7 +144,7 @@ class MoneyController extends Controller
             'status_dept' => 'required',
             'tanggal_bayar' => 'required'
         ]);
-        
+
         // dd($request);
         Money::where('id', $money->id)
             ->update([
@@ -147,9 +156,9 @@ class MoneyController extends Controller
 
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return redirect('/kasinti/'.$money->month_id);
+            return redirect('/kasinti/' . $money->month_id);
         } elseif ($kategori_id == 2) {
-            return redirect('/kasbiro/'.$money->month_id);
+            return redirect('/kasbiro/' . $money->month_id);
         }
     }
 
