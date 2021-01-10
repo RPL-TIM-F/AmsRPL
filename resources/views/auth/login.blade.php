@@ -19,73 +19,66 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="login-page">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-7"></div>
-            <div class="col-5">
-                <div class="login-box mx-auto">
-                    <div class="login-logo">
-                    </div>
-                    <!-- /.login-logo -->
-                    <div class="card">
-                        <div class="card-body login-card-body">
-                            <p class="login-box-msg"><b>Login</b></p>
+<body class="login-page" style="background-color: lightsteelblue;">
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-7">
+                    <img src="/dist/img/hmsi.png" alt="AdminLTE Logo">
+                </div>
+                <div class="col-5">
+                    <div>
+                        <p class="login-box-msg"><b>Login</b></p>
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <div class="input-group mb-3">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
 
-                            <form action="{{ route('login') }}" method="POST">
-                                @csrf
-                                <div class="input-group mb-3">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
-
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
                                     </div>
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="input-group mb-3">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
                                     </div>
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
-                                <div class="row-15">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="row-15">
 
-                                    <!-- /.col -->
-                                    <div class="col-15">
-                                        <button type="submit" class="btn btn-info btn-block ">Sign In</button>
-                                    </div>
-                                    <!-- /.col -->
-
-                                    <!-- /.login-box -->
-
-                                    <!-- jQuery -->
-                                    <script src="../../plugins/jquery/jquery.min.js"></script>
-                                    <!-- Bootstrap 4 -->
-                                    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                                    <!-- AdminLTE App -->
-                                    <script src="../../dist/js/adminlte.min.js"></script>
+                                <!-- /.col -->
+                                <div class="col-15">
+                                    <button type="submit" class="btn btn-info btn-block ">Sign In</button>
                                 </div>
-                            </form>
-                        </div>
+                                <!-- /.col -->
+
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

@@ -22,24 +22,21 @@
         </div>
         <br> <br>
         <!-- Search bar -->
-        <div class="container">
-          
-                <!-- Tombol Add Pendapatan -->
-                <div>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-Tambah">+ Add
-                        Pengeluaran</button>
-                </div>
-          
-            @php
-            $i = 1
-            @endphp
-        </div>
+        
 
         <br>
 
         <div class="container-fluid">
             <!-- tabel pendapatan -->
             <div class="container">
+                <div>
+                    <button type="button" class="btn btn-info mb-2" data-toggle="modal" data-target="#modal-Tambah">+ Add
+                        Pengeluaran</button>
+                </div>
+          
+            @php
+            $i = 1
+            @endphp
 
                 <table class="table table-striped">
                     <thead>

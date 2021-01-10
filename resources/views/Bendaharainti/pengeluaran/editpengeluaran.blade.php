@@ -4,8 +4,8 @@
 @endsection()
 @section('container')
 
-    <br><br>
-    <div class="container">
+
+    <div class="container mt-5">
 
         <div class="card-header">
             <h1 class=" text-center">Edit pengeluaran</h1>
@@ -18,17 +18,17 @@
             @method('patch')
             @csrf
             <div class="card-body">
-                <div class="form-group">
+                <div class="form-group col-8 mx-auto">
                     <label for="deskripsi">Deskripsi</label>
                     <input type="text" class="form-control" value="{{ $expense->deskripsi }}" id="deskripsi"
                         placeholder="Deskripsi" name="deskripsi">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-8 mx-auto">
                     <label for="proker">Proker</label>
                     <input type="text" class="form-control" value="{{ $expense->proker }}" id="proker"
                         placeholder="Nama Proker" name="proker">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-8 mx-auto">
                     <label for="divisi">Divisi</label>
                     <select class="custom-select" id="divisi" aria-label="Example select with button addon" name="divisi">
                         <option class="" value="{{ $expense->divisi }}">{{ $expense->divisi }}</option>
@@ -44,12 +44,12 @@
                         <option value="Relasi">Relasi</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-8 mx-auto">
                     <label for="jumlah_pengeluaran">Jumlah Pengeluaran</label>
                     <input type="number" class="form-control" value="{{ $expense->jumlah_pengeluaran }}"
                         id="jumlah_pengeluaran" placeholder="Jumlah Pengeluaran" name="jumlah_pengeluaran">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-8 mx-auto">
                     <label for="tanggal_pengeluaran">Tanggal Pengeluaran</label>
                     <input type="date" class="form-control" value="{{ $expense->tanggal_pengeluaran }}"
                         id="tanggal_pengeluaran" placeholder="Tanggal Pengeluaran" name="tanggal_pengeluaran">
@@ -58,13 +58,13 @@
 
             </div>
 
-            <div class="modal-footer justify-content-between">
-                <a href="/pengeluaraninti" class="btn btn-outline-info  " style="color:black">Close</a>
-                <button type="submit" class="btn btn-outline-info" style="color:black" name="submit">Save changes</button>
+            <div class="modal-footer justify-content-center col-8 mx-auto">
+                <a href="/pengeluaraninti" class="btn btn-danger" style="color:black">Close</a>
+                <button type="submit" class="btn btn-info" name="submit">Save changes</button>
             </div>
         </form>
 
-
+       <hr>
     </div>
 
 @endsection
