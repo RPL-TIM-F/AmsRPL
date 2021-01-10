@@ -48,18 +48,27 @@ Uangkas
           <td>{{ $money->divisi }}</td>
           <td>{{ $money->angkatan }}</td>
           <td>Rp. {{ $money->jumlah }}</td>
+          
           @if($money->status_dept == 'Not approved')
           <td style="color:red;">{{ $money->status_dept }}</td>
           @elseif($money->status_dept == 'Approved')
           <td style="color:green;">{{ $money->status_dept }}</td>
           @endif
           <td>{{ $money->tanggal_bayar }}</td>
+
           @if($money->status_inti == 'Not approved')
           <td style="color:red;">{{ $money->status_inti }}</td>
           @elseif($money->status_inti == 'Approved')
           <td style="color:green;">{{ $money->status_inti }}</td>
           @endif
+
+          @if($money->status_dept == 'Not approved')
           <td><a href="/edituangkasinti/{{$money->id}}" class="fa fa-edit"></a>
+          @elseif($money->status_dept == 'Approved')
+          <td style="color:green;">
+            Approved
+          </td>
+          @endif
         </tr>
 
 

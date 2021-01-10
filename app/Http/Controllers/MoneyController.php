@@ -38,11 +38,16 @@ class MoneyController extends Controller
     public function approve($id)
     {
         $user_id = auth()->user()->id;
-        $moneys = Money::where('month_id', '=', $id)->get();
+        $moneys = Money::where('month_id', '=', $id)->orderBy('status_dept', 'asc')->get();
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
+
+        $approved = Money::where([['month_id', '=', $id], ['status_inti', '=', 'Approved']])->count();
+        $notapproved = Money::where('month_id', '=', $id)->count();
+        $progress = ($approved/$notapproved) *100;
+
         if ($kategori_id == 1) {
-            return view('bendaharainti.kas.approved', compact('moneys','month'));
+            return view('bendaharainti.kas.approved', compact('moneys','month', 'progress'));
         } 
     }
 

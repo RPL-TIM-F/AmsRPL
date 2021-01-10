@@ -53,7 +53,7 @@ Anggota
           </tr>
           <div class="modal fade" id="deleteModal{{$member->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
+              <div class="modal-content bgwhite">
                 <div class="modal-header">
                   <h5 class="modal-title" id="deleteModalLabel">Delete Pendapatan</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
