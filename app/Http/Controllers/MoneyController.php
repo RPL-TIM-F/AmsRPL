@@ -24,7 +24,7 @@ class MoneyController extends Controller
         $month = Month::where('id', '=', $id)->first();
         $kategori_id = auth()->user()->kategori_id;
         if ($kategori_id == 1) {
-            return view('bendaharainti.kas.uangkas', compact('moneys','month'));
+            return view('bendaharainti.kas.uangkas', compact('moneys','month', 'progress'));
         } elseif ($kategori_id == 2) {
             return view('bendaharabiro.kas.uangkas', compact('moneys','month', 'progress'));
         }

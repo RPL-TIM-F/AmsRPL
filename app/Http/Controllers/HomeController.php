@@ -68,7 +68,7 @@ class HomeController extends Controller
             return view('bendaharainti/homepage', compact('money', 'income', 'expense', 'totalpendapatan', 'totaluang'));
         } elseif ($kategori_id == 2) {
 
-            $money = money::sum('moneys.jumlah');
+            $money = money::where('user_id', '=', $userid)->sum('moneys.jumlah');
             $blmbayar = money::where([['user_id', '=', $userid], ['status_dept', '=', 'not approved']])->count();
             $anggota = member::where('user_id', '=', $userid)->count();
             $random = rand(1,12);
