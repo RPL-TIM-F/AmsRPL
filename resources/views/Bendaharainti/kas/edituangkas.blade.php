@@ -4,10 +4,10 @@ Edit Uang Kas
 @endsection()
 @section('container')
 
-<div class="container">
+<div class="container mt-2">
 
-  <div class="card-header">
-    <h1 class=" text-center">Verifikasi Status Uang Kas Anggota</h1>
+  <div class="row">
+    <h1 class="mx-auto">Verifikasi Status Uang Kas Anggota</h1>
   </div>
 
   <!-- /.card-header -->
@@ -36,10 +36,14 @@ Edit Uang Kas
         </select>
       </div>
       <div class="form-group col-8" style="left: 200px;">
-        <label for="exampleInputPassword1 col-8">Tanggal Bayar</label>
-        <input value="{{ $money->tanggal_bayar }}" name="tanggal_bayar" type="date" class="form-control" id="" placeholder="">
+        <label for="tanggal_bayar">Tanggal Bayar</label>
+        <input value="{{ $money->tanggal_bayar }}" name="tanggal_bayar" type="date" class="form-control @error('tanggal_bayar') is-invalid @enderror" id="tanggal_bayar" placeholder="">
+        @error('tanggal_bayar')
+        <div id="validationServer03Feedback" class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
-      <br>
       <div class="form-group col-8" style="left: 200px;">
         <div class="form-check">
           <div class="row">

@@ -33,7 +33,7 @@
             color: white !important;
         }
 
-      
+
 
         body {
             background-image: url('/dist/img/hmsibg.png');
@@ -43,7 +43,6 @@
             background-attachment: fixed;
 
         }
-
     </style>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
@@ -57,17 +56,14 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white sticky-top">
             <div class="container">
                 <a href="/" class="navbar-brand">
-                    <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                        style="opacity: .8">
+                    <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light"><b>SIMKO</b></span>
                 </a>
 
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -99,54 +95,56 @@
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
-                        <!-- <li class="nav-item">
+                    @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @endif
+                    <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
               </li> -->
                     @else
-                        <li class="nav-item dropdown ">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->fullname }}
+                    <li class="nav-item dropdown ">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->fullname }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-dark" href="/listuser">
+                                List akun
+                            </a>
+                            <a class="dropdown-item bg-dark" href="/profileinti">
+                                Profile
+                            </a>
+                            <a class="dropdown-item bg-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item bg-dark" href="/listuser">
-                                    List akun
-                                </a>
-                                <a class="dropdown-item bg-dark" href="/profileinti">
-                                    Profile
-                                </a>
-                                <a class="dropdown-item bg-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                     @endguest
                 </ul>
             </div>
         </nav>
         @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
         @endif
 
         @if (session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
+        <div class="alert alert-danger">
+            {{ session()->get('error') }}
+        </div>
         @endif
-        @yield('container')
+        <div class="bg">
+            @yield('container')
+
+        </div>
 
 
         <!-- jQuery -->

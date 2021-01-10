@@ -22,14 +22,11 @@ Anggota
   <div class="row">
     <button type="button" class="btn btn-info my-1" data-toggle="modal" data-target="#modal-primary2">+Add Anggota Baru</button>
   </div>
-  <div class="row">
+  <div class="row w-100">
     @php
     $i = 1
     @endphp
-
-    <!-- /.card-header -->
-    <div class="card-body table-responsive p-0">
-      <table class="table table-hover text-nowrap">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>No</th>
@@ -83,7 +80,6 @@ Anggota
           @endforeach
         </tbody>
       </table>
-    </div>
     <!-- MODAL INPUT -->
     <div class="modal fade" id="modal-primary2">
       <div class="modal-dialog">
@@ -99,12 +95,22 @@ Anggota
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="Nama2" style="color:black">Nama Anggota</label>
-                    <input type="text" class="form-control" id="nama2" placeholder="Nama Anggota" name="fullname">
+                    <label for="fullname" style="color:black">Nama Anggota</label>
+                    <input type="text" class="form-control @error('fullname') is-invalid @enderror" id="fullname" placeholder="Nama Anggota" name="fullname">
+                    @error('fullname')
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
-                    <label for="Nim2" style="color:black">Nim</label>
-                    <input type="text" class="form-control" id="nim2" placeholder="Nim" name="nim">
+                    <label for="nim" style="color:black">Nim</label>
+                    <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="Nim" name="nim">
+                    @error('nim')
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Angkatan" style="color:black">Angkatan</label>

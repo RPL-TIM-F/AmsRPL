@@ -4,11 +4,20 @@ Uangkas
 @endsection()
 @section('container')
 
-<div class="container">
-  <form>
-    <br><br>
-    <h2>Uang kas bulan {{$month->month_name}}</h2>
-    <br>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h2>Uang kas bulan {{$month->month_name}}</h2>
+    </div>
+    <div class="col my-auto">
+      <div class="progress">
+        @if($progress < 100) <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: {{$progress}}%;" aria-valuenow="{{$progress}}" aria-valuemin="0" aria-valuemax="100">{{$progress}}% Approved</div>
+      @elseif($progress == 100)
+      <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{$progress}}%;" aria-valuenow="{{$progress}}" aria-valuemin="0" aria-valuemax="100">{{$progress}}% Approved</div>
+      @endif
+    </div>
+  </div>
+  <div class="row mt-4 w-100">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -38,7 +47,7 @@ Uangkas
           <td>{{ $money->nim }}</td>
           <td>{{ $money->divisi }}</td>
           <td>{{ $money->angkatan }}</td>
-          <td>{{ $money->jumlah }}</td>
+          <td>Rp. {{ $money->jumlah }}</td>
           @if($money->status_dept == 'Not approved')
           <td style="color:red;">{{ $money->status_dept }}</td>
           @elseif($money->status_dept == 'Approved')
@@ -58,5 +67,6 @@ Uangkas
 
       </tbody>
     </table>
-    </div>
-    @endsection()
+  </div>
+</div>
+@endsection()

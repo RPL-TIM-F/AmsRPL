@@ -59,7 +59,7 @@
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md">
+    <nav class="main-header navbar navbar-expand-md sticky-top">
       <div class="container">
         <a href="/" class="navbar-brand">
           <img src="/dist/img/hmsi.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -142,22 +142,7 @@
     <div class="alert alert-danger">
       {{ session()->get('error') }}
     </div>
-    @endguest
-    </li>
-    </ul>
-  </div>
-  </nav>
-  @if(session()->has('success'))
-  <div class="alert alert-success">
-    {{session()->get('success')}}
-  </div>
-  @endif
-
-  @if(session()->has('error'))
-  <div class="alert alert-danger">
-    {{session()->get('error')}}
-  </div>
-  @endif
+    @endif
 
   <div class="bg">
     @yield('container')

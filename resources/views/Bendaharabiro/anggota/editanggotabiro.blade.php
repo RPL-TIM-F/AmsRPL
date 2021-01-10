@@ -3,26 +3,35 @@
 Anggota
 @endsection()
 @section('container')
-<div class="container">
+<div class="container mt-2">
   <div class="row">
     <h1 class="mx-auto">Edit Anggota</h1>
   </div>
-  <hr class="col-8">
   <form action="/anggotabiro/{{$member->id}}/update" method="post">
     @method('patch')
     @csrf
     <div class="card-body">
       <div class="form-group col-8 mx-auto">
-        <label for="Nama2" style="color:black">Nama Anggota</label>
-        <input type="text" class="form-control" id="nama2" placeholder="Nama Anggota" name="fullname" value="{{$member->fullname}}">
+        <label for="nama">Nama Anggota</label>
+        <input type="text" class="form-control @error('fullname') is-invalid @enderror" id="nama" placeholder="Nama Anggota" name="fullname" value="{{$member->fullname}}">
+        @error('fullname')
+        <div id="validationServer03Feedback" class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="form-group col-8 mx-auto"">
-        <label for=" Nim2" style="color:black">Nim</label>
-        <input type="text" class="form-control" id="nim2" placeholder="Nim" name="nim" value="{{$member->nim}}">
+        <label for=" nim">Nim</label>
+        <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="Nim" name="nim" value="{{$member->nim}}">
+        @error('nim')
+        <div id="validationServer03Feedback" class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="form-group col-8 mx-auto"">
-        <label for=" Angkatan" style="color:black">Angkatan</label>
-        <p> </p>
+        <label for=" Angkatan">Angkatan</label>
+        <br>
         <input type="radio" id="radio2" name="angkatan" value="2016" @if($member->angkatan == 2016)
         checked
         @endif/>&nbsp; 2016 &nbsp;

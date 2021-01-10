@@ -3,7 +3,7 @@
 Anggota
 @endsection()
 @section('container')
-<div class="container mt-4">
+<div class="container">
     <div class="row">
         <h2 class="mx-auto my-4">Anggota {{$divisi}}</h2>
     </div>
@@ -22,7 +22,7 @@ Anggota
     <div class="row">
         <button type="button" class="btn btn-info my-1" data-toggle="modal" data-target="#modal-primary2">+Add Anggota Baru</button>
     </div>
-    <div class="row">
+    <div class="row w-100">
 
         @php
         $i = 1
@@ -98,12 +98,22 @@ Anggota
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="Nama2" style="color:black">Nama Anggota</label>
-                                    <input type="text" class="form-control" id="nama2" placeholder="Nama Anggota" name="fullname">
+                                    <label for="fullname" style="color:black">Nama Anggota</label>
+                                    <input type="text" class="form-control @error('fullname') is-invalid @enderror" id="fullname" placeholder="Nama Anggota" name="fullname">
+                                    @error('fullname')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="Nim2" style="color:black">Nim</label>
-                                    <input type="text" class="form-control" id="nim2" placeholder="Nim" name="nim">
+                                    <label for="nim" style="color:black">Nim</label>
+                                    <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="Nim" name="nim">
+                                    @error('nim')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="Angkatan" style="color:black">Angkatan</label>
@@ -116,9 +126,14 @@ Anggota
                                 </div>
                                 <div class="form-group">
                                     <label for="departemen">Departemen</label>
-                                    <select class="custom-select" id="departemen" aria-label="Example select with button addon" name="divisi">
+                                    <select class="custom-select @error('departemen') is-invalid @enderror" id="departemen" aria-label="Example select with button addon" name="divisi">
                                         <option value="{{$divisi}}">{{$divisi}}</option>
                                     </select>
+                                    @error('departemen')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
