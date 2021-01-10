@@ -1,6 +1,6 @@
 @extends('layout.maininti')
 @section('title')
-edituangkas
+Edit Uang Kas
 @endsection()
 @section('container')
 

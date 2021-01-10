@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Anggota
+Edit Anggota
 @endsection()
 @section('container')
 <div class="container mt-2">

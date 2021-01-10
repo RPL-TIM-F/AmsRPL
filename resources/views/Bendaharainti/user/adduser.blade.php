@@ -1,6 +1,6 @@
 @extends('layout.maininti')
 @section('title')
-Anggota
+Tambah User
 @endsection()
 @section('container')
 <div class="container mt-3">

@@ -1,6 +1,6 @@
 @extends('layout.maininti')
 @section('title')
-Uangkas
+Uang Kas
 @endsection()
 @section('container')
 
