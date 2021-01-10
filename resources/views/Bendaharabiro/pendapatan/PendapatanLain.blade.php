@@ -6,7 +6,7 @@
     <div class="container mt-4">
         <!-- Dashboard card -->
         <div class="row">
-            <h2 class="mx-auto my-4">Pendapatan Keseluruhan</h2>
+            <h2 class="mx-auto my-4">Pendapatan {{$divisi}}</h2>
         </div>
         <div class="row justify-content-center">
             <div class="column">
@@ -46,7 +46,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($incomes as $income)
+                            @foreach ($pendapatan as $income)
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $income->deskripsi }}</td>

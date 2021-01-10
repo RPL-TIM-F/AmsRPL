@@ -23,20 +23,16 @@ class IncomeController extends Controller
     {
         $kategori_id = auth()->user()->kategori_id;
         $divisi = auth()->user()->divisi;
-
+        $user_id = auth()->user()->id;
         $incomes = income::all();
-
+        $pendapatan = income::where('user_id', '=', $user_id)->get();
         if ($kategori_id == 1) {
-            $user_inti = auth()->user()->id;
             $income = income::sum('incomes.pendapatan_bersih');
-            $jumlah = member::where('user_id', '=', $user_inti)->count();
-            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes','income', 'divisi', 'jumlah'));
+            return view('bendaharainti.pendapatan.PendapatanLainI', compact('incomes','income', 'divisi'));
         } elseif ($kategori_id == 2) {
-            $user_biro = auth()->user()->id;
-            $members = member::where('user_id', '=', $user_biro)->get();
-            $income = income::sum('incomes.pendapatan_bersih');
-            $jumlah = member::where('user_id', '=', $user_biro)->count();
-            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'income','divisi'));
+            $members = member::where('user_id', '=', $user_id)->get();
+            $income = income::where('user_id', '=', $user_id)->sum('incomes.pendapatan_bersih');
+            return view('bendaharabiro.pendapatan.PendapatanLain', compact('incomes', 'income','divisi', 'pendapatan'));
         }
     }
 

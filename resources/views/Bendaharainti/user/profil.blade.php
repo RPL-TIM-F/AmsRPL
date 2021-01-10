@@ -24,4 +24,5 @@ Profile
 
 
   </div>
-  @endsection
+</div>
+@endsection
