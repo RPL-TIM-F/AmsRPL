@@ -3,10 +3,10 @@
 Anggota
 @endsection()
 @section('container')
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card mx-auto" style="background-color: #273746; width:650px;">
                 <div class="card-header">Tambah Akun</div>
 
                 <div class="card-body">
@@ -122,6 +122,7 @@ Anggota
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                            <a href="/listuser" class="btn btn-danger" style="color:white;">Close</a>
                                 <button type="submit" class="btn btn-primary">
                                     Submit
                                 </button>

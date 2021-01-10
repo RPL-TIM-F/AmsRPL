@@ -47,12 +47,33 @@ User
                     <td>{{ $user->nim }}</td>
                     <td>{{ $user->divisi }}</td>
                     <td><a href="listuser/{{$user->id}}" class="fa fa-edit"></a>
-                        <form action="/user/{{ $user->id }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="border-0 text-danger bg-transparent"><i class=" fa fa-trash"> </i></button>
-                        </form>
+                        <button type="submit" class="border-0 text-danger bg-transparent" data-toggle="modal" data-target="#deleteModal{{$user->id}}">
+                            <i class="fa fa-trash"> </i>
+                        </button>
                     </td>
+                    <div class="modal fade" id="deleteModal{{$user->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title bgwhite" id="deleteModalLabel">Delete User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body bgwhite">
+                                    Anda yakin ingin menghapus user?
+                                </div>
+                                <form action="/user/{{ $user->id }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </tr>
                 @php
                 $i++

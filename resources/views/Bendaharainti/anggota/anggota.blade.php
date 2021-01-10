@@ -55,7 +55,7 @@ Anggota
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content bgwhite">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="deleteModalLabel">Delete Pendapatan</h5>
+                  <h5 class="modal-title" id="deleteModalLabel">Delete Anggota</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
