@@ -4,7 +4,7 @@
 @endsection()
 @section('container')
 
-    <br><br>
+
     <div class="container">
 
         <div class="card-header">
@@ -13,15 +13,13 @@
 
         <!-- /.card-header -->
         <!-- form start -->
-    
-            <form action="/editpendapatan/{{ $income->id }}" method="post" enctype="multipart/form-data">
+
+        <form action="/editpendapatan/{{ $income->id }}" method="post" enctype="multipart/form-data">
             @method('patch')
             @csrf
-            <div class="card-header text-center">
 
-            </div>
             <div class="card-body">
-               
+
                 <div class="form-group col-8" style="left: 200px;">
                     <label for="JumlahKas">Produk</label>
                     <p>{{ $income->deskripsi }}</p>
@@ -69,8 +67,10 @@
                 <button type="submit" class="btn btn-info">Save changes</button>
             </div>
         </form>
-       
-       
+        <div class="card-header text-center">
+
+        </div>
+
     </div>
 
 @endsection
