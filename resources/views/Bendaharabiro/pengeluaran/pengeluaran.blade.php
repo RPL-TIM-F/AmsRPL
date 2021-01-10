@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:white">Jumlah Pengeluaran </h5>
                         <p class="card-text" style="color:white">
-                            Rp. {{$expense}}
+                            Rp. {{ $expense }}
                         </p>
                     </div>
                 </div>
@@ -31,39 +31,39 @@
     <div class="container-fluid">
         <!-- tabel pendapatan -->
         <div class="container">
+            <div class="row  w-100">
+                <table class="table table-striped">
+                    <thead>
 
-            <table class="table table-striped">
-                <thead>
-
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Deskripsi</th>
-                        <th scope="col">Proker</th>
-                        <th scope="col">Departemen</th>
-                        <th scope="col">Jumlah</th>
-                        <th scope="col">Tanggal Pengeluaran</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($expenses as $expense)
                         <tr>
-                            <td>{{ $i }}</td>
-                            <td>{{ $expense->deskripsi }}</td>
-                            <td>{{ $expense->proker }}</td>
-                            <td>{{ $expense->divisi }}</td>
-                            <td>{{ $expense->jumlah_pengeluaran }}</td>
-                            <td>{{ $expense->tanggal_pengeluaran }}</td>
-
+                            <th scope="col">No</th>
+                            <th scope="col">Deskripsi</th>
+                            <th scope="col">Proker</th>
+                            <th scope="col">Departemen</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Tanggal Pengeluaran</th>
 
                         </tr>
-                        @php
-                        $i++
-                        @endphp
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($expenses as $expense)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td>{{ $expense->deskripsi }}</td>
+                                <td>{{ $expense->proker }}</td>
+                                <td>{{ $expense->divisi }}</td>
+                                <td>{{ $expense->jumlah_pengeluaran }}</td>
+                                <td>{{ $expense->tanggal_pengeluaran }}</td>
 
+
+                            </tr>
+                            @php
+                            $i++
+                            @endphp
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
