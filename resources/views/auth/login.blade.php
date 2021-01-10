@@ -26,7 +26,7 @@
                 <div class="col-7">
                     <img src="/dist/img/hmsi.png" alt="AdminLTE Logo">
                 </div>
-                <div class="col-5">
+                <div class="col-5 ">
                     <div>
                         <p class="login-box-msg"><b>Login</b></p>
                         <form action="{{ route('login') }}" method="POST">
