@@ -76,12 +76,12 @@
                              <div class="modal-dialog modal-dialog-centered">
                                  <div class="modal-content">
                                      <div class="modal-header">
-                                         <h5 class="modal-title" id="deleteModalLabel">Delete Pengeluaran</h5>
+                                         <h5 class="modal-title" id="deleteModalLabel" style="color:black">Delete Pengeluaran</h5>
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                              <span aria-hidden="true">&times;</span>
                                          </button>
                                      </div>
-                                     <div class="modal-body">
+                                     <div class="modal-body" style="color:black">
                                          Anda yakin ingin menghapus pengeluaran?
                                      </div>
                                      <form action="/pengeluaraninti/{{ $expense->id }}" method="POST">
