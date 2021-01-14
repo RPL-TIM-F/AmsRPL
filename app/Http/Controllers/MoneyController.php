@@ -25,9 +25,9 @@ class MoneyController extends Controller
         $approved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id], ['status_dept', '=', 'Approved']])->count();
         $notapproved = Money::where([['month_id', '=', $id], ['user_id', '=', $user_id]])->count();
         $members = member::where('user_id', '=', $user_id)->get();
-        if (isEmpty($members)) {
+        if (empty($members)) {
             $progress = 0;
-        } elseif (!isEmpty($members)) {
+        } else{
             $progress = ($approved / $notapproved) * 100;
         }
         $month = Month::where('id', '=', $id)->first();
@@ -55,9 +55,9 @@ class MoneyController extends Controller
         $members = member::where('user_id', '=', $user_id)->get();
         $approved = Money::where([['month_id', '=', $id], ['status_inti', '=', 'Approved']])->count();
         $notapproved = Money::where('month_id', '=', $id)->count();
-        if (isEmpty($members)) {
+        if (empty($members)) {
             $progress = 0;
-        } elseif (!isEmpty($members)) {
+        } else{
             $progress = ($approved / $notapproved) * 100;
         }
 
